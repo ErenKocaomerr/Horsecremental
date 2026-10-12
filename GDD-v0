@@ -1,0 +1,24 @@
+# Horsecremental
+Eren Kocaomer - 2400005041
+
+GDD v0
+
+1. Pitch
+We are trying to turn a retired racehorse into a world champion.
+
+2. Core loop
+The verb, what makes it harder, what makes it satisfying, how it ends.
+Be concrete: name the input, the distance, the count.
+• The verb: Upgrade your horse & do races. Horse runs automatically while the player presses Space to boost and E to jump over obstacles during races.
+• What makes it harder: There are 5 Training Race levels before every main race with increasingly faster opponents, and a difficult Main Race happens every 3 in-game days.
+• What makes it satisfying: Winning races gives Coins and Training Tokens, upgrades make the horse visibly faster.
+• How it ends: Finishing 1st unlocks the next Training Race. Winning the final Main Race makes the horse Neighborhood Champion and ends the demo; losing sends the player back for 2 recovery days.
+
+3. Flavor
+The game uses a 2D perspective with TopDown racing sections, developed in Unity 6 LTS using the Universal 2D template.
+
+
+4. List of Three Games
+Idle Slayer — take: a 2D game that allows both passive progression and active play to speed up progress / cut: platforming worlds, enemies, prestige systems, and extremely long progression.
+Leaf Blower Revolution — take: a simple repeated action that becomes faster and more satisfying through frequent upgrades and automation / cut: huge content scale, many currencies, prestige layers, and long-term automation.
+Rushcremental (Tyre Bytes LLC, 2026) — take: active incremental progression, racing as a major progression check, and a clear finite ending / cut: wasteland exploration, scrap searching, large skill trees, and territory systems.
