@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Passed" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.2285018">
+  <test-suite type="TestSuite" id="1000" name="Horsecremental" fullname="Horsecremental" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.228502" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1013" name="Horsecremental.Racing.Tests.dll" fullname="C:/Unity/Horsecremental/Tools/RaceValidation/UnityProject/Library/ScriptAssemblies/Horsecremental.Racing.Tests.dll" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.219486" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="22064" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1014" name="Horsecremental" fullname="Horsecremental" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.218897" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1015" name="Racing" fullname="Horsecremental.Racing" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.218629" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1016" name="Tests" fullname="Horsecremental.Racing.Tests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.218350" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="HorseSimulationTests" fullname="Horsecremental.Racing.Tests.HorseSimulationTests" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.039726" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1009" name="AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.026198" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1006" name="AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(9.5f)" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(9.5f)" methodname="AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="1365040044" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.017708" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1007" name="AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.1f)" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.1f)" methodname="AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="1975796638" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.000389" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1008" name="AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.4f)" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.4f)" methodname="AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="370978694" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.000351" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1003" name="BoostStacksPerTapIsCappedAndDecays" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.BoostStacksPerTapIsCappedAndDecays" methodname="BoostStacksPerTapIsCappedAndDecays" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="1830913866" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.001943" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="CountdownAndFinishRejectMovementAndInput" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.CountdownAndFinishRejectMovementAndInput" methodname="CountdownAndFinishRejectMovementAndInput" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="1343035890" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.000382" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="JumpRejectsAirJumpAndLands" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.JumpRejectsAirJumpAndLands" methodname="JumpRejectsAirJumpAndLands" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="200944879" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.000269" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="MissedObstaclePenalizesOnceAndHorseStillFinishes" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.MissedObstaclePenalizesOnceAndHorseStillFinishes" methodname="MissedObstaclePenalizesOnceAndHorseStillFinishes" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="1532586792" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.000633" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="RestartClearsBoostJumpPenaltyAndObstacleHistory" fullname="Horsecremental.Racing.Tests.HorseSimulationTests.RestartClearsBoostJumpPenaltyAndObstacleHistory" methodname="RestartClearsBoostJumpPenaltyAndObstacleHistory" classname="Horsecremental.Racing.Tests.HorseSimulationTests" runstate="Runnable" seed="1792087709" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.000588" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1011" name="RaceSceneTests" fullname="Horsecremental.Racing.Tests.RaceSceneTests" classname="Horsecremental.Racing.Tests.RaceSceneTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.177716" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1012" name="SavedSceneHasVisiblePersistentObjectsWithoutPlayMode" fullname="Horsecremental.Racing.Tests.RaceSceneTests.SavedSceneHasVisiblePersistentObjectsWithoutPlayMode" methodname="SavedSceneHasVisiblePersistentObjectsWithoutPlayMode" classname="Horsecremental.Racing.Tests.RaceSceneTests" runstate="Runnable" seed="1320756978" result="Passed" start-time="2026-10-05 15:40:30Z" end-time="2026-10-05 15:40:30Z" duration="0.176622" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/USer/AppData/LocalLow/DefaultCompany/Horsecremental\TestResults.xml
+Saving results to: C:/Users/USer/AppData/LocalLow/DefaultCompany/Horsecremental\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

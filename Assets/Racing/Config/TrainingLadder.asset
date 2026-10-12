@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eb92646fb99354baf02e45b9dc468b, type: 3}
+  m_Name: TrainingLadder
+  m_EditorClassIdentifier: Horsecremental.Racing::Horsecremental.Racing.TrainingLadderSettings
+  _tiers:
+  - _name: Training I
+    _race: {fileID: 11400000, guid: ce3cc54c3c5d78b41b40e3249cb35a50, type: 2}
+    _coins: 640000004b000000320000001e000000i
+    _tokens: 06000000040000000300000001000000i
+  - _name: Training II
+    _race: {fileID: 11400000, guid: 6f725ba2a5a230e45839dd05ea971d06, type: 2}
+    _coins: a0000000780000005000000030000000i
+    _tokens: 0a000000070000000400000002000000i
+  - _name: Training III
+    _race: {fileID: 11400000, guid: 5288dfd77f679284a871080a07804e0c, type: 2}
+    _coins: f0000000b40000007800000048000000i
+    _tokens: 100000000a0000000600000003000000i
+  _horseUpgradeTokenCosts: 030000000200000003000000i
+  _horseUpgradeCostGrowth: 1.35

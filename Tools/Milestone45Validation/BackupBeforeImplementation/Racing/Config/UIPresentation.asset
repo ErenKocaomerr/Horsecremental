@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ccb26bc43dc6b42a35d6291fc8e06e, type: 3}
+  m_Name: UIPresentation
+  m_EditorClassIdentifier: Horsecremental.Racing::Horsecremental.Racing.UIPresentationSettings
+  _icons:
+  - {fileID: 7217220747323065536, guid: 0caa362ebbe5f2c4998d83442a929251, type: 3}
+  - {fileID: 1009049853055315898, guid: d9f447851f036f64eaab6a7a1dcd1fdb, type: 3}
+  - {fileID: 2838464033401493198, guid: b241f7109a7efcb41ad14960b32bac59, type: 3}
+  - {fileID: -2278440341621924931, guid: cef1a6ffe8efd624cad506fd29377731, type: 3}
+  - {fileID: -2281458042351831758, guid: 84792d3aee3257c4e94ee84f115e17d2, type: 3}
+  - {fileID: 4841216214093879422, guid: 7544c7ff827bd6949a22922d57ceb063, type: 3}
+  - {fileID: -1672067883919162423, guid: 305d7055672cc0e40b95c9c66c6e9544, type: 3}
+  - {fileID: -4520775617678411216, guid: d3ea77f0ef1c11d4d9eade3aa4ee0228, type: 3}
+  - {fileID: -2742122992267559303, guid: e8555a17757eba246b74f398a86fa894, type: 3}
+  - {fileID: 7775967760938375176, guid: d951e4be72fd0474c91cb2e4fde647ad, type: 3}
+  - {fileID: 3091584776675602801, guid: 59ba1752284afa04d8b744e4834055c8, type: 3}
+  - {fileID: 4027088242758944487, guid: 3bd807dd1976c464fa8a8cfbba274395, type: 3}
+  - {fileID: -6982104778697299700, guid: f1c106841660bc6429bfa656e0ca11f0, type: 3}
+  - {fileID: 534960623560536297, guid: 46ebf232d1e898a4eac2e35ce38a3449, type: 3}
+  - {fileID: 699742988220537437, guid: ad1b3ec300a80184a81e9def4af1e23e, type: 3}
+  - {fileID: -5081024937720140688, guid: 65f48048d385520419cf83cf77038304, type: 3}
+  - {fileID: 7232748329181079804, guid: a51470d336faac045bf515889de22fd1, type: 3}
+  - {fileID: -1761832914240646678, guid: 3cc083745580c1442aa76f780cf248c1, type: 3}
+  - {fileID: -8471532484696407613, guid: 0b844d241e0ae8a429d52c1f490903a0, type: 3}
+  - {fileID: 1708141900530535132, guid: 009d90d638deb904eacaaa47b93e6372, type: 3}
+  - {fileID: -215664898694585508, guid: c883bf11fdc76be4dae9adc3352b2d67, type: 3}
+  _treePositions:
+  - {x: -660, y: -30}
+  - {x: -400, y: -30}
+  - {x: -140, y: -30}
+  - {x: -400, y: 150}
+  - {x: -140, y: 150}
+  - {x: -400, y: -240}
+  - {x: -140, y: -240}
+  - {x: -660, y: 330}
+  - {x: -400, y: 330}
+  - {x: 120, y: 150}
+  - {x: 380, y: 150}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ad9407faf94894a92bacdca48555ff, type: 3}
+  m_Name: StablePlayground
+  m_EditorClassIdentifier: Horsecremental.Racing::Horsecremental.Racing.StablePlaygroundSettings
+  _baseHorseCount: 1
+  _maxHorseCount: 4
+  _plotCount: 6
+  _initialCropSpread: 0.45
+  _midThreshold: 0.3
+  _largeThreshold: 0.65
+  _clickGrowth: 0.1
+  _clickCooldown: 0.25
+  _baseYield: 2
+  _maxPickups: 80
+  _dropSeconds: 0.45
+  _collectionSeconds: 0.2
+  _scatterRadius: 0.65
+  _hoverRadius: 0.36
+  _raceBlend: 0.15

@@ -1,0 +1,38 @@
+{
+  "job_id": "b2e2ca783566400093b197a7215beee9",
+  "status": "succeeded",
+  "mode": "EditMode",
+  "started_unix_ms": 1791242666119,
+  "finished_unix_ms": 1791242670072,
+  "last_update_unix_ms": 1791242670072,
+  "progress": {
+    "completed": 1,
+    "total": 1,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "Horsecremental.Racing.Tests.UpgradeTreeTests.SavedWorldHasConfiguredTreeNavigationCheatAndPreservesSceneGuid",
+    "last_finished_unix_ms": 1791242669948,
+    "stuck_suspected": false,
+    "editor_is_focused": false,
+    "run_in_background": false,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": {
+    "mode": "EditMode",
+    "summary": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 0.4796824,
+      "resultState": "Passed"
+    },
+    "results": []
+  }
+}

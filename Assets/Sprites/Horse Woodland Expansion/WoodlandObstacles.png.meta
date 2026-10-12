@@ -1,0 +1,635 @@
+fileFormatVersion: 2
+guid: a58284d5b7376cc45adeb8179db1d059
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8287821639514732174
+    second: WoodlandObstacles_0
+  - first:
+      213: 5605615751160118135
+    second: WoodlandObstacles_1
+  - first:
+      213: -429779638741541533
+    second: WoodlandObstacles_2
+  - first:
+      213: -9177142675578808728
+    second: WoodlandObstacles_3
+  - first:
+      213: 5635231758430835706
+    second: WoodlandObstacles_4
+  - first:
+      213: 906567638191498717
+    second: WoodlandObstacles_5
+  - first:
+      213: 6364385431744598302
+    second: WoodlandObstacles_6
+  - first:
+      213: 7686287078793285424
+    second: WoodlandObstacles_7
+  - first:
+      213: -4513338393187589048
+    second: WoodlandObstacles_8
+  - first:
+      213: 8862741852292146357
+    second: WoodlandObstacles_9
+  - first:
+      213: -1593330432020281697
+    second: WoodlandObstacles_10
+  - first:
+      213: -3953616235368947424
+    second: WoodlandObstacles_11
+  - first:
+      213: 1116169211174380183
+    second: WoodlandObstacles_12
+  - first:
+      213: -167995380160477754
+    second: WoodlandObstacles_13
+  - first:
+      213: 7374368380577884767
+    second: WoodlandObstacles_14
+  - first:
+      213: 493571848313957365
+    second: WoodlandObstacles_15
+  - first:
+      213: -5205400358289284465
+    second: WoodlandObstacles_16
+  - first:
+      213: -8144810216396856503
+    second: WoodlandObstacles_17
+  - first:
+      213: 415766254762761466
+    second: WoodlandObstacles_18
+  - first:
+      213: -8267462634237622288
+    second: WoodlandObstacles_19
+  - first:
+      213: 3573501710039175748
+    second: WoodlandObstacles_20
+  - first:
+      213: -8066115623770206530
+    second: WoodlandObstacles_21
+  - first:
+      213: -4128070322187058221
+    second: WoodlandObstacles_22
+  - first:
+      213: -7053360822976727443
+    second: WoodlandObstacles_23
+  - first:
+      213: 9209320112893253083
+    second: WoodlandObstacles_24
+  - first:
+      213: 4192302648910255312
+    second: WoodlandObstacles_25
+  - first:
+      213: 7071567837465331039
+    second: WoodlandObstacles_26
+  - first:
+      213: -7757514504350223327
+    second: WoodlandObstacles_27
+  - first:
+      213: 529734775665107697
+    second: WoodlandObstacles_28
+  - first:
+      213: -1868238966922691374
+    second: WoodlandObstacles_29
+  - first:
+      213: 7273939074653671839
+    second: WoodlandObstacles_30
+  - first:
+      213: 9151605637126327741
+    second: WoodlandObstacles_31
+  - first:
+      213: -8013303404278267368
+    second: WoodlandObstacles_32
+  - first:
+      213: -9043126174074744485
+    second: WoodlandObstacles_33
+  - first:
+      213: -88041743978451601
+    second: WoodlandObstacles_34
+  - first:
+      213: 1346626737036145830
+    second: WoodlandObstacles_35
+  - first:
+      213: -153094243118863556
+    second: WoodlandObstacles_36
+  - first:
+      213: -196111623526048425
+    second: WoodlandObstacles_37
+  - first:
+      213: 2242419307975124985
+    second: WoodlandObstacles_38
+  - first:
+      213: 7885156309161748575
+    second: WoodlandObstacles_39
+  - first:
+      213: 5390203617801432757
+    second: WoodlandObstacles_40
+  - first:
+      213: 7159110645525735593
+    second: WoodlandObstacles_41
+  - first:
+      213: 4686014862786336795
+    second: WoodlandObstacles_42
+  - first:
+      213: -5483585841931013591
+    second: WoodlandObstacles_43
+  - first:
+      213: 6836882893172888392
+    second: WoodlandObstacles_44
+  - first:
+      213: -6650058957189884620
+    second: WoodlandObstacles_45
+  - first:
+      213: -7577839051964727843
+    second: WoodlandObstacles_46
+  - first:
+      213: -8527952903771864881
+    second: WoodlandObstacles_47
+  - first:
+      213: 2258027888116809881
+    second: WoodlandObstacles_48
+  - first:
+      213: -659768436865545636
+    second: WoodlandObstacles_49
+  - first:
+      213: 815577682023707128
+    second: WoodlandObstacles_50
+  - first:
+      213: 978255213192592418
+    second: WoodlandObstacles_51
+  - first:
+      213: 9159745528435470278
+    second: WoodlandObstacles_52
+  - first:
+      213: -5750253524927012763
+    second: WoodlandObstacles_53
+  - first:
+      213: 6100809971854829319
+    second: WoodlandObstacles_54
+  - first:
+      213: 6948823560150248167
+    second: WoodlandObstacles_55
+  - first:
+      213: -3581116887200357740
+    second: WoodlandObstacles_56
+  - first:
+      213: -8383084897677675672
+    second: WoodlandObstacles_57
+  - first:
+      213: -4702404400070461242
+    second: WoodlandObstacles_58
+  - first:
+      213: 1065755590571538791
+    second: WoodlandObstacles_59
+  - first:
+      213: 6299640302134798471
+    second: WoodlandObstacles_60
+  - first:
+      213: -2561524507444974970
+    second: WoodlandObstacles_61
+  - first:
+      213: -8535629015982517381
+    second: WoodlandObstacles_62
+  - first:
+      213: 9077123082273918590
+    second: WoodlandObstacles_63
+  - first:
+      213: 5449845532500101373
+    second: WoodlandObstacles_64
+  - first:
+      213: -6785657844801408494
+    second: WoodlandObstacles_65
+  - first:
+      213: 7757550821433926579
+    second: WoodlandObstacles_66
+  - first:
+      213: 3752131241324339075
+    second: WoodlandObstacles_67
+  - first:
+      213: -578665115531708446
+    second: WoodlandObstacles_68
+  - first:
+      213: -5821651998083768143
+    second: WoodlandObstacles_69
+  - first:
+      213: -7658150578703899887
+    second: WoodlandObstacles_70
+  - first:
+      213: -5389939732223579503
+    second: WoodlandObstacles_71
+  - first:
+      213: -8781798184345164044
+    second: WoodlandObstacles_72
+  - first:
+      213: 4032986405716494890
+    second: WoodlandObstacles_73
+  - first:
+      213: -1212687524023362952
+    second: WoodlandObstacles_74
+  - first:
+      213: -7993496236436258811
+    second: WoodlandObstacles_75
+  - first:
+      213: -6612590785418103223
+    second: WoodlandObstacles_76
+  - first:
+      213: 2996771519994752515
+    second: WoodlandObstacles_77
+  - first:
+      213: 947252588628252086
+    second: WoodlandObstacles_78
+  - first:
+      213: 6055756272894590559
+    second: WoodlandObstacles_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 117.5625
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OakLog
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 747
+        width: 284
+        height: 146
+      alignment: 9
+      pivot: {x: 0.5, y: 0.01369863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ec8c938868d604fb36ed42186cb959
+      internalID: -1270716524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SingleRail
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 759
+        width: 264
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.010416667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa55c81d022dd14a9a98f1089998e91
+      internalID: -667696499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleRail
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 748
+        width: 256
+        height: 218
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0091743115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90755b3b913bda043bbb7f11f0fc0c84
+      internalID: -1908696436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockPile
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 743
+        width: 270
+        height: 172
+      alignment: 9
+      pivot: {x: 0.5, y: 0.011627907}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5b8530ad7358c45a4332877e59403c
+      internalID: -985635506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HayBale
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 471
+        width: 243
+        height: 148
+      alignment: 9
+      pivot: {x: 0.5, y: 0.013513514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a0e27ca387cf14bbe9f3457aeea32b
+      internalID: 485098258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HayBales
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 471
+        width: 282
+        height: 153
+      alignment: 9
+      pivot: {x: 0.5, y: 0.013071896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059cf845cba746142afdc5139c215fc9
+      internalID: -1696141745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TimberGate
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 454
+        width: 265
+        height: 214
+      alignment: 9
+      pivot: {x: 0.5, y: 0.009345794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520ce7067efced540ad55a4e781f71fd
+      internalID: 1720765201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrokenFence
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 465
+        width: 277
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.011111111}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d064fde7c260f264387b2669593c1026
+      internalID: 724279759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossyLog
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 174
+        width: 280
+        height: 146
+      alignment: 9
+      pivot: {x: 0.5, y: 0.01369863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e87be43b1329d4484c5884da7813a8
+      internalID: 1251914166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stump
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 178
+        width: 234
+        height: 153
+      alignment: 9
+      pivot: {x: 0.5, y: 0.013071896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a01bbbcff97d7b45841c2ab0bede999
+      internalID: -484149242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallenBranch
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 179
+        width: 266
+        height: 146
+      alignment: 9
+      pivot: {x: 0.5, y: 0.01369863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd0cf44fcee1d349b6734d3e557f787
+      internalID: 441951056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoneWall
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 165
+        width: 284
+        height: 159
+      alignment: 9
+      pivot: {x: 0.5, y: 0.012578616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e94c6105d579b4389aea7402060684
+      internalID: -201423544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e76411d64ea03c7499b522c3c1dd3db2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BrokenFence: 724279759
+      DoubleRail: -1908696436
+      FallenBranch: 441951056
+      HayBale: 485098258
+      HayBales: -1696141745
+      MossyLog: 1251914166
+      OakLog: -1270716524
+      RockPile: -985635506
+      SingleRail: -667696499
+      StoneWall: -201423544
+      Stump: -484149242
+      TimberGate: 1720765201
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

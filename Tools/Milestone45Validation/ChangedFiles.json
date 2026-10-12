@@ -1,0 +1,258 @@
+[
+  {
+    "Status": "Modified",
+    "Path": "README.md"
+  },
+  {
+    "Status": "Created",
+    "Path": "Config\\StablePlayground.asset"
+  },
+  {
+    "Status": "Created",
+    "Path": "Config\\StablePlayground.asset.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Config\\UpgradeTree.asset"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Config\\Workshop.asset"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Config\\World.asset"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Editor\\Milestone3SceneSetup.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Editor\\Milestone45SceneSetup.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Editor\\Milestone45SceneSetup.cs.meta"
+  },
+  {
+    "Status": "Created",
+    "Path": "Editor\\Milestone45UIBuilder.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Editor\\Milestone45UIBuilder.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Editor\\Milestone4SceneSetup.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Editor\\MinimalUISetup.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\AreaNavigationUI.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\AreaPanel.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\FarmWorldView.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\FarmWorldView.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\ForgeVisual.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\GameplayWorld.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\PlayerEquipment.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlayerPlayground.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlayerPlayground.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\PlayerProduction.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\PlayerProgression.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\PlayerUpgradeTree.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlaygroundFarmUI.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlaygroundFarmUI.cs.meta"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlaygroundRules.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlaygroundRules.cs.meta"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlaygroundUpgradeUI.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\PlaygroundUpgradeUI.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\RaceUI.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\StableAudioHooks.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\StableAudioHooks.cs.meta"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\StablePlaygroundSettings.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\StablePlaygroundSettings.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\StableUI.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\StableWorldInteraction.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\StableWorldInteraction.cs.meta"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\TrainingTrackView.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\TrainingTrackView.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\UIDetailFormatter.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\UpgradeTreeRules.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\WorkshopRules.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Runtime\\WorkshopSettings.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\WorldFeedback.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\WorldFeedback.cs.meta"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\WorldPickupManager.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Runtime\\WorldPickupManager.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Scenes\\Milestone3World.unity"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\Editor\\Milestone3ModelTests.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Tests\\Editor\\Milestone45ModelTests.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Tests\\Editor\\Milestone45ModelTests.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\Editor\\Milestone4ModelTests.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\Editor\\Milestone4SceneTests.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\Editor\\UpgradeTreeTests.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\Editor\\UpgradeTreeTestSupport.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\PlayMode\\Milestone4PlayModeTests.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\PlayMode\\MinimalUIPlayModeTests.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\PlayMode\\ProgressionLoopTests.cs"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\PlayMode\\RacePlayModeTests.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Tests\\PlayMode\\StableMouseInputTests.cs"
+  },
+  {
+    "Status": "Created",
+    "Path": "Tests\\PlayMode\\StableMouseInputTests.cs.meta"
+  },
+  {
+    "Status": "Modified",
+    "Path": "Tests\\PlayMode\\UpgradeTreePlayModeTests.cs"
+  }
+]

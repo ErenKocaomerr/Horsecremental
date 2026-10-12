@@ -1,0 +1,96 @@
+{
+  "editMode": {
+    "result": {
+      "success": true,
+      "message": "Test job status retrieved.",
+      "error": null,
+      "data": {
+        "job_id": "7b923d9a497b4f169657072126d755eb",
+        "status": "succeeded",
+        "mode": "EditMode",
+        "started_unix_ms": 1791296495126,
+        "finished_unix_ms": 1791296501873,
+        "last_update_unix_ms": 1791296501873,
+        "progress": {
+          "completed": 45,
+          "total": 45,
+          "current_test_full_name": null,
+          "current_test_started_unix_ms": null,
+          "last_finished_test_full_name": "Horsecremental.Racing.Tests.UpgradeTreeTests.TrainingAndDebugGrantsDoNotConsumeRaceClaimsOrAutomaticallyUnlockNodes",
+          "last_finished_unix_ms": 1791296501820,
+          "stuck_suspected": false,
+          "editor_is_focused": false,
+          "run_in_background": false,
+          "focus_nudge_attempts": null,
+          "focus_nudge_limit": null,
+          "focus_nudge_status": null,
+          "blocked_reason": null,
+          "failures_so_far": [],
+          "failures_capped": false
+        },
+        "error": null,
+        "result": {
+          "mode": "EditMode",
+          "summary": {
+            "total": 45,
+            "passed": 45,
+            "failed": 0,
+            "skipped": 0,
+            "durationSeconds": 2.223046,
+            "resultState": "Passed"
+          },
+          "results": []
+        }
+      },
+      "hint": null
+    }
+  },
+  "playModeAttempt": {
+    "result": {
+      "success": true,
+      "message": "Test job status retrieved.",
+      "error": null,
+      "data": {
+        "job_id": "54f8e721c7ac45a5ab85f71b89277708",
+        "status": "succeeded",
+        "mode": "PlayMode",
+        "started_unix_ms": 1791296587388,
+        "finished_unix_ms": 1791296592080,
+        "last_update_unix_ms": 1791296592080,
+        "progress": {
+          "completed": 0,
+          "total": 0,
+          "current_test_full_name": null,
+          "current_test_started_unix_ms": null,
+          "last_finished_test_full_name": null,
+          "last_finished_unix_ms": null,
+          "stuck_suspected": false,
+          "editor_is_focused": true,
+          "run_in_background": false,
+          "focus_nudge_attempts": null,
+          "focus_nudge_limit": null,
+          "focus_nudge_status": null,
+          "blocked_reason": null,
+          "failures_so_far": [],
+          "failures_capped": false
+        },
+        "error": null,
+        "result": {
+          "mode": "PlayMode",
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "durationSeconds": 0.0000377,
+            "resultState": "Passed"
+          },
+          "results": []
+        }
+      },
+      "hint": null
+    }
+  },
+  "playModeVerified": false,
+  "liveSmokeCheck": "Stable initialized, four race participants, first training income observed, Farm locked; no console errors/warnings; Play stopped."
+}

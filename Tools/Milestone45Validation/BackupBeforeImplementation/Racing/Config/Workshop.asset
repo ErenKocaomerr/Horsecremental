@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5f82ee312a31e4c84f57a2be6e6f22, type: 3}
+  m_Name: Workshop
+  m_EditorClassIdentifier: Horsecremental.Racing::Horsecremental.Racing.WorkshopSettings
+  _horseshoes:
+  - _name: Old Horseshoes
+    _coins: 0
+    _metal: 0
+    _seconds: 1
+    _bonus: 0
+  - _name: Iron Horseshoes
+    _coins: 100
+    _metal: 5
+    _seconds: 5
+    _bonus: 1.5
+  - _name: Reinforced Horseshoes
+    _coins: 300
+    _metal: 12
+    _seconds: 8
+    _bonus: 3
+  - _name: Steel Racing Horseshoes
+    _coins: 700
+    _metal: 25
+    _seconds: 10
+    _bonus: 5
+  - _name: Champion Horseshoes
+    _coins: 1500
+    _metal: 50
+    _seconds: 12
+    _bonus: 7
+  _saddles:
+  - _name: Old Saddle
+    _coins: 0
+    _metal: 0
+    _seconds: 1
+    _bonus: 0
+  - _name: Leather Saddle
+    _coins: 100
+    _metal: 5
+    _seconds: 5
+    _bonus: 3
+  - _name: Racing Saddle
+    _coins: 300
+    _metal: 12
+    _seconds: 8
+    _bonus: 6
+  - _name: Professional Saddle
+    _coins: 700
+    _metal: 25
+    _seconds: 10
+    _bonus: 10
+  - _name: Champion Saddle
+    _coins: 1500
+    _metal: 50
+    _seconds: 12
+    _bonus: 14
+  _bridles:
+  - _name: Basic Bridle
+    _coins: 0
+    _metal: 0
+    _seconds: 1
+    _bonus: 0
+  - _name: Reinforced Bridle
+    _coins: 100
+    _metal: 5
+    _seconds: 5
+    _bonus: 1.5
+  - _name: Racing Bridle
+    _coins: 300
+    _metal: 12
+    _seconds: 8
+    _bonus: 3
+  - _name: Professional Bridle
+    _coins: 700
+    _metal: 25
+    _seconds: 10
+    _bonus: 5
+  - _name: Champion Bridle
+    _coins: 1500
+    _metal: 50
+    _seconds: 12
+    _bonus: 7
+  _production:
+  - _name: Forge Speed
+    _baseCost: 150
+    _growth: 1.6
+    _effect: 0.1
+    _maxLevel: 5
+  - _name: Metal Efficiency
+    _baseCost: 200
+    _growth: 1.6
+    _effect: 0.05
+    _maxLevel: 5
+  - _name: Grow Speed
+    _baseCost: 120
+    _growth: 1.6
+    _effect: 0.1
+    _maxLevel: 5
+  - _name: Farm Capacity
+    _baseCost: 100
+    _growth: 1.6
+    _effect: 5
+    _maxLevel: 5
+  - _name: Training Speed
+    _baseCost: 150
+    _growth: 1.6
+    _effect: 0.1
+    _maxLevel: 5
+  - _name: Training Reward
+    _baseCost: 180
+    _growth: 1.6
+    _effect: 0.15
+    _maxLevel: 5

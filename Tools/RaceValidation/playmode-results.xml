@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:43:06Z" duration="9.3994167">
+  <test-suite type="TestSuite" id="1011" name="Horsecremental" fullname="Horsecremental" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:43:06Z" duration="9.399417" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1015" name="Horsecremental.Racing.PlayModeTests.dll" fullname="C:/Unity/Horsecremental/Tools/RaceValidation/UnityProject/Library/ScriptAssemblies/Horsecremental.Racing.PlayModeTests.dll" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:43:06Z" duration="9.391776" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="32800" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1016" name="Horsecremental" fullname="Horsecremental" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:43:06Z" duration="9.391033" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1017" name="Racing" fullname="Horsecremental.Racing" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:43:06Z" duration="9.390666" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1018" name="Tests" fullname="Horsecremental.Racing.Tests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:43:06Z" duration="9.390355" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1012" name="RacePlayModeTests" fullname="Horsecremental.Racing.Tests.RacePlayModeTests" classname="Horsecremental.Racing.Tests.RacePlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:43:06Z" duration="9.389197" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1014" name="InterpolatedVisualsStayConsistentAt30And60And120Fps" fullname="Horsecremental.Racing.Tests.RacePlayModeTests.InterpolatedVisualsStayConsistentAt30And60And120Fps" methodname="InterpolatedVisualsStayConsistentAt30And60And120Fps" classname="Horsecremental.Racing.Tests.RacePlayModeTests" runstate="Runnable" seed="227126269" result="Passed" start-time="2026-10-05 15:42:57Z" end-time="2026-10-05 15:42:59Z" duration="2.328897" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="RaceSupportsInputAllFinishResultsAndRestart" fullname="Horsecremental.Racing.Tests.RacePlayModeTests.RaceSupportsInputAllFinishResultsAndRestart" methodname="RaceSupportsInputAllFinishResultsAndRestart" classname="Horsecremental.Racing.Tests.RacePlayModeTests" runstate="Runnable" seed="439476179" result="Passed" start-time="2026-10-05 15:42:59Z" end-time="2026-10-05 15:43:06Z" duration="7.047090" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/USer/AppData/LocalLow/DefaultCompany/Horsecremental\TestResults.xml
+Saving results to: C:/Users/USer/AppData/LocalLow/DefaultCompany/Horsecremental\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

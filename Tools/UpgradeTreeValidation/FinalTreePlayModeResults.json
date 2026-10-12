@@ -1,0 +1,38 @@
+{
+  "job_id": "451265f4a4c34b919f8748dd0c87578f",
+  "status": "succeeded",
+  "mode": "PlayMode",
+  "started_unix_ms": 1791242881158,
+  "finished_unix_ms": 1791242911412,
+  "last_update_unix_ms": 1791242911412,
+  "progress": {
+    "completed": 2,
+    "total": 2,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "Horsecremental.Racing.Tests.UpgradeTreePlayModeTests.KGrantsResourcesOncePerPressAndTreeStillRequiresParents",
+    "last_finished_unix_ms": 1791242911374,
+    "stuck_suspected": false,
+    "editor_is_focused": false,
+    "run_in_background": false,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": {
+    "mode": "PlayMode",
+    "summary": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 26.2068838,
+      "resultState": "Passed"
+    },
+    "results": []
+  }
+}

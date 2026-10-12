@@ -1,0 +1,6 @@
+{
+    "name": "Horsecremental.Racing.Editor",
+    "rootNamespace": "Horsecremental.Racing.Editor",
+    "references": ["Horsecremental.Racing", "Unity.InputSystem", "UnityEngine.UI", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Universal.2D.Runtime", "Unity.2D.Sprite.Editor", "Unity.Cinemachine"],
+    "includePlatforms": ["Editor"]
+}

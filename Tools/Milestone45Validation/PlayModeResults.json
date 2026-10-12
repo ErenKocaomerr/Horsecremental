@@ -1,0 +1,129 @@
+{
+  "job_id": "d06b8efd747541a396a0169c7757ca25",
+  "status": "succeeded",
+  "mode": "PlayMode",
+  "started_unix_ms": 1791299100773,
+  "finished_unix_ms": 1791299136439,
+  "last_update_unix_ms": 1791299136439,
+  "progress": {
+    "completed": 10,
+    "total": 10,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "Horsecremental.Racing.Tests.UpgradeTreePlayModeTests.KGrantsOncePerPressAndCannotEnableInactiveCrafting",
+    "last_finished_unix_ms": 1791299136399,
+    "stuck_suspected": false,
+    "editor_is_focused": true,
+    "run_in_background": true,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": {
+    "mode": "PlayMode",
+    "summary": {
+      "total": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 30.4049267,
+      "resultState": "Passed"
+    },
+    "results": [
+      {
+        "name": "PhysicalHorsesCropsAndPooledDropsFollowTheSharedModel",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4PlayModeTests.PhysicalHorsesCropsAndPooledDropsFollowTheSharedModel",
+        "state": "Passed",
+        "durationSeconds": 2.5587066,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "AllActiveScreensFitSupportedAspectRatiosAndProduceVisualEvidence",
+        "fullName": "Horsecremental.Racing.Tests.MinimalUIPlayModeTests.AllActiveScreensFitSupportedAspectRatiosAndProduceVisualEvidence",
+        "state": "Passed",
+        "durationSeconds": 2.5354772,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "HoverFocusPurchasesAndAreaChangesKeepDetailsAccurate",
+        "fullName": "Horsecremental.Racing.Tests.MinimalUIPlayModeTests.HoverFocusPurchasesAndAreaChangesKeepDetailsAccurate",
+        "state": "Passed",
+        "durationSeconds": 1.3216161,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "TabInspectsAvailableControlsAndWorldClicksIgnoreUIAndRace",
+        "fullName": "Horsecremental.Racing.Tests.MinimalUIPlayModeTests.TabInspectsAvailableControlsAndWorldClicksIgnoreUIAndRace",
+        "state": "Passed",
+        "durationSeconds": 1.3380233,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PhysicalStableSurvivesTwoRealRacesAndResumesTraining",
+        "fullName": "Horsecremental.Racing.Tests.ProgressionLoopTests.PhysicalStableSurvivesTwoRealRacesAndResumesTraining",
+        "state": "Passed",
+        "durationSeconds": 9.1249308,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InterpolatedVisualsStayConsistentAt30And60And120Fps",
+        "fullName": "Horsecremental.Racing.Tests.RacePlayModeTests.InterpolatedVisualsStayConsistentAt30And60And120Fps",
+        "state": "Passed",
+        "durationSeconds": 2.217215,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "KeyboardNavigationBlendsAndSpaceAddsEnergyOnlyPerPress",
+        "fullName": "Horsecremental.Racing.Tests.RacePlayModeTests.KeyboardNavigationBlendsAndSpaceAddsEnergyOnlyPerPress",
+        "state": "Passed",
+        "durationSeconds": 8.3850017,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MouseClicksGrowHarvestAndHoverCollectsWithoutAnotherClick",
+        "fullName": "Horsecremental.Racing.Tests.StableMouseInputTests.MouseClicksGrowHarvestAndHoverCollectsWithoutAnotherClick",
+        "state": "Passed",
+        "durationSeconds": 1.7831663,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ImmediateFarmAndTreeUnlocksDriveCompactProductionButtons",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreePlayModeTests.ImmediateFarmAndTreeUnlocksDriveCompactProductionButtons",
+        "state": "Passed",
+        "durationSeconds": 0.7473789,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "KGrantsOncePerPressAndCannotEnableInactiveCrafting",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreePlayModeTests.KGrantsOncePerPressAndCannotEnableInactiveCrafting",
+        "state": "Passed",
+        "durationSeconds": 0.3348366,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      }
+    ]
+  }
+}

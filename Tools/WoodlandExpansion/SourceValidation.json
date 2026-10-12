@@ -1,0 +1,140 @@
+{
+  "Width": 1254,
+  "Height": 1254,
+  "HasTransparentBackground": true,
+  "AlphaThreshold": 16,
+  "Slices": [
+    {
+      "Name": "OakLog",
+      "VisiblePixels": 23449,
+      "Bounds": [
+        34,
+        363,
+        313,
+        504
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "SingleRail",
+      "VisiblePixels": 21056,
+      "Bounds": [
+        359,
+        305,
+        618,
+        492
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "DoubleRail",
+      "VisiblePixels": 29022,
+      "Bounds": [
+        658,
+        290,
+        909,
+        503
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "RockPile",
+      "VisiblePixels": 28127,
+      "Bounds": [
+        953,
+        341,
+        1218,
+        508
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "HayBale",
+      "VisiblePixels": 26639,
+      "Bounds": [
+        50,
+        637,
+        288,
+        780
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "HayBales",
+      "VisiblePixels": 31402,
+      "Bounds": [
+        336,
+        632,
+        613,
+        780
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "TimberGate",
+      "VisiblePixels": 32092,
+      "Bounds": [
+        648,
+        588,
+        908,
+        797
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "BrokenFence",
+      "VisiblePixels": 22465,
+      "Bounds": [
+        946,
+        611,
+        1218,
+        786
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "MossyLog",
+      "VisiblePixels": 25369,
+      "Bounds": [
+        41,
+        936,
+        316,
+        1077
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "Stump",
+      "VisiblePixels": 20323,
+      "Bounds": [
+        368,
+        925,
+        597,
+        1073
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "FallenBranch",
+      "VisiblePixels": 18833,
+      "Bounds": [
+        644,
+        931,
+        905,
+        1072
+      ],
+      "FullyContained": true
+    },
+    {
+      "Name": "StoneWall",
+      "VisiblePixels": 28846,
+      "Bounds": [
+        939,
+        932,
+        1218,
+        1086
+      ],
+      "FullyContained": true
+    }
+  ]
+}

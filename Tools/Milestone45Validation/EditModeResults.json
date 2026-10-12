@@ -1,0 +1,525 @@
+{
+  "job_id": "33d5eff5521b438f8619781d0ff0dabf",
+  "status": "succeeded",
+  "mode": "EditMode",
+  "started_unix_ms": 1791298948004,
+  "finished_unix_ms": 1791298955102,
+  "last_update_unix_ms": 1791298955102,
+  "progress": {
+    "completed": 54,
+    "total": 54,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "Horsecremental.Racing.Tests.UpgradeTreeTests.TrainingAndDebugGrantsDoNotConsumeRaceClaimsOrAutomaticallyUnlockNodes",
+    "last_finished_unix_ms": 1791298955038,
+    "stuck_suspected": false,
+    "editor_is_focused": false,
+    "run_in_background": true,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": {
+    "mode": "EditMode",
+    "summary": {
+      "total": 54,
+      "passed": 54,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 2.2017577,
+      "resultState": "Passed"
+    },
+    "results": [
+      {
+        "name": "AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(9.5f)",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(9.5f)",
+        "state": "Passed",
+        "durationSeconds": 0.0164684,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.1f)",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.1f)",
+        "state": "Passed",
+        "durationSeconds": 0.0003359,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.4f)",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.AutomaticJumpClearsEveryHurdleAndFinishesInTargetTime(10.4f)",
+        "state": "Passed",
+        "durationSeconds": 0.0002929,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "BoostStacksPerTapIsCappedAndDecays",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.BoostStacksPerTapIsCappedAndDecays",
+        "state": "Passed",
+        "durationSeconds": 0.0025927,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "CountdownAndFinishRejectMovementAndInput",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.CountdownAndFinishRejectMovementAndInput",
+        "state": "Passed",
+        "durationSeconds": 0.0004133,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "JumpRejectsAirJumpAndLands",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.JumpRejectsAirJumpAndLands",
+        "state": "Passed",
+        "durationSeconds": 0.0002672,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MissedObstaclePenalizesOnceAndHorseStillFinishes",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.MissedObstaclePenalizesOnceAndHorseStillFinishes",
+        "state": "Passed",
+        "durationSeconds": 0.0005845,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RestartClearsBoostJumpPenaltyAndObstacleHistory",
+        "fullName": "Horsecremental.Racing.Tests.HorseSimulationTests.RestartClearsBoostJumpPenaltyAndObstacleHistory",
+        "state": "Passed",
+        "durationSeconds": 0.0004389,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "StableIsFirstBuildSceneAndAllSavedSceneCamerasAndCanvasesAreConfigured",
+        "fullName": "Horsecremental.Racing.Tests.Milestone2SceneTests.StableIsFirstBuildSceneAndAllSavedSceneCamerasAndCanvasesAreConfigured",
+        "state": "Passed",
+        "durationSeconds": 0.4540929,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FarmCapsCollectsAndFeedChangesTheSameStatsModel",
+        "fullName": "Horsecremental.Racing.Tests.Milestone3ModelTests.FarmCapsCollectsAndFeedChangesTheSameStatsModel",
+        "state": "Passed",
+        "durationSeconds": 0.0058469,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FixedOpponentsStayFixedAndDirectProgressionImprovesRaceTimes",
+        "fullName": "Horsecremental.Racing.Tests.Milestone3ModelTests.FixedOpponentsStayFixedAndDirectProgressionImprovesRaceTimes",
+        "state": "Passed",
+        "durationSeconds": 0.0066626,
+        "message": null,
+        "stackTrace": null,
+        "output": "Fresh: 33.88s, slowest rival: 19.22s, fastest rival: 17.84s, upgraded after 10 training minutes: 23.32s. Speed=14.35, boost=8\r\n"
+      },
+      {
+        "name": "HighBoostDrainsFasterAndRhythmicTapsSettleBelowMaximum",
+        "fullName": "Horsecremental.Racing.Tests.Milestone3ModelTests.HighBoostDrainsFasterAndRhythmicTapsSettleBelowMaximum",
+        "state": "Passed",
+        "durationSeconds": 0.0010825,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "TrainingCarriesRemaindersAndDoesNotConsumeMainRaceReward",
+        "fullName": "Horsecremental.Racing.Tests.Milestone3ModelTests.TrainingCarriesRemaindersAndDoesNotConsumeMainRaceReward",
+        "state": "Passed",
+        "durationSeconds": 0.0013036,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "WorldHasSingleCameraListenerAndEventSystemAndSmoothCinemachineBlend",
+        "fullName": "Horsecremental.Racing.Tests.Milestone3ModelTests.WorldHasSingleCameraListenerAndEventSystemAndSmoothCinemachineBlend",
+        "state": "Passed",
+        "durationSeconds": 0.1166543,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "AddingHorsesPreservesPositionsSeparatesPhasesAndCapsAtFour",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.AddingHorsesPreservesPositionsSeparatesPhasesAndCapsAtFour",
+        "state": "Passed",
+        "durationSeconds": 0.003746,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ClickYieldAndAutoGrowthUpgradesAffectActualFarmAndPreserveProgress",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.ClickYieldAndAutoGrowthUpgradesAffectActualFarmAndPreserveProgress",
+        "state": "Passed",
+        "durationSeconds": 0.0015596,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FreshWorldEnablesFarmAndPaysOnlyCoinsAtActualLapWraps",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.FreshWorldEnablesFarmAndPaysOnlyCoinsAtActualLapWraps",
+        "state": "Passed",
+        "durationSeconds": 0.0011173,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FullWalletCreditsOnlyAvailableRoomAndInvalidTimeCannotCorruptState",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.FullWalletCreditsOnlyAvailableRoomAndInvalidTimeCannotCorruptState",
+        "state": "Passed",
+        "durationSeconds": 0.0003365,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InactiveCraftingCannotSpendButExistingEquipmentAndFarmStorageMigrate",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.InactiveCraftingCannotSpendButExistingEquipmentAndFarmStorageMigrate",
+        "state": "Passed",
+        "durationSeconds": 0.0013594,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "IndependentCropsClampReadyWaitForHarvestAndNeverCreditAutomatically",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.IndependentCropsClampReadyWaitForHarvestAndNeverCreditAutomatically",
+        "state": "Passed",
+        "durationSeconds": 0.001105,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MeasuredProgressionCanWinWithoutAnyEquipment(False)",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.MeasuredProgressionCanWinWithoutAnyEquipment(False)",
+        "state": "Passed",
+        "durationSeconds": 0.022404,
+        "message": null,
+        "stackTrace": null,
+        "output": "ActiveFarm=False; fresh=33.88s; fastest rival=17.84s; winning progress seconds=1590; stats=17.5/21/15\r\n"
+      },
+      {
+        "name": "MeasuredProgressionCanWinWithoutAnyEquipment(True)",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.MeasuredProgressionCanWinWithoutAnyEquipment(True)",
+        "state": "Passed",
+        "durationSeconds": 0.0092108,
+        "message": null,
+        "stackTrace": null,
+        "output": "ActiveFarm=True; fresh=33.88s; fastest rival=17.84s; winning progress seconds=300; stats=22.45/21/5\r\n"
+      },
+      {
+        "name": "SpeedAndRewardChangeRatesWithoutResettingAnyPhase",
+        "fullName": "Horsecremental.Racing.Tests.Milestone45ModelTests.SpeedAndRewardChangeRatesWithoutResettingAnyPhase",
+        "state": "Passed",
+        "durationSeconds": 0.0011215,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ActiveCraftKeepsItsOriginalDurationAndEverySlotStopsAtTierFour",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4ModelTests.ActiveCraftKeepsItsOriginalDurationAndEverySlotStopsAtTierFour",
+        "state": "Passed",
+        "durationSeconds": 0.0009512,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "CraftPaymentIsAtomicOneSlotIsReservedAndCompletionPaysOnce",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4ModelTests.CraftPaymentIsAtomicOneSlotIsReservedAndCompletionPaysOnce",
+        "state": "Passed",
+        "durationSeconds": 0.0010303,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DiverseTrainingFundedPathsLoseFreshAndWinWithoutMaxEquipment(False)",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4ModelTests.DiverseTrainingFundedPathsLoseFreshAndWinWithoutMaxEquipment(False)",
+        "state": "Passed",
+        "durationSeconds": 0.0070931,
+        "message": null,
+        "stackTrace": null,
+        "output": "Path productionFirst=False: fresh 33.88s; rival 17.84s; win minute 24; stats 18.25/21/13; tiers 2/2/2\r\n"
+      },
+      {
+        "name": "DiverseTrainingFundedPathsLoseFreshAndWinWithoutMaxEquipment(True)",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4ModelTests.DiverseTrainingFundedPathsLoseFreshAndWinWithoutMaxEquipment(True)",
+        "state": "Passed",
+        "durationSeconds": 0.0046986,
+        "message": null,
+        "stackTrace": null,
+        "output": "Path productionFirst=True: fresh 33.88s; rival 17.84s; win minute 21; stats 18.05/24/13; tiers 2/2/2\r\n"
+      },
+      {
+        "name": "MetalRewardsShareRaceTokenAndNeverOverflow",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4ModelTests.MetalRewardsShareRaceTokenAndNeverOverflow",
+        "state": "Passed",
+        "durationSeconds": 0.0018012,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ProductionUpgradesHaveCapsAndChangeActualRatesWithoutFreeCrafts",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4ModelTests.ProductionUpgradesHaveCapsAndChangeActualRatesWithoutFreeCrafts",
+        "state": "Passed",
+        "durationSeconds": 0.0011188,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "TierReplacementCombinesAllStatSourcesAndChangesRealSimulation",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4ModelTests.TierReplacementCombinesAllStatSourcesAndChangesRealSimulation",
+        "state": "Passed",
+        "durationSeconds": 0.0009708,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "SavedWorldKeepsOneCentralCoordinatorAndConfiguredWorkstations",
+        "fullName": "Horsecremental.Racing.Tests.Milestone4SceneTests.SavedWorldKeepsOneCentralCoordinatorAndConfiguredWorkstations",
+        "state": "Passed",
+        "durationSeconds": 0.1180389,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "AllUpgradesChangeActualSimulationAndLeaveJumpParametersAlone",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.AllUpgradesChangeActualSimulationAndLeaveJumpParametersAlone",
+        "state": "Passed",
+        "durationSeconds": 0.0008186,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "EachRacePaysOnceAndAbandonedRaceTokensCannotPay",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.EachRacePaysOnceAndAbandonedRaceTokensCannotPay",
+        "state": "Passed",
+        "durationSeconds": 0.0004876,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "EconomyCannotOverflowIntoNegativeCurrencyOrPrices",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.EconomyCannotOverflowIntoNegativeCurrencyOrPrices",
+        "state": "Passed",
+        "durationSeconds": 0.000178,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PurchasesAreAtomicPricesGrowAndBalanceNeverGoesNegative",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.PurchasesAreAtomicPricesGrowAndBalanceNeverGoesNegative",
+        "state": "Passed",
+        "durationSeconds": 0.0005752,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RewardAssetPaysConfiguredFinishingPositions(1,500)",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.RewardAssetPaysConfiguredFinishingPositions(1,500)",
+        "state": "Passed",
+        "durationSeconds": 0.0007315,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RewardAssetPaysConfiguredFinishingPositions(2,250)",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.RewardAssetPaysConfiguredFinishingPositions(2,250)",
+        "state": "Passed",
+        "durationSeconds": 0.0000746,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RewardAssetPaysConfiguredFinishingPositions(3,150)",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.RewardAssetPaysConfiguredFinishingPositions(3,150)",
+        "state": "Passed",
+        "durationSeconds": 0.0000467,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RewardAssetPaysConfiguredFinishingPositions(4,100)",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.RewardAssetPaysConfiguredFinishingPositions(4,100)",
+        "state": "Passed",
+        "durationSeconds": 0.0000431,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RewardAssetPaysConfiguredFinishingPositions(5,0)",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.RewardAssetPaysConfiguredFinishingPositions(5,0)",
+        "state": "Passed",
+        "durationSeconds": 0.0000422,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "SeveralSpeedUpgradesMakeTheSameUnassistedRaceNoticeablyFaster",
+        "fullName": "Horsecremental.Racing.Tests.PlayerProgressionTests.SeveralSpeedUpgradesMakeTheSameUnassistedRaceNoticeablyFaster",
+        "state": "Passed",
+        "durationSeconds": 0.0009868,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "SavedSceneHasVisiblePersistentObjectsWithoutPlayMode",
+        "fullName": "Horsecremental.Racing.Tests.RaceSceneTests.SavedSceneHasVisiblePersistentObjectsWithoutPlayMode",
+        "state": "Passed",
+        "durationSeconds": 0.1328167,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "CoinUnlocksRequireParentsAndNeverSpendTokensOrUpgradeStats",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.CoinUnlocksRequireParentsAndNeverSpendTokensOrUpgradeStats",
+        "state": "Passed",
+        "durationSeconds": 0.0011589,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FailedPurchasesLeaveAllResourcesAndLevelsUntouched",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.FailedPurchasesLeaveAllResourcesAndLevelsUntouched",
+        "state": "Passed",
+        "durationSeconds": 0.0003787,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MainRacePlaceAwardsConfiguredTokensOnce(1,5)",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.MainRacePlaceAwardsConfiguredTokensOnce(1,5)",
+        "state": "Passed",
+        "durationSeconds": 0.0005603,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MainRacePlaceAwardsConfiguredTokensOnce(2,3)",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.MainRacePlaceAwardsConfiguredTokensOnce(2,3)",
+        "state": "Passed",
+        "durationSeconds": 0.0000741,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MainRacePlaceAwardsConfiguredTokensOnce(3,2)",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.MainRacePlaceAwardsConfiguredTokensOnce(3,2)",
+        "state": "Passed",
+        "durationSeconds": 0.0000656,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MainRacePlaceAwardsConfiguredTokensOnce(4,1)",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.MainRacePlaceAwardsConfiguredTokensOnce(4,1)",
+        "state": "Passed",
+        "durationSeconds": 0.000063,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "MainRacePlaceAwardsConfiguredTokensOnce(5,0)",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.MainRacePlaceAwardsConfiguredTokensOnce(5,0)",
+        "state": "Passed",
+        "durationSeconds": 0.0000644,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "NewPlayerHasOnlySpeedAndCannotBypassLocksWithLargeBalances",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.NewPlayerHasOnlySpeedAndCannotBypassLocksWithLargeBalances",
+        "state": "Passed",
+        "durationSeconds": 0.0010025,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RulesRejectCyclesAndDuplicatesAndSnapshotTheirInput",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.RulesRejectCyclesAndDuplicatesAndSnapshotTheirInput",
+        "state": "Passed",
+        "durationSeconds": 0.0007046,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "SavedWorldHasConfiguredTreeNavigationCheatAndPreservesSceneGuid",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.SavedWorldHasConfiguredTreeNavigationCheatAndPreservesSceneGuid",
+        "state": "Passed",
+        "durationSeconds": 0.1126517,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "TokenBranchesChargeExactlyOnceAndActivateTheirSystems",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.TokenBranchesChargeExactlyOnceAndActivateTheirSystems",
+        "state": "Passed",
+        "durationSeconds": 0.0007934,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "TrainingAndDebugGrantsDoNotConsumeRaceClaimsOrAutomaticallyUnlockNodes",
+        "fullName": "Horsecremental.Racing.Tests.UpgradeTreeTests.TrainingAndDebugGrantsDoNotConsumeRaceClaimsOrAutomaticallyUnlockNodes",
+        "state": "Passed",
+        "durationSeconds": 0.0007476,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      }
+    ]
+  }
+}

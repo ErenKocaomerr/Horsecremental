@@ -1,0 +1,8 @@
+﻿<Solution>
+  <Project Path="Horsecremental.Racing.csproj" />
+  <Project Path="Horsecremental.Racing.Editor.csproj" />
+  <Project Path="Horsecremental.Racing.PlayModeTests.csproj" />
+  <Project Path="Horsecremental.Racing.Tests.csproj" />
+  <Project Path="Unity.2D.Welcome.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+</Solution>
