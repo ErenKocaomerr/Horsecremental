@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using Unity.Cinemachine;
 using UnityEditor;
@@ -45,7 +46,7 @@ namespace Horsecremental.Racing.Editor
             BuildForge(parent, settings);
             Milestone4UIBuilder.Build(parent, world, settings);
             RaceUI raceUI = world.GetComponentInChildren<RaceUI>(true);
-            raceUI.transform.Find("Race entry/Description").GetComponent<Text>().text = "Fixed rivals: 23 / 24 / 25 Speed\nCraft equipment and improve Stable production.";
+            raceUI.transform.Find("Race entry/Description").GetComponent<TMP_Text>().text = "Fixed rivals: 23 / 24 / 25 Speed\nCraft equipment and improve Stable production.";
             MinimalUISetup.Apply(world, settings);
             EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene); AssetDatabase.SaveAssets();
             Debug.Log("Milestone 4 saved in the existing world: Metal, equipment, forge and production upgrades.");

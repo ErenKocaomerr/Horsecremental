@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -175,36 +176,36 @@ namespace Horsecremental.Racing.Editor
             scaler.matchWidthOrHeight = 0.5f;
             StableUI ui = canvas.GetComponent<StableUI>();
             RaceSceneBaker.SetReference(ui, "_settings", settings);
-            RaceUIBuilder.Label(canvas.transform, "Stable Title", new Vector2(-460, 440), new Vector2(800, 90), 52).text = "AHIR — MILESTONE 2";
-            RaceUIBuilder.Label(canvas.transform, "Horse Title", new Vector2(-460, 160), new Vector2(650, 70), 40).text = "SENİN ATIN";
+            RaceUIBuilder.Label(canvas.transform, "Stable Title", new Vector2(-460, 440), new Vector2(800, 90), 52).text = "AHIR - MILESTONE 2";
+            RaceUIBuilder.Label(canvas.transform, "Horse Title", new Vector2(-460, 160), new Vector2(650, 70), 40).text = "SENIN ATIN";
             var panel = RaceUIBuilder.Panel(canvas.transform, "Horse Upgrades", new Vector2(460, 40), new Vector2(740, 840), new Color(0.05f, 0.1f, 0.08f, 0.96f));
-            RaceUIBuilder.Label(panel.transform, "Title", new Vector2(0, 350), new Vector2(700, 60), 38).text = "AT YÜKSELTMELERİ";
-            Text coins = RaceUIBuilder.Label(panel.transform, "Coins", new Vector2(0, 285), new Vector2(700, 60), 36);
+            RaceUIBuilder.Label(panel.transform, "Title", new Vector2(0, 350), new Vector2(700, 60), 38).text = "AT YUKSELTMELERI";
+            TMP_Text coins = RaceUIBuilder.Label(panel.transform, "Coins", new Vector2(0, 285), new Vector2(700, 60), 36);
             coins.color = new Color(1f, 0.83f, 0.2f);
             RaceSceneBaker.SetReference(ui, "_coins", coins);
-            Text stats = RaceUIBuilder.Label(panel.transform, "Current Horse Stats", new Vector2(0, 170), new Vector2(650, 145), 31);
+            TMP_Text stats = RaceUIBuilder.Label(panel.transform, "Current Horse Stats", new Vector2(0, 170), new Vector2(650, 145), 31);
             RaceSceneBaker.SetReference(ui, "_stats", stats);
             Button[] buttons = new Button[3];
-            Text[] labels = new Text[3];
+            TMP_Text[] labels = new TMP_Text[3];
             string[] names = { "Upgrade Speed", "Upgrade Acceleration", "Upgrade Boost Power" };
             for (int i = 0; i < 3; i++)
             {
                 buttons[i] = RaceUIBuilder.Button(panel.transform, names[i], string.Empty, new Vector2(0, 10 - i * 138));
                 buttons[i].GetComponent<RectTransform>().sizeDelta = new Vector2(640, 120);
-                labels[i] = buttons[i].GetComponentInChildren<Text>();
+                labels[i] = buttons[i].GetComponentInChildren<TMP_Text>();
                 labels[i].rectTransform.sizeDelta = new Vector2(610, 114);
                 labels[i].fontSize = 28;
             }
             RaceSceneBaker.SetArray(ui, "_upgrades", buttons);
             RaceSceneBaker.SetArray(ui, "_upgradeLabels", labels);
-            Text feedback = RaceUIBuilder.Label(canvas.transform, "Upgrade Feedback", new Vector2(0, -430), new Vector2(1750, 65), 32);
-            feedback.text = "Yarış → Coins → Yükseltme → Daha güçlü at. İlk yükseltme 1–2 yarışta!";
+            TMP_Text feedback = RaceUIBuilder.Label(canvas.transform, "Upgrade Feedback", new Vector2(0, -430), new Vector2(1750, 65), 32);
+            feedback.text = "Yaris > Coins > Yukseltme > Daha guclu at. Ilk yukseltme 1-2 yarista!";
             feedback.color = new Color(1f, 0.85f, 0.3f);
             RaceSceneBaker.SetReference(ui, "_feedback", feedback);
-            Button start = RaceUIBuilder.Button(canvas.transform, "Start Race", "YARIŞI BAŞLAT", new Vector2(-460, -270));
+            Button start = RaceUIBuilder.Button(canvas.transform, "Start Race", "YARISI BASLAT", new Vector2(-460, -270));
             start.GetComponent<RectTransform>().sizeDelta = new Vector2(520, 100);
-            start.GetComponentInChildren<Text>().rectTransform.sizeDelta = new Vector2(500, 95);
-            start.GetComponentInChildren<Text>().fontSize = 36;
+            start.GetComponentInChildren<TMP_Text>().rectTransform.sizeDelta = new Vector2(500, 95);
+            start.GetComponentInChildren<TMP_Text>().fontSize = 36;
             RaceSceneBaker.SetReference(ui, "_startRace", start);
         }
     }

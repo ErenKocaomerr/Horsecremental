@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using System.Collections.Generic;
 using Unity.Cinemachine;
@@ -73,7 +74,7 @@ namespace Horsecremental.Racing.Editor
         {
             Transform pool = Child(root, "Floating Feedback");
             WorldFeedback feedback = pool.gameObject.AddComponent<WorldFeedback>();
-            TextMesh[] labels = new TextMesh[16];
+            TMP_Text[] labels = new TMP_Text[16];
             for (int i = 0; i < labels.Length; i++)
             {
                 labels[i] = WorldLabel(pool, "Feedback " + i, Vector3.zero, string.Empty, 0.065f);
@@ -103,7 +104,7 @@ namespace Horsecremental.Racing.Editor
             FarmWorldView farm = area.gameObject.AddComponent<FarmWorldView>();
             Transform[] plants = new Transform[count]; SpriteRenderer[] halos = new SpriteRenderer[count];
             WorldLabel(area, "Farm Sign", new Vector3(-30.1f, 2.8f), "FARM", 0.075f);
-            WorldLabel(area, "Farm Hint", new Vector3(-30.1f, -2.8f), "Click crops • Sweep drops", 0.045f);
+            WorldLabel(area, "Farm Hint", new Vector3(-30.1f, -2.8f), "Click crops | Sweep drops", 0.045f);
             for (int i = 0; i < count; i++)
             {
                 Transform plot = Child(area, "Crop Plot " + i);
@@ -189,13 +190,14 @@ namespace Horsecremental.Racing.Editor
             // The expanded connected view should not be windowboxed by the old race-only pixel camera.
             if (physical.TryGetComponent(out PixelPerfectCamera pixel)) pixel.enabled = false;
         }
-        internal static TextMesh WorldLabel(Transform parent, string name, Vector3 position, string text, float size)
+        internal static TMP_Text WorldLabel(Transform parent, string name, Vector3 position, string text, float size)
         {
             Transform label = Child(parent, name); label.position = position;
-            TextMesh mesh = label.gameObject.AddComponent<TextMesh>(); mesh.text = text;
-            mesh.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf"); mesh.fontSize = 64; mesh.characterSize = size;
-            mesh.anchor = TextAnchor.MiddleCenter; mesh.alignment = TextAlignment.Center; mesh.color = new Color(1, 0.92f, 0.7f);
-            MeshRenderer renderer = label.GetComponent<MeshRenderer>(); renderer.sharedMaterial = mesh.font.material; renderer.sortingOrder = 100;
+            TMP_Text mesh = label.gameObject.AddComponent<TextMeshPro>(); mesh.text = text;
+            PixelFontAssets.Configure(mesh, 64f * size, TextAlignmentOptions.Center);
+            mesh.rectTransform.sizeDelta = new Vector2(30f, 3f);
+            mesh.color = new Color(1, 0.92f, 0.7f);
+            mesh.GetComponent<MeshRenderer>().sortingOrder = 100;
             return mesh;
         }
         private static Transform Child(Transform parent, string name)

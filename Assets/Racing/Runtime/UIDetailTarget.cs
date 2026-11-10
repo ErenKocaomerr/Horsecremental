@@ -21,7 +21,7 @@ namespace Horsecremental.Racing
         {
             get
             {
-                if (!gameObject.activeInHierarchy) return false;
+                if (!isActiveAndEnabled) return false;
                 for (int i = 0; i < _groups.Length; i++)
                     if (!_groups[i].blocksRaycasts || _groups[i].alpha < 0.1f) return false;
                 return true;
@@ -29,10 +29,10 @@ namespace Horsecremental.Racing
         }
         private void Awake() => _groups = GetComponentsInParent<CanvasGroup>(true);
         public void OnPointerEnter(PointerEventData eventData) { _hovered = true; RefreshFocus(); Inspect(); }
-        public void OnPointerExit(PointerEventData eventData) { _hovered = false; RefreshFocus(); }
+        public void OnPointerExit(PointerEventData eventData) { _hovered = false; RefreshFocus(); if (!_selected) _panel.Hide(this); }
         public void OnSelect(BaseEventData eventData) { _selected = true; RefreshFocus(); Inspect(); }
         public void OnDeselect(BaseEventData eventData) { _selected = false; RefreshFocus(); }
-        private void OnDisable() { _selected = _hovered = false; RefreshFocus(); }
+        private void OnDisable() { _selected = _hovered = false; RefreshFocus(); if (_panel != null) _panel.Hide(this); }
         private void RefreshFocus() { if (_focus != null) _focus.enabled = (_hovered || _selected) && CanInspect; }
         public void Inspect() => _panel.Show(this);
     }

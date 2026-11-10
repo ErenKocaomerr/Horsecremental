@@ -1,0 +1,2483 @@
+We are continuing development of our short-scope incremental horse racing game.
+
+**Milestones 1, 2, 3 and the current Milestone 4 implementation already exist.**
+
+Before changing anything, inspect the entire current project carefully.
+
+Understand what is already implemented, what systems depend on each other, and what can safely be reused.
+
+Do NOT blindly rewrite working systems.
+
+# MILESTONE 4.5 — MAKE THE STABLE ACTUALLY FUN
+
+The current Stable gameplay is too passive.
+
+Right now too much of the experience is:
+
+Wait
+
+↓
+
+Timer finishes
+
+↓
+
+Collect resource
+
+↓
+
+Buy upgrade
+
+↓
+
+Wait again
+
+This technically works as an incremental game, but it does not feel interactive enough.
+
+The purpose of Milestone 4.5 is to transform the Stable from a mostly UI-driven idle screen into a **living gameplay area where the player constantly sees things happening and can actively interact with the world.**
+
+The player should still earn resources automatically.
+
+However, active interaction should make progression faster and more satisfying.
+
+The Stable should feel like a small incremental playground.
+
+The main systems for this milestone are:
+
+**Visible Training Area**
+
++
+
+**Training Upgrades**
+
++
+
+**Interactive Physical Farm**
+
++
+
+**World Item Drops / Hover Pickup**
+
++
+
+**Blacksmith temporarily becomes visual-only**
+
++
+
+**Main Race remains a separate special gameplay area**
+
+Do NOT add another large progression system.
+
+Do NOT add more menus just for the sake of adding content.
+
+This milestone is about improving interaction and game feel.
+
+---
+
+# 1. CORE DESIGN TARGET
+
+The Stable should no longer feel like:
+
+"Watch progress bars."
+
+It should feel like:
+
+**See something happening**
+
+↓
+
+**Interact with it**
+
+↓
+
+**Get immediate feedback**
+
+↓
+
+**Collect something**
+
+↓
+
+**Upgrade something**
+
+↓
+
+**See the world physically improve**
+
+The player should usually have something small they can interact with every few seconds.
+
+The gameplay should remain relaxing and simple.
+
+Do NOT turn the Stable into a difficult skill-based game.
+
+---
+
+# 2. KEEP THE WORLD IN ONE GAMEPLAY SCENE
+
+Continue using the unified gameplay scene architecture.
+
+Do NOT return to loading separate Stable and Race scenes.
+
+The Stable / Farm / Training / Blacksmith should exist together inside the same gameplay world.
+
+The Main Race track can be physically somewhere else in the same scene.
+
+When entering Main Race gameplay, the camera is allowed to:
+
+- Hard cut
+- Fast Cinemachine blend
+- Transition to a distant race camera
+
+A scene load is NOT required.
+
+The Stable does NOT need to physically show the full Main Race track.
+
+The Main Race should feel like a separate special event.
+
+---
+
+# 3. NEW STABLE LAYOUT PHILOSOPHY
+
+Create or reorganize the Stable area so the player can visually understand the different systems.
+
+A useful approximate layout could be:
+
+BLACKSMITH
+
+↓
+
+FARM — STABLE / HORSE — TRAINING TRACK
+
+The exact physical layout can be adapted to the existing environment.
+
+Important:
+
+### TRAINING
+
+Training track should be very close to the Stable.
+
+The player should be able to see horses actually running while interacting with the Farm and Stable.
+
+### FARM
+
+Farm should be physically visible and interactable.
+
+### BLACKSMITH
+
+Blacksmith should remain near the Farm, preferably to its left if practical.
+
+For Milestone 4.5 the Blacksmith is primarily a visual location.
+
+---
+
+# 4. TRAINING MUST BECOME PHYSICALLY VISIBLE
+
+The current Training system should no longer feel like only a timer or progress bar.
+
+Create a small physical Training Track next to the Stable.
+
+Training horses should visibly run around / through this area.
+
+The player should be able to see them while managing the Stable.
+
+The visual purpose is:
+
+**"My horses are actually training while I manage everything else."**
+
+The Training Track does NOT need realistic racing AI.
+
+Keep the movement simple.
+
+Possible implementations:
+
+- Waypoints
+- Spline
+- Closed loop path
+- Simple track path following
+
+Choose whatever best fits the existing project architecture.
+
+Do NOT use expensive navigation or complicated racing AI.
+
+---
+
+# 5. TRAINING LOOP
+
+Training still functions as automatic incremental income.
+
+Example loop:
+
+Horse begins training lap
+
+↓
+
+Horse physically runs around Training Track
+
+↓
+
+Horse completes lap
+
+↓
+
+Training reward is granted
+
+↓
+
+Horse immediately begins another lap
+
+The physical horse movement should match the Training progress.
+
+Do NOT have:
+
+Visual horse finishes immediately
+
+while
+
+Training timer still has 5 seconds remaining.
+
+The visual and gameplay progression should approximately correspond.
+
+---
+
+# 6. TRAINING HORSES
+
+Training progression should allow the player to obtain additional Training Horses.
+
+Start with approximately:
+
+**1 Training Horse**
+
+Through upgrades the player can increase this.
+
+Example:
+
+Training Horses:
+
+1
+
+↓
+
+2
+
+↓
+
+3
+
+↓
+
+4
+
+Potential prototype maximum:
+
+4–6 visible horses.
+
+Keep the maximum configurable.
+
+Do not spawn dozens of horses.
+
+Performance and readability matter.
+
+---
+
+# 7. ADDITIONAL TRAINING HORSES MUST BE VISIBLE
+
+This is extremely important.
+
+Buying:
+
+**+1 Training Horse**
+
+must not only modify a number.
+
+A new horse should physically appear on the Training Track.
+
+The player should immediately see:
+
+Before:
+
+1 horse running
+
+After:
+
+2 horses running
+
+Later:
+
+4 horses running
+
+This creates strong visual incremental progression.
+
+Use existing horse assets.
+
+Different colors/variants can be used if they already exist and are easy to reuse.
+
+Do not create a complicated horse collection system.
+
+Training Horses are production units, not collectible characters.
+
+---
+
+# 8. TRAINING HORSE POSITIONING
+
+Multiple Training Horses should not overlap perfectly.
+
+Offset their positions around the track.
+
+Example:
+
+Horse 1 starts at 0%
+
+Horse 2 starts at 25%
+
+Horse 3 starts at 50%
+
+Horse 4 starts at 75%
+
+This should make the Training Track constantly feel alive.
+
+They do not need sophisticated overtaking behaviour.
+
+Simple looping is enough.
+
+---
+
+# 9. TRAINING UPGRADES
+
+Create / rework Training progression around THREE clear upgrades.
+
+## TRAINING HORSE COUNT
+
+Adds another visible Training Horse.
+
+Effects:
+
+- More horses physically appear
+- Training production increases
+
+This should be one of the more expensive Training upgrades.
+
+---
+
+## TRAINING SPEED
+
+Increases the movement speed of all Training Horses.
+
+The visual horses must actually run faster.
+
+Do NOT only reduce a hidden timer.
+
+When the player upgrades Training Speed:
+
+The horses on the Training Track should visibly become faster.
+
+This is an important visual progression mechanic.
+
+---
+
+## TRAINING REWARD
+
+Increases the reward produced by Training.
+
+Example:
+
+Training Reward Lv.1
+
++30 Coins per Training completion
+
+Later:
+
++45
+
++60
+
++80
+
+Use the current economy architecture.
+
+Keep values configurable.
+
+---
+
+# 10. TRAINING ECONOMY MODEL
+
+Keep the Training calculation simple.
+
+A possible model:
+
+Each Training Horse independently completes laps.
+
+Each completed lap generates a Training Reward.
+
+Therefore:
+
+More Horses
+
+=
+
+More simultaneous production.
+
+Training Speed
+
+=
+
+More laps completed over time.
+
+Training Reward
+
+=
+
+More Coins per completed lap.
+
+This creates three very understandable incremental upgrade paths:
+
+**Quantity**
+
+**Speed**
+
+**Value**
+
+Avoid complicated formulas.
+
+---
+
+# 11. TRAINING REWARD VISUAL FEEDBACK
+
+Whenever a horse completes a lap:
+
+Give small visual feedback near the horse or Training Track.
+
+Example:
+
++35 Coins
+
+The number can:
+
+- Float upward
+- Fade out
+- Slightly scale
+
+Do not create a giant popup every few seconds.
+
+Keep frequent Training feedback lightweight.
+
+If several horses finish near the same time, feedback should remain readable.
+
+---
+
+# 12. REMOVE TRAINING TIMER AS THE MAIN PRESENTATION
+
+A Training timer/progress bar can exist internally or as secondary information.
+
+However:
+
+The primary presentation should now be the horses actually running.
+
+The player should understand Training progress by watching the track.
+
+Do not make the UI progress bar the main focus anymore.
+
+If a Training progress UI remains:
+
+Keep it subtle.
+
+---
+
+# 13. TRAINING DURING MAIN RACE
+
+The player's primary horse cannot logically be Training and Main Racing simultaneously.
+
+However, additional Training Horses may still be training if the architecture allows it.
+
+For simplicity in Milestone 4.5, choose ONE consistent rule.
+
+Recommended:
+
+### Main Race active:
+
+Training production pauses.
+
+### Main Race finishes:
+
+Training resumes.
+
+This preserves the current simple state logic.
+
+Do NOT spend significant development time simulating different horse ownership states.
+
+We can revisit this later.
+
+---
+
+# 14. FARM MUST BE COMPLETELY REWORKED VISUALLY
+
+The Farm should no longer primarily use:
+
+Progress slider
+
+↓
+
+Timer finishes
+
+↓
+
+Collect button
+
+The crops themselves should visually show progress.
+
+Remove the Farm progress slider as the primary representation.
+
+The player should look at the plants to understand whether they are ready.
+
+---
+
+# 15. PHYSICAL FARM PLOTS
+
+Create physical Farm plots in the world.
+
+Use approximately:
+
+4–8 plots
+
+for prototype testing.
+
+Each plot contains one crop.
+
+Continue using the existing crop type if possible.
+
+If the current game only has:
+
+**Carrot**
+
+keep only Carrot.
+
+Do NOT add multiple crop types just for this milestone.
+
+However, structure the system so future crops can use the same growth/drop architecture.
+
+---
+
+# 16. CROP GROWTH STAGES
+
+Each crop must visually progress through clear stages.
+
+At minimum:
+
+### STAGE 1 — SPROUT
+
+Very small plant.
+
+### STAGE 2 — MID
+
+Clearly growing.
+
+### STAGE 3 — LARGE
+
+Nearly ready.
+
+### STAGE 4 — HARVEST READY
+
+Fully grown.
+
+Very obvious that it can be harvested.
+
+Use:
+
+- Existing assets
+- Scale changes
+- Different meshes/models
+- Child objects
+- Sprite/model swaps
+
+depending on the current project.
+
+The player should understand crop state WITHOUT reading a timer.
+
+---
+
+# 17. CROPS STILL GROW AUTOMATICALLY
+
+Crops must continue growing automatically.
+
+This is still an incremental game.
+
+The player should NEVER be required to constantly click crops to progress.
+
+Example:
+
+Crop automatically goes:
+
+Sprout
+
+↓
+
+Mid
+
+↓
+
+Large
+
+↓
+
+Harvest Ready
+
+over time.
+
+Keep timing configurable.
+
+---
+
+# 18. MAIN FARM GIMMICK — CLICK TO GROW FASTER
+
+The main active Farm interaction is:
+
+**Click the crop to accelerate its growth.**
+
+The player can repeatedly interact with crops to push them toward the next stage faster.
+
+Example concept:
+
+Automatic growth:
+
++1 Growth per second
+
+Player click:
+
++3 Growth
+
+These numbers are only examples.
+
+Tune the interaction so clicking feels useful but is not mandatory.
+
+Do not require hundreds of clicks.
+
+The player should feel like:
+
+"I can wait..."
+
+or
+
+"I can actively grow this right now."
+
+---
+
+# 19. CLICK FEEDBACK
+
+Every crop click should feel responsive.
+
+Possible cheap feedback:
+
+- Plant squash/stretch
+- Small bounce
+- Scale punch
+- Tiny particles
+- Small growth particles
+- Slight sound
+- Small floating +Growth indicator
+
+Do NOT create excessive effects.
+
+The crop should clearly react to the click.
+
+---
+
+# 20. AVOID CLICK-SPAM PAIN
+
+This is important.
+
+Do not design a system where growing one carrot requires 100 rapid clicks.
+
+The active interaction should be comfortable.
+
+Possible target:
+
+A crop that normally takes 20 seconds could be grown manually in approximately 5–8 seconds of casual interaction.
+
+Adjust after testing.
+
+Do NOT require extreme CPS.
+
+---
+
+# 21. GROWTH STAGE TRANSITIONS
+
+When a crop reaches the next growth stage:
+
+Give a small satisfying transition.
+
+Example:
+
+SPROUT
+
+POP
+
+↓
+
+MID
+
+POP
+
+↓
+
+LARGE
+
+POP
+
+↓
+
+READY!
+
+Use:
+
+- Scale animation
+- Particle burst
+- Small bounce
+- Quick flash
+
+The transformation should be noticeable.
+
+---
+
+# 22. HARVEST READY STATE
+
+When a crop becomes ready:
+
+Make it obvious.
+
+Possible feedback:
+
+- Gentle bounce
+- Small glow
+- Slight outline
+- Sparkle particles
+- Scale pulse
+
+Do NOT require a large UI message.
+
+The world itself should communicate readiness.
+
+---
+
+# 23. HARVEST INTERACTION
+
+When Harvest Ready:
+
+The player clicks the crop / plot.
+
+The crop is harvested.
+
+IMPORTANT:
+
+The harvested resource should NOT immediately enter the player's resource count.
+
+Instead:
+
+**The harvested item should physically drop into the world.**
+
+This is a major part of the Farm game feel.
+
+---
+
+# 24. WORLD ITEM DROP SYSTEM
+
+Create a reusable World Pickup system.
+
+For example:
+
+Harvest Carrot
+
+↓
+
+1–3 physical Carrot items pop out
+
+↓
+
+Items bounce / scatter slightly onto the ground
+
+↓
+
+Items remain visible
+
+↓
+
+Player collects them by hovering over them
+
+This behaviour should be inspired by the provided reference image:
+
+Harvested resources physically accumulate on the ground in small clusters and can be collected afterward.
+
+Do NOT copy the art style.
+
+The reference is for interaction/gameplay behaviour only.
+
+---
+
+# 25. DROP PHYSICS
+
+Drops should feel playful.
+
+They can:
+
+- Pop upward
+- Move outward slightly
+- Arc down
+- Bounce once
+- Settle on the ground
+
+Do not use unstable full physics if unnecessary.
+
+A controlled animation/tween implementation is completely acceptable.
+
+The priority is:
+
+Predictable
+
+Readable
+
+Satisfying
+
+Do not allow items to launch through the map.
+
+---
+
+# 26. HOVER TO COLLECT
+
+World drops should be collected primarily through mouse hover.
+
+When the mouse cursor moves over a dropped item:
+
+The item should be collected.
+
+Do NOT require a click for every individual dropped item.
+
+This should allow the player to sweep the mouse across a pile and collect multiple items quickly.
+
+This interaction should feel satisfying.
+
+Example:
+
+Mouse passes over:
+
+Carrot
+
+↓
+
+Carrot jumps / flies toward resource UI
+
+↓
+
++1 Carrot
+
+↓
+
+Pickup disappears
+
+---
+
+# 27. PICKUP MAGNET FEEL
+
+When collected:
+
+The item should NOT simply disappear instantly if possible.
+
+Use a quick visual collection animation.
+
+Example:
+
+World Item
+
+↓
+
+Scales slightly
+
+↓
+
+Flies toward resource counter / cursor direction
+
+↓
+
+Disappears
+
+↓
+
+Resource number increases
+
+This can be approximate.
+
+Do not spend excessive development time calculating exact UI/world projection if the project architecture makes it difficult.
+
+A simple upward pop + fade is acceptable.
+
+But some collection movement is preferred.
+
+---
+
+# 28. HOVER FEEDBACK
+
+Before collection, a hoverable world item can have subtle feedback.
+
+Examples:
+
+- Outline
+- Scale increase
+- Glow
+- Small bobbing animation
+
+Since hover immediately collects it, this feedback can be very brief.
+
+---
+
+# 29. PICKUP CLUSTERS MUST BE ALLOWED
+
+Do NOT immediately auto-collect resources.
+
+The player should be able to leave harvested items on the ground temporarily.
+
+This allows small piles to visually accumulate.
+
+That is desirable.
+
+The player may harvest several crops and then sweep the mouse through the pile.
+
+This should feel playful.
+
+---
+
+# 30. PREVENT PICKUP PERFORMANCE PROBLEMS
+
+World pickups should be lightweight.
+
+Set a reasonable maximum number of uncollected pickups.
+
+Example:
+
+50–100 maximum
+
+depending on performance.
+
+If the maximum is exceeded:
+
+Combine stacks
+
+OR
+
+Auto-collect oldest items
+
+OR
+
+Merge nearby pickups.
+
+Choose a simple safe solution.
+
+Do NOT allow thousands of GameObjects to accumulate indefinitely.
+
+---
+
+# 31. CROP RESET AFTER HARVEST
+
+After harvesting:
+
+The crop should NOT become an empty plot for a long time.
+
+Immediately begin the next growth cycle.
+
+Example:
+
+Harvest Ready
+
+↓
+
+Player harvests
+
+↓
+
+Item drops
+
+↓
+
+Crop returns to Sprout
+
+↓
+
+Automatic growth begins again
+
+This keeps the Farm visually active.
+
+No manual replanting is required.
+
+---
+
+# 32. FARM RESOURCE FLOW
+
+For example:
+
+Sprout grows automatically
+
+↓
+
+Player clicks several times
+
+↓
+
+Mid
+
+↓
+
+Player clicks
+
+↓
+
+Large
+
+↓
+
+Harvest Ready
+
+↓
+
+Player harvests
+
+↓
+
+3 Carrots physically drop
+
+↓
+
+Player sweeps mouse over them
+
+↓
+
+Carrots are added to progression
+
+↓
+
+Plot returns to Sprout
+
+This entire loop should happen in the world.
+
+Avoid unnecessary UI.
+
+---
+
+# 33. FARM UPGRADES
+
+Keep Farm progression simple.
+
+Existing Farm upgrades can be adapted.
+
+Recommended Farm upgrades for this version:
+
+### AUTO GROWTH SPEED
+
+Crops automatically grow faster.
+
+### CLICK GROWTH POWER
+
+Each click contributes more Growth.
+
+### HARVEST YIELD
+
+Harvest produces more world drops.
+
+Do not add many more upgrade types.
+
+If an existing Farm Capacity upgrade no longer makes sense because items now drop physically, it may be removed or repurposed.
+
+Prefer the three upgrades above.
+
+---
+
+# 34. FARM UPGRADE EFFECTS MUST BE VISIBLE
+
+For example:
+
+Click Growth Power upgrade:
+
+One click visibly pushes growth much further.
+
+Harvest Yield:
+
+Before:
+
+1–2 Carrots drop
+
+Later:
+
+3–5 Carrots drop.
+
+Auto Growth:
+
+Plants visibly cycle faster.
+
+Again:
+
+Incremental upgrades should affect what the player SEES.
+
+---
+
+# 35. NO FARM TIMER SLIDER
+
+This requirement is important.
+
+Do NOT use a large Farm growth slider as the primary interaction.
+
+Growth progress exists internally, but the player primarily reads:
+
+- Plant size
+- Plant stage
+- Visual state
+
+A small tooltip/debug percentage is acceptable if useful during development.
+
+But the final Milestone 4.5 gameplay presentation should rely on the world.
+
+---
+
+# 36. BLACKSMITH GAMEPLAY IS TEMPORARILY DISABLED
+
+For Milestone 4.5, the Blacksmith should NOT be an active progression system.
+
+The user has plans for a different Blacksmith purpose later.
+
+Therefore:
+
+Remove / disable the current player-facing Blacksmith crafting functionality.
+
+The Blacksmith should remain physically visible in the Stable world.
+
+Preferably place it to the left of the Farm if practical.
+
+It can contain:
+
+- Forge fire
+- Anvil
+- Workbench
+- Smoke
+- Sparks
+- Props
+
+But the player should NOT currently use it for crafting.
+
+---
+
+# 37. DO NOT DESTROY BLACKSMITH CODE CARELESSLY
+
+If Milestone 4 already created:
+
+- Equipment data
+- Blacksmith scripts
+- Metal
+- Crafting logic
+- Equipment progression
+
+first inspect dependencies.
+
+Do NOT delete scripts/assets in a way that breaks the project.
+
+Prefer:
+
+- Disable the player-facing Blacksmith interaction
+- Hide unused crafting UI
+- Disconnect it from the active gameplay loop
+- Preserve reusable backend code if it may be useful later
+
+If some systems are completely obsolete and safe to remove, document them at the end.
+
+Do not make destructive changes without understanding references.
+
+---
+
+# 38. BLACKSMITH SHOULD STILL LOOK ALIVE
+
+Even though it has no gameplay function:
+
+Make it visually alive if cheap.
+
+Examples:
+
+- Fire flicker
+- Smoke
+- Sparks
+- Ambient animation
+
+No interactive button.
+
+No crafting timer.
+
+No crafting UI.
+
+No equipment crafting.
+
+The player should intuitively understand:
+
+"This area will probably matter later."
+
+---
+
+# 39. MAIN RACE REMAINS SEPARATE FROM TRAINING
+
+Training and Main Race must feel like completely different concepts.
+
+### TRAINING
+
+Near Stable.
+
+Always visible.
+
+Automatic.
+
+Multiple horses.
+
+Incremental income.
+
+Low stakes.
+
+### MAIN RACE
+
+Separate race area.
+
+Player manually participates.
+
+SPACE Boost.
+
+E Jump.
+
+Obstacles.
+
+High difficulty.
+
+Important progression challenge.
+
+Do not visually merge them into one system.
+
+---
+
+# 40. MAIN RACE CAMERA TRANSITION
+
+The player does NOT need to see the Main Race track from the Stable.
+
+When selecting:
+
+**START MAIN RACE**
+
+use:
+
+- Fast Cinemachine blend
+- Hard camera cut
+- Short transition
+
+to the Main Race area.
+
+A camera cut is acceptable here.
+
+This can actually help Main Race feel special.
+
+Example:
+
+Stable gameplay
+
+↓
+
+START MAIN RACE
+
+↓
+
+UI fades quickly
+
+↓
+
+Camera cuts to starting gate
+
+↓
+
+3
+
+2
+
+1
+
+GO!
+
+The world scene remains loaded.
+
+---
+
+# 41. RETURNING FROM MAIN RACE
+
+After Main Race result:
+
+Camera returns to the Stable area.
+
+Farm should still be in a correct state.
+
+Dropped items should remain if appropriate.
+
+Crops should continue growing during Main Race.
+
+The Blacksmith remains visual-only.
+
+Training resumes according to the selected state rule.
+
+---
+
+# 42. STABLE CAMERA PHILOSOPHY
+
+The Stable camera should prioritize showing actual gameplay.
+
+Do NOT zoom so close into UI panels that the player stops seeing the world.
+
+The player should frequently be able to see:
+
+- Farm growing
+- Training horses running
+- Stable / main horse
+- Nearby environment
+
+Use Cinemachine.
+
+Camera movement between Stable sub-areas can remain smooth.
+
+But avoid turning the Stable into four disconnected menu screens.
+
+The world should feel connected.
+
+---
+
+# 43. IN-WORLD INTERACTION PRIORITY
+
+For Milestone 4.5 prioritize:
+
+**Click physical object**
+
+over:
+
+**Click UI button**
+
+whenever practical.
+
+Examples:
+
+Good:
+
+Click crop itself.
+
+Hover carrot itself.
+
+See horse itself.
+
+Not preferred:
+
+Open Farm panel → click Grow button.
+
+The UI should support the world, not replace it.
+
+---
+
+# 44. CURSOR / INTERACTION FEEDBACK
+
+Improve mouse interaction feedback.
+
+When cursor is over something interactive:
+
+- Cursor change if system already supports it
+- Outline
+- Highlight
+- Scale response
+- Tooltip if useful
+
+Interactive categories include:
+
+- Growing crop
+- Harvest-ready crop
+- World pickup
+- Training upgrade object/button if applicable
+
+Keep interaction readable.
+
+---
+
+# 45. TRAINING UPGRADE PRESENTATION
+
+Training upgrades can still use compact UI.
+
+Example panel near Training Track:
+
+TRAINING
+
+Horses: 2 / 4
+
+Horse Count
+Cost: 500
+[BUY HORSE]
+
+Training Speed Lv.3
+Cost: 300
+[UPGRADE]
+
+Reward Lv.2
+Cost: 400
+[UPGRADE]
+
+Keep this panel compact.
+
+The visual track should remain the focus.
+
+---
+
+# 46. PHYSICAL TRAINING UPGRADE FEEDBACK
+
+When buying another horse:
+
+Do not just change text.
+
+Spawn / enable the new horse with feedback.
+
+Example:
+
+NEW TRAINING HORSE!
+
+Horse enters track.
+
+When upgrading Training Speed:
+
+Horses visibly accelerate.
+
+When upgrading Training Reward:
+
+Next lap popup shows noticeably larger Coin value.
+
+Every Training upgrade should have a visible consequence.
+
+---
+
+# 47. OPTIONAL TRAINING TRACK VISUAL UPGRADES
+
+ONLY if easy:
+
+Training progression may slightly improve the track visuals.
+
+Examples:
+
+Higher Training level:
+
+- Better fences
+- Better track surface
+- Flags
+- Training markers
+
+This is optional.
+
+Do not spend significant time creating art.
+
+Functional visual horse progression is more important.
+
+---
+
+# 48. RESOURCE UI
+
+Keep a persistent compact resource display.
+
+For currently active resources.
+
+For example:
+
+Coins
+
+Carrots
+
+Metal only if Metal still has an active purpose elsewhere.
+
+If Metal no longer has any gameplay purpose after disabling Blacksmith:
+
+Do NOT prominently feature it just because it existed previously.
+
+Do not remove saved data carelessly.
+
+But avoid confusing the player with resources that currently do nothing.
+
+---
+
+# 49. COIN / RESOURCE PICKUP FEEDBACK
+
+Resource changes should feel responsive.
+
+Training reward:
+
++35 Coins near Training Track.
+
+Farm collection:
+
++1 Carrot per hover pickup or combined popup.
+
+Purchases:
+
+-250 Coins.
+
+Use subtle animation.
+
+Avoid giant UI popups everywhere.
+
+---
+
+# 50. SOUND HOOKS
+
+Even if final audio assets do not exist, prepare lightweight audio hooks where appropriate.
+
+Examples:
+
+Crop click
+
+Growth stage
+
+Harvest pop
+
+Pickup
+
+Training lap complete
+
+Training upgrade
+
+New horse unlocked
+
+Main Race transition
+
+Do not delay implementation because final sounds are missing.
+
+---
+
+# 51. POLISH — FARM
+
+Farm should feel juicy.
+
+Cheap effects encouraged:
+
+- Squash/stretch
+- Bounce
+- Drop arc
+- Small dust
+- Sparkles
+- Pickup fly
+- Hover scale
+
+Avoid visually overwhelming effects.
+
+---
+
+# 52. POLISH — TRAINING
+
+Training horses should feel alive.
+
+Possible cheap polish:
+
+- Running animation if available
+- Dust particles
+- Slight variation in spacing
+- Coin popup at finish point
+- Finish marker
+- Horse entrance animation when purchased
+
+Do NOT build advanced horse AI.
+
+---
+
+# 53. POLISH — WORLD
+
+The Stable should not feel completely static.
+
+If existing assets allow:
+
+- Wind movement
+- Grass movement
+- Fire
+- Smoke
+- Small particles
+- Props
+
+Use lightweight environment motion.
+
+Do not perform a major art pass.
+
+---
+
+# 54. DO NOT ADD STABLE MOMENTUM YET
+
+Previous design discussions included ideas such as:
+
+- Stable Momentum
+- Horse brushing
+- Cheer events
+- Blacksmith timing minigame
+
+Do NOT implement these in Milestone 4.5.
+
+They may be reconsidered later.
+
+This milestone already has enough interaction through:
+
+- Physical Training
+- Training Upgrades
+- Active Farm growth
+- Harvesting
+- World pickups
+
+Keep scope controlled.
+
+---
+
+# 55. DO NOT ADD MORE CROPS YET
+
+Do NOT add:
+
+Wheat
+
+Apple
+
+Corn
+
+Rare crops
+
+Fertilizer
+
+Seeds
+
+Weather
+
+Water systems
+
+Crop diseases
+
+For now, prove the Farm interaction with the current crop.
+
+The architecture can support future crop definitions, but do not create them yet.
+
+---
+
+# 56. NO MANUAL PLANTING
+
+After harvesting:
+
+The plot immediately begins the next crop cycle.
+
+Do not require:
+
+Open Seed Menu
+
+↓
+
+Select Carrot Seed
+
+↓
+
+Plant
+
+That is unnecessary friction for this incremental game.
+
+---
+
+# 57. NO INVENTORY MANAGEMENT
+
+Farm pickups simply add to the player's resource count.
+
+Do NOT create:
+
+Inventory slots
+
+Item stacks UI
+
+Drag/drop inventory
+
+Backpack limits
+
+The world pickup interaction exists for game feel, not inventory complexity.
+
+---
+
+# 58. DEVELOPMENT BALANCE TARGET
+
+For testing, tune systems so the player constantly has something happening.
+
+Example:
+
+Farm crop automatic cycle:
+
+15–25 seconds.
+
+Active clicking:
+
+Can reduce effective wait substantially.
+
+Training horse lap:
+
+Approximately 8–15 seconds depending on upgrades.
+
+Multiple plots:
+
+Not all crops should become ready at exactly the same frame if possible.
+
+Offset their starting progress slightly.
+
+This creates a natural rhythm:
+
+Crop ready.
+
+↓
+
+Harvest.
+
+↓
+
+Sweep pickups.
+
+↓
+
+Training horse finishes.
+
+↓
+
+Buy upgrade.
+
+↓
+
+Click another crop.
+
+↓
+
+New Training Horse unlocks.
+
+↓
+
+Main Race attempt.
+
+This is the experience we want.
+
+---
+
+# 59. DO NOT SYNCHRONIZE EVERYTHING PERFECTLY
+
+Avoid having:
+
+All 6 crops ready simultaneously.
+
+All horses finish at the same exact time.
+
+Every timer complete together.
+
+Add small offsets so the Stable constantly produces little moments.
+
+The goal is to avoid:
+
+10 seconds of nothing
+
+followed by
+
+everything finishing at once.
+
+---
+
+# 60. PROTOTYPE GAMEPLAY EXAMPLE
+
+A good Milestone 4.5 gameplay moment should look like:
+
+Player is looking at the Stable.
+
+Two Training Horses are physically running behind / beside it.
+
+A carrot is currently Mid Growth.
+
+Another is Large.
+
+Another becomes Harvest Ready.
+
+Player clicks the ready crop.
+
+Three Carrots pop out onto the grass.
+
+Player sweeps the mouse over the Carrots.
+
+POP
+
+POP
+
+POP
+
+Carrot counter increases.
+
+Player clicks another growing crop several times.
+
+It grows into the next stage.
+
+A Training Horse crosses the finish point.
+
++40 Coins appears.
+
+Player now has enough Coins.
+
+Player buys:
+
+TRAINING HORSE COUNT +1.
+
+A third horse physically appears on the track.
+
+The track immediately looks busier.
+
+Player clicks:
+
+START MAIN RACE.
+
+Camera quickly cuts to the Main Race track.
+
+This is the Stable gameplay feeling we are trying to create.
+
+---
+
+# 61. EXISTING FARM DATA MIGRATION
+
+Inspect the current Farm implementation.
+
+If Farm currently uses:
+
+- Production timer
+- Progress bar
+- Stored Carrot capacity
+- Collect button
+
+reuse useful underlying progression data where possible.
+
+Replace the presentation and interaction.
+
+For example:
+
+Internal crop progress can remain.
+
+But now:
+
+Progress value determines physical growth stage.
+
+Collect button is replaced by physical harvest.
+
+Storage directly receiving Carrots is replaced by world pickups.
+
+Do not rewrite working data systems unless necessary.
+
+---
+
+# 62. EXISTING TRAINING DATA MIGRATION
+
+Inspect the current Training implementation.
+
+Reuse:
+
+- Reward calculation
+- Training Speed progression
+- Currency integration
+
+where useful.
+
+Refactor the Training loop so the progression is represented by physical horses.
+
+The old timer should not remain as an unrelated separate loop.
+
+Avoid duplicate Training systems.
+
+There should be ONE Training production source of truth.
+
+---
+
+# 63. DATA-DRIVEN CONFIGURATION
+
+Keep important values configurable.
+
+Training:
+
+- Base horse count
+- Maximum horse count
+- Horse Count upgrade costs
+- Training movement speed
+- Training Speed multipliers
+- Training rewards
+- Reward upgrade values
+- Lap/path duration where appropriate
+
+Farm:
+
+- Growth duration
+- Growth stage thresholds
+- Click growth amount
+- Harvest yield
+- Auto Grow upgrade
+- Click Power upgrade
+- Yield upgrade
+- Pickup lifetime / maximum count if needed
+
+Avoid scattering numbers across scripts.
+
+---
+
+# 64. CANVAS REQUIREMENT
+
+Continue using:
+
+Canvas Scaler
+
+→ Scale With Screen Size
+
+Reference:
+
+**1920 x 1080**
+
+Audit any new Canvas / UI created during this milestone.
+
+Use appropriate anchors.
+
+Do not create fragile fixed-layout UI.
+
+---
+
+# 65. CINEMACHINE REQUIREMENT
+
+Continue using Cinemachine.
+
+Use it for:
+
+- Stable framing
+- Optional Farm framing
+- Optional Training framing
+- Main Race camera transition
+- Main Race gameplay
+
+Avoid duplicate Main Cameras.
+
+Avoid duplicate Audio Listeners.
+
+Use clean camera priorities / transitions according to the project's current Cinemachine version.
+
+---
+
+# 66. IMPORTANT PERFORMANCE RULE
+
+Avoid creating heavy Update loops on every crop and every pickup if unnecessary.
+
+There may eventually be many interactive world objects.
+
+Prefer efficient central management/event approaches when appropriate.
+
+However:
+
+Do NOT overengineer ECS/job systems for this.
+
+Simple, clean Unity architecture is enough.
+
+---
+
+# 67. IMPLEMENTATION ORDER
+
+Implement Milestone 4.5 in this exact general order.
+
+## STEP 1 — AUDIT THE CURRENT PROJECT
+
+Inspect:
+
+Unified Gameplay Scene
+
+Stable layout
+
+Current Training system
+
+Current Farm system
+
+Current Blacksmith
+
+PlayerProgression
+
+Resources
+
+Cinemachine
+
+Input system
+
+UI
+
+Main Race
+
+Identify dependencies before making changes.
+
+---
+
+## STEP 2 — DISABLE CURRENT BLACKSMITH GAMEPLAY
+
+Safely remove it from the active gameplay loop.
+
+Hide crafting UI.
+
+Disable interaction.
+
+Keep the physical Blacksmith location.
+
+Preserve reusable systems if required.
+
+Verify the project still runs.
+
+---
+
+## STEP 3 — BUILD THE PHYSICAL TRAINING TRACK
+
+Place it next to the Stable.
+
+Create Training path.
+
+Make one horse physically loop around the track.
+
+Connect lap completion to the existing Training reward system.
+
+Verify:
+
+One visual lap
+
+=
+
+One Training completion.
+
+---
+
+## STEP 4 — MULTIPLE TRAINING HORSES
+
+Add Horse Count progression.
+
+Spawn / enable additional horses.
+
+Offset positions.
+
+Verify all horses visibly move.
+
+Verify income correctly scales.
+
+---
+
+## STEP 5 — TRAINING UPGRADES
+
+Implement:
+
+Horse Count
+
+Training Speed
+
+Training Reward
+
+Verify:
+
+Horse Count visibly adds horse.
+
+Speed visibly increases movement speed.
+
+Reward visibly increases lap reward.
+
+---
+
+## STEP 6 — REBUILD FARM PRESENTATION
+
+Create physical Farm plots.
+
+Create crop stages.
+
+Connect internal growth to:
+
+Sprout
+
+Mid
+
+Large
+
+Harvest Ready.
+
+Remove large growth slider dependence.
+
+---
+
+## STEP 7 — ACTIVE CROP CLICKING
+
+Add world click interaction.
+
+Each click adds Growth.
+
+Add responsive visual feedback.
+
+Verify automatic growth still works without player input.
+
+---
+
+## STEP 8 — PHYSICAL HARVESTING
+
+Harvest-ready crop can be clicked.
+
+Crop resets to Sprout.
+
+Resource does NOT immediately enter inventory.
+
+Spawn physical resource drops.
+
+---
+
+## STEP 9 — WORLD PICKUP SYSTEM
+
+Add:
+
+Drop pop animation
+
+Ground settling
+
+Hover detection
+
+Hover collection
+
+Resource gain
+
+Pickup feedback
+
+Pickup safety limit / merging if necessary.
+
+---
+
+## STEP 10 — FARM UPGRADES
+
+Implement / adapt:
+
+Auto Growth Speed
+
+Click Growth Power
+
+Harvest Yield
+
+Verify all three have visible consequences.
+
+---
+
+## STEP 11 — MAIN RACE CAMERA FLOW
+
+Ensure Main Race can be entered from Stable.
+
+Allow fast camera cut/blend to separate Main Race area.
+
+No scene load.
+
+Return cleanly afterward.
+
+---
+
+## STEP 12 — POLISH
+
+Add lightweight polish to:
+
+Crop interaction
+
+Growth transitions
+
+Harvest
+
+World drops
+
+Pickup
+
+Training lap rewards
+
+New Training Horse unlock
+
+Training upgrades
+
+Camera transitions
+
+---
+
+## STEP 13 — REMOVE OLD UNUSED UI
+
+Remove / hide obsolete:
+
+Farm progress UI
+
+Farm Collect button
+
+Training UI that conflicts with physical Training
+
+Blacksmith crafting UI
+
+Do not remove useful debugging tools if still required.
+
+---
+
+## STEP 14 — FULL LOOP TEST
+
+Test:
+
+Player enters Stable.
+
+↓
+
+Training horse visibly runs.
+
+↓
+
+Farm crops visibly grow.
+
+↓
+
+Player clicks crops.
+
+↓
+
+Growth accelerates.
+
+↓
+
+Crop becomes ready.
+
+↓
+
+Player harvests.
+
+↓
+
+Carrots physically fall onto ground.
+
+↓
+
+Player moves cursor across them.
+
+↓
+
+Carrots are collected.
+
+↓
+
+Training horse finishes lap.
+
+↓
+
+Coins gained.
+
+↓
+
+Player upgrades Training Speed.
+
+↓
+
+Horse visibly runs faster.
+
+↓
+
+Player purchases another Training Horse.
+
+↓
+
+Second horse physically appears.
+
+↓
+
+Training output increases.
+
+↓
+
+Player starts Main Race.
+
+↓
+
+Camera moves/cuts to race.
+
+↓
+
+Race works normally.
+
+↓
+
+Player returns to Stable.
+
+↓
+
+All systems continue correctly.
+
+---
+
+# 68. ACCEPTANCE CRITERIA
+
+Milestone 4.5 is complete when:
+
+1. Training Track exists physically next to the Stable.
+
+2. Training horses are visible while the player manages the Stable.
+
+3. Training horses physically move around the Training Track.
+
+4. A completed Training lap generates the actual Training reward.
+
+5. There is no separate conflicting invisible Training timer.
+
+6. Training Horse Count can be upgraded.
+
+7. Buying Horse Count visibly adds another horse.
+
+8. Training Speed can be upgraded.
+
+9. Training Speed visibly changes horse movement speed.
+
+10. Training Reward can be upgraded.
+
+11. Training Reward changes actual Coin income.
+
+12. Multiple Training horses do not occupy exactly the same position.
+
+13. Farm exists physically in the world.
+
+14. Crops have at least four visible growth stages.
+
+15. Crops automatically grow over time.
+
+16. Crops can be clicked to accelerate growth.
+
+17. Clicking crops has visual feedback.
+
+18. No large Farm progress slider is required to understand growth.
+
+19. Harvest-ready crops are visually obvious.
+
+20. Harvesting does NOT instantly add the resource.
+
+21. Harvesting spawns physical world pickups.
+
+22. Pickups pop/scatter onto the ground.
+
+23. Multiple pickups can accumulate into small piles.
+
+24. Hovering the mouse over pickups collects them.
+
+25. Collection gives visible feedback.
+
+26. Collected resource correctly enters Player Progression.
+
+27. Crop immediately resets to Sprout after harvest.
+
+28. Farm cycle automatically begins again.
+
+29. Auto Growth upgrade works.
+
+30. Click Growth Power upgrade works.
+
+31. Harvest Yield upgrade works.
+
+32. Blacksmith remains physically visible.
+
+33. Blacksmith player-facing gameplay is disabled.
+
+34. Blacksmith crafting UI is no longer part of the active loop.
+
+35. Main Race remains separate from Training.
+
+36. Main Race can use a camera cut or Cinemachine transition.
+
+37. Main Race does not require loading another scene.
+
+38. Returning from Main Race correctly restores Stable gameplay.
+
+39. Farm state remains valid after Main Race.
+
+40. Training correctly pauses/resumes according to chosen state rule.
+
+41. Cinemachine remains the camera solution.
+
+42. UI uses Scale With Screen Size at 1920x1080.
+
+43. Farm and Training now feel visually alive without final assets.
+
+44. No major Console errors occur during normal gameplay.
+
+45. The Stable requires noticeably more active interaction than before.
+
+---
+
+# IMPORTANT DEVELOPMENT PHILOSOPHY
+
+This milestone is NOT about adding more menus.
+
+It is about moving gameplay OUT OF THE UI and INTO THE WORLD.
+
+If something can be communicated physically:
+
+Prefer the physical version.
+
+Instead of:
+
+Training Progress Bar
+
+Show:
+
+Horse running.
+
+Instead of:
+
+Farm Progress Slider
+
+Show:
+
+Plant growing.
+
+Instead of:
+
+Collect Carrot Button
+
+Show:
+
+Carrots exploding onto the grass and let me sweep the mouse over them.
+
+Instead of:
+
+Horse Count: 3
+
+Show:
+
+Three horses actually running.
+
+This is the most important design principle of Milestone 4.5.
+
+We want the Stable to feel like a small living incremental sandbox.
+
+The player should enjoy simply watching it operate, but should also constantly have small things they can actively interact with.
+
+Idle progression remains useful.
+
+Active interaction is faster and more satisfying.
+
+Do NOT overcomplicate the systems.
+
+Do NOT add unnecessary minigames.
+
+Do NOT begin the next milestone automatically.
+
+---
+
+# FINAL REPORT
+
+At the end of implementation provide a report containing:
+
+1. What was implemented
+2. Which scripts were created
+3. Which scripts were modified
+4. Which old scripts/UI were disabled
+5. How the physical Training Track works
+6. How multiple Training Horses work
+7. Horse Count upgrade formula/costs
+8. Training Speed formula
+9. Training Reward formula
+10. How crop growth is calculated
+11. Exact crop growth stages
+12. How crop clicking accelerates growth
+13. How harvesting works
+14. How world drops work
+15. How hover collection works
+16. How pickup limits/performance are handled
+17. Farm upgrade values
+18. How Blacksmith gameplay was safely disabled
+19. How Main Race camera transition now works
+20. All polish/game-feel added
+21. Current prototype balance values
+22. How to test the complete Milestone 4.5 loop
+23. Known issues
+24. Obsolete systems that can safely be removed later
+25. Recommendation for the next milestone
+
+Stop after Milestone 4.5 is complete.

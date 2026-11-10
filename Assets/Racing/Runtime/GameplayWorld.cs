@@ -41,6 +41,7 @@ namespace Horsecremental.Racing
         public TrainingLadderSettings TrainingLadder => _trainingLadder;
         public int SelectedTrainingTier { get; private set; } = -1;
         public bool IsTrainingRace => SelectedTrainingTier >= 0;
+        public bool CanEnterMainRace => Player != null && Player.HorsePower >= _settings.RecommendedPower;
         public event Action Changed;
         private void Awake()
         {
@@ -52,7 +53,11 @@ namespace Horsecremental.Racing
         private void OnEnable() { _left.Enable(); _right.Enable(); }
         private void OnDisable() { _left.Disable(); _right.Disable(); }
         private void OnLeft(InputAction.CallbackContext context) => ShowStable();
-        private void OnRight(InputAction.CallbackContext context) => ShowRaceArea();
+        private void OnRight(InputAction.CallbackContext context)
+        {
+            if (_trainingLadder != null) ShowTraining();
+            else ShowRaceArea();
+        }
         public void Initialize(RacePrototype prototype, RaceManager race, PlayerProgression player)
         {
             if (_settings == null || _cameras == null || _stableUI == null || _managementUI == null || _raceUI == null || _stableGroup == null)
@@ -98,8 +103,15 @@ namespace Horsecremental.Racing
         }
         public void StartMainRace()
         {
-            if (!IsManagement || !ViewingRace) return;
+            if (!IsManagement || !ViewingRace || !CanEnterMainRace) return;
             BeginRace(-1);
+        }
+        public void ReturnToRaceSelection()
+        {
+            if (Phase != WorldPhase.MainRaceFinished) return;
+            ShowStable();
+            Area = ManagementArea.Training;
+            RefreshVisibility();
         }
         public void ShowTraining()
         {

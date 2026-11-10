@@ -1,0 +1,866 @@
+We are continuing development of our short-scope incremental horse racing game.
+
+Before making any changes, inspect the current project and understand the existing systems.
+
+Do NOT start implementing everything in this brief immediately.
+
+This message defines the NEW TARGET DESIGN for the demo.
+
+I will give you smaller implementation tasks after this.
+
+# NEW DEMO CORE LOOP
+
+The current game is still too passive and idle.
+
+We are changing the core structure.
+
+The demo should now revolve around:
+
+**Stable / Farm**
+
+↓
+
+**Player chooses Training Races whenever they want**
+
+↓
+
+**Training Races reward Coins + Training Tokens depending on finishing position**
+
+↓
+
+**Finishing 1st unlocks the next harder Training Race**
+
+↓
+
+**Player upgrades the horse and Stable**
+
+↓
+
+**Time continuously passes through a Day / Night Cycle**
+
+↓
+
+**A mandatory Main Race happens after a fixed number of in-game days**
+
+↓
+
+**Player must attempt the Main Race**
+
+↓
+
+**Win = progression**
+
+**Lose = return to preparation period and try again later**
+
+The important feeling is:
+
+**"I only have a limited amount of time before the next Main Race. How strong can I make my horse before race day?"**
+
+---
+
+# IMPORTANT DESIGN CHANGE — REMOVE PASSIVE TRAINING HORSE SYSTEM
+
+Remove the current gameplay concept where the player buys 3–4+ Training Horses that automatically run and generate passive income.
+
+We are returning the focus to ONE important player horse.
+
+The fantasy is:
+
+**Take this horse and turn it into a World Champion.**
+
+Do not build the economy around owning many production horses.
+
+Training is now something the PLAYER chooses to actively race.
+
+---
+
+# TRAINING RACES
+
+Training Races are manual races that the player can enter whenever they want.
+
+They use the normal horse racing mechanics:
+
+- Automatic forward movement
+- SPACE Boost
+- E Jump
+- AI opponents
+- Obstacles where appropriate
+- Finish position
+
+Training Races should be shorter and easier than Main Races.
+
+There should be a Training progression ladder.
+
+Example:
+
+Training I
+
+↓
+
+Finish 1st
+
+↓
+
+Training II unlocked
+
+↓
+
+Finish 1st
+
+↓
+
+Training III unlocked
+
+and so on.
+
+For the demo approximately 5–6 Training Races are enough.
+
+Do NOT build dozens of races.
+
+---
+
+# TRAINING REWARDS
+
+Training Races reward:
+
+**Coins**
+
+and
+
+**Training Tokens**
+
+Rewards depend on finishing position.
+
+Example concept:
+
+1st:
+100% Coin Reward
+100% Token Reward
+Unlock next Training Race
+
+2nd:
+75% Coin Reward
+65% Token Reward
+
+3rd:
+50% Coin Reward
+40% Token Reward
+
+4th:
+30% Coin Reward
+Minimum Token Reward
+
+Exact values should remain configurable.
+
+A bad Training Race should never feel like completely wasted time.
+
+---
+
+# TRAINING TOKENS
+
+Training Tokens must have a distinct purpose.
+
+Do NOT make them simply "Coin Currency #2".
+
+Use:
+
+### COINS
+
+for Stable / production / Farm / infrastructure progression.
+
+### TRAINING TOKENS
+
+for improving the HORSE itself.
+
+Training Tokens should purchase things such as:
+
+- Speed
+- Acceleration
+- Boost Power
+- Possibly Boost Gain
+- Possibly Jump Power later
+
+This creates a clear relationship:
+
+**Training → Horse becomes stronger**
+
+and:
+
+**Farm / Economy → Stable becomes stronger**
+
+---
+
+# TRAINING RACE LADDER
+
+Prototype structure can be approximately:
+
+Training I
+Training II
+Training III
+Training IV
+Training V
+Training VI
+
+Only Training I starts unlocked.
+
+The next Training Race unlocks ONLY when the player finishes 1st in the previous Training Race.
+
+Higher Training tiers should:
+
+- Have stronger AI
+- Give more Coins
+- Give more Training Tokens
+
+Do NOT dynamically scale old Training opponents to player power.
+
+Old races should become easier as the player becomes stronger.
+
+This is important for incremental power progression.
+
+---
+
+# DAY / NIGHT CYCLE
+
+Add a continuous Day / Night Cycle.
+
+Time should ALWAYS keep moving during normal gameplay.
+
+There should NOT be:
+
+- Day-end loading screens
+- Forced sleep
+- Day reset screens
+- Scene reset
+- Gameplay interruption every night
+
+The world simply transitions visually.
+
+Example:
+
+Morning
+
+↓
+
+Day
+
+↓
+
+Sunset
+
+↓
+
+Night
+
+↓
+
+Sunrise
+
+↓
+
+Next Day
+
+Lighting and world visuals should change gradually.
+
+Gameplay systems do NOT receive stat bonuses or penalties based on time of day.
+
+Day / Night is primarily:
+
+**Visual atmosphere + Main Race scheduling.**
+
+---
+
+# DAY / NIGHT UI
+
+Create a clean persistent visual indicator.
+
+Prefer something like a circular or horizontal timeline.
+
+Example concept:
+
+Moon → Sunrise → Sun → Sunset → Moon
+
+with a moving indicator showing the current time.
+
+Also display:
+
+DAY 2
+
+or similar.
+
+The player should immediately understand:
+
+- Current day
+- Approximate current time
+- How close the next Main Race is
+
+---
+
+# MAIN RACE DEADLINE
+
+Main Races now happen automatically after a fixed number of in-game days.
+
+For prototype balancing:
+
+A day could last approximately:
+
+2.5–3 minutes
+
+and a Main Race could happen every:
+
+3 days
+
+This creates a Main Race approximately every:
+
+7.5–9 minutes.
+
+Keep these values configurable.
+
+---
+
+# MAIN RACE WARNING
+
+The player should always know when the next Main Race is coming.
+
+Persistent UI could show:
+
+MAIN RACE
+
+Day 3 — Sunset
+
+or:
+
+MAIN RACE IN 1 DAY
+
+As the race approaches, increase urgency slightly.
+
+Example:
+
+1 Day Remaining
+
+↓
+
+Main Race Today
+
+↓
+
+Race Approaching
+
+↓
+
+IT'S RACE TIME
+
+Do not make this annoying.
+
+---
+
+# MANDATORY MAIN RACE
+
+When Main Race time arrives:
+
+The player must attempt the Main Race.
+
+Do not allow the player to infinitely delay it.
+
+However:
+
+If the player is currently inside a Training Race when Main Race time arrives:
+
+DO NOT interrupt the Training Race halfway through.
+
+Allow the Training Race to finish.
+
+Then queue the Main Race immediately afterward.
+
+---
+
+# MAIN RACE TRANSITION
+
+Main Race can exist elsewhere inside the same gameplay scene.
+
+It does not need to be visible from the Stable.
+
+When Main Race begins:
+
+Stable interaction stops.
+
+↓
+
+Short UI transition.
+
+↓
+
+Camera cuts / Cinemachine blends to Main Race track.
+
+↓
+
+Main Race countdown.
+
+↓
+
+3
+
+2
+
+1
+
+GO.
+
+Do NOT load another gameplay scene unless the current architecture absolutely requires it.
+
+Prefer the existing unified world.
+
+---
+
+# MAIN RACE DIFFICULTY
+
+Main Races should be HARD progression gates.
+
+They should test whether the player prepared enough before race day.
+
+A fresh / under-upgraded player should often lose.
+
+The player should think:
+
+"I need stronger Training upgrades and horse stats before the next attempt."
+
+Do NOT use aggressive rubber-banding.
+
+Opponents should have meaningful fixed stats.
+
+Upgrading the horse must actually make future attempts easier.
+
+---
+
+# MAIN RACE FAILURE
+
+For the prototype use this failure philosophy:
+
+DO NOT:
+
+- Remove Horse Stats
+- Remove Equipment
+- Delete Coins
+- Reset progression
+- Take away Training unlocks
+
+Failure should NOT undo the player's incremental progress.
+
+The primary punishment is:
+
+**You did not advance.**
+
+After losing:
+
+Return to Stable.
+
+Start a short preparation / recovery period.
+
+Recommended prototype:
+
+**2 in-game Recovery Days**
+
+Then the same Main Race is attempted again.
+
+---
+
+# COMEBACK BONUS
+
+Add a lightweight anti-frustration system.
+
+If the player loses a Main Race:
+
+Until the next Main Race attempt:
+
+Training Token rewards receive a temporary bonus.
+
+Example:
+
+First failure:
+
++20% Training Token Gain
+
+Second consecutive failure:
+
++35%
+
+Third+:
+
+Maximum +50%
+
+When the player finally wins the Main Race:
+
+Reset Comeback Bonus to 0%.
+
+Keep values configurable.
+
+This should help the player recover without making the next race automatically free.
+
+---
+
+# OPTIONAL RIVAL ANALYSIS
+
+After losing a Main Race, display simple useful information.
+
+Example:
+
+MAIN RACE FAILED
+
+Your Power: 147
+
+Recommended Power: ~180
+
+Gap: 33
+
+Training Tokens Earned Bonus:
++20%
+
+Do not create a complex analytics system.
+
+The goal is simply:
+
+Tell the player:
+
+"You are getting closer."
+
+---
+
+# DEMO CALENDAR TARGET
+
+A possible demo structure:
+
+### DAYS 1–3
+
+Training I–III
+
+Farm
+
+Horse progression
+
+Main Race I on Day 3
+
+### DAYS 4–6
+
+Training IV–V
+
+Stronger upgrades
+
+Main Race II on Day 6
+
+### DAYS 7–9
+
+Training VI
+
+Late-demo upgrades
+
+Final Demo Championship on Day 9
+
+Winning the final race:
+
+NEIGHBORHOOD CHAMPION
+
+Next:
+
+CITY CHAMPIONSHIP
+
+COMING IN FULL GAME
+
+This is a prototype target, not a hardcoded final content requirement.
+
+---
+
+# FARM ROLE
+
+Farm remains part of Stable gameplay.
+
+The current direction remains:
+
+- Crops physically grow
+- Crops have visible growth stages
+- Crops grow automatically
+- Clicking accelerates growth
+- Harvest creates physical drops
+- Hovering pickups collects them
+
+Farm should mainly support Stable/economic progression.
+
+Do not turn Farm rewards into Training Tokens.
+
+Keep system identities clear.
+
+---
+
+# BLACKSMITH
+
+Blacksmith is currently NOT part of the active demo gameplay.
+
+Keep it visual-only for now.
+
+Do not reintroduce equipment crafting yet.
+
+We will redesign the Blacksmith separately later.
+
+---
+
+# NEW UI DIRECTION
+
+The current UI feels too much like prototype/developer UI.
+
+Rework the design philosophy.
+
+The WORLD should be the primary interface.
+
+UI should support the world instead of covering it.
+
+Persistent HUD should be minimal.
+
+Recommended layout:
+
+### TOP LEFT
+
+Important resources:
+
+Coin icon + amount
+
+Training Token icon + amount
+
+Carrot / current relevant Farm resource if necessary
+
+### TOP CENTER
+
+Day / Night indicator.
+
+Current day.
+
+Moving time indicator.
+
+### TOP RIGHT
+
+Next Main Race information.
+
+Example:
+
+MAIN RACE
+
+Day 6 — Sunset
+
+Your Power: 142
+
+Recommended: ~180
+
+Everything else should be contextual.
+
+---
+
+# CONTEXTUAL UI
+
+Do NOT keep giant permanent panels covering the Stable.
+
+When interacting with Training:
+
+Show Training selection UI.
+
+When interacting with Horse progression:
+
+Show Horse upgrade cards.
+
+When interacting with Farm:
+
+Show only relevant Farm information.
+
+When leaving:
+
+Hide / fade contextual panel.
+
+---
+
+# UPGRADE CARD DESIGN
+
+Use compact readable cards.
+
+Example:
+
+SPEED — LV. 6
+
+12.0 → 12.5
+
+Training Token Icon ×4
+
+[TRAIN]
+
+Avoid developer-style paragraphs.
+
+The player should understand the upgrade in less than one second.
+
+---
+
+# TRAINING SELECTION UI
+
+Example:
+
+TRAINING III
+
+Best: 2nd
+
+Rewards:
+
+Coins: 70–110
+
+Training Tokens: 2–5
+
+[START RACE]
+
+Training IV
+
+LOCKED
+
+Finish 1st in Training III
+
+Again:
+
+Large readable text.
+
+Clear hierarchy.
+
+Minimal clutter.
+
+---
+
+# INCREMENTAL UI PRINCIPLES
+
+Follow these principles:
+
+- Big readable numbers
+- Strong hierarchy
+- Few permanent panels
+- Contextual information
+- Clear icons
+- Obvious affordability
+- Immediate feedback when purchasing
+- Show OLD → NEW values
+- Avoid tiny fonts
+- Avoid long descriptions
+- Avoid giant spreadsheets of stats
+- Use the world itself to communicate progression when possible
+
+Do not try to imitate one specific game exactly.
+
+Use modern incremental-game readability principles.
+
+---
+
+# CINEMACHINE
+
+Continue using Cinemachine.
+
+Use it for:
+
+- Stable framing
+- Training race transition
+- Main Race transition
+- Racing gameplay
+
+Do not reintroduce unnecessary manual camera systems.
+
+---
+
+# UI CANVAS
+
+Continue using:
+
+Canvas Scaler
+
+Scale With Screen Size
+
+1920 × 1080 reference resolution.
+
+Use proper anchors.
+
+---
+
+# IMPORTANT REMOVALS
+
+The following current systems should no longer define the demo loop:
+
+- Buying multiple passive Training Horses
+- Passive Training Horse production
+- Training Horse Count economy
+- Main Training loop based only on timers
+- Giant permanent Stable UI panels
+
+Inspect dependencies before removing code.
+
+Disable/refactor safely.
+
+Do NOT randomly delete scripts referenced elsewhere.
+
+---
+
+# CORE DEMO EXPERIENCE
+
+The final target feeling is:
+
+The player is in the Stable.
+
+The clock is moving.
+
+The next Main Race is coming.
+
+Farm crops are growing.
+
+The player sees:
+
+"Main Race in 1.5 Days."
+
+They choose:
+
+Training III.
+
+They race.
+
+Finish 2nd.
+
+Earn:
+
+Coins + Training Tokens.
+
+Return to Stable.
+
+Upgrade Speed.
+
+Harvest Farm.
+
+Enter Training III again.
+
+Finish 1st.
+
+Training IV unlocks.
+
+Time is now Sunset.
+
+Main Race is tomorrow.
+
+The player realizes:
+
+"I probably need one more Speed upgrade."
+
+They race again.
+
+Night falls naturally while gameplay continues.
+
+Morning comes.
+
+MAIN RACE TODAY.
+
+The player makes final upgrades.
+
+Race time arrives.
+
+Camera transitions.
+
+Main Race begins.
+
+THIS is the new demo loop.
+
+Do not implement everything from this document yet.
+
+Wait for the next focused task prompt.

@@ -1,0 +1,860 @@
+[
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1223450759-0",
+    "Property": "_position",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1088274009-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1223450759-0",
+    "Property": "_boost",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-493254223-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1223450759-0",
+    "Property": "_countdown",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-813538499-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1223450759-0",
+    "Property": "_result",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1817835515-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1223450759-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-2055061163-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1223450759-0",
+    "Property": "_reward",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-222222526-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-59381003-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1809162047-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-59381003-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-41619090-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-59381003-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1540316747-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1831903460-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1526101558-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1831903460-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-299439752-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1831903460-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1993867815-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-865115178-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1217429137-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-865115178-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1971473558-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-865115178-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1948661094-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1660516886-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-449871810-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1660516886-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-2142108479-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone1Race.unity",
+    "Owner": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-1660516886-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-6cf01bce7b97417882fe43502162ed38-110484624-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone2Stable.unity",
+    "Owner": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1315008065-0",
+    "Property": "_coins",
+    "Text": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-612390461-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone2Stable.unity",
+    "Owner": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1315008065-0",
+    "Property": "_stats",
+    "Text": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1716912956-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone2Stable.unity",
+    "Owner": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1315008065-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-288305253-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone2Stable.unity",
+    "Owner": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1315008065-0",
+    "Property": "_upgradeLabels.Array.data[0]",
+    "Text": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1633447548-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone2Stable.unity",
+    "Owner": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1315008065-0",
+    "Property": "_upgradeLabels.Array.data[1]",
+    "Text": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1303929084-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone2Stable.unity",
+    "Owner": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-1315008065-0",
+    "Property": "_upgradeLabels.Array.data[2]",
+    "Text": "GlobalObjectId_V1-2-241b8c5827b81714f9a5d2b6f0ba583a-796746546-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1223450759-0",
+    "Property": "_position",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1088274009-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1223450759-0",
+    "Property": "_boost",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-493254223-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1223450759-0",
+    "Property": "_countdown",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-813538499-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1223450759-0",
+    "Property": "_result",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1817835515-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1223450759-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2055061163-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1223450759-0",
+    "Property": "_reward",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-222222526-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1223450759-0",
+    "Property": "_entryRequirement",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1438212744-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-59381003-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1809162047-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-59381003-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-41619090-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-59381003-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1540316747-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1831903460-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1526101558-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1831903460-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-299439752-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1831903460-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1993867815-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-865115178-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1217429137-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-865115178-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1971473558-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-865115178-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1948661094-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1660516886-0",
+    "Property": "_place",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-449871810-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1660516886-0",
+    "Property": "_name",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2142108479-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1660516886-0",
+    "Property": "_time",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-110484624-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1267499596-0",
+    "Property": "_coins",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-341152417-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1267499596-0",
+    "Property": "_stats",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2127347160-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1267499596-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1922141673-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1267499596-0",
+    "Property": "_upgradeLabels.Array.data[0]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-801669689-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1267499596-0",
+    "Property": "_upgradeLabels.Array.data[1]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-543260414-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1267499596-0",
+    "Property": "_upgradeLabels.Array.data[2]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-480098475-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1267499596-0",
+    "Property": "_power",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1173249302-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-557711284-0",
+    "Property": "_training",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1693031629-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-557711284-0",
+    "Property": "_difficulty",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-760196207-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-701872779-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1972796463-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-701872779-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-999869579-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1831082685-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1986355011-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1831082685-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-999869579-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1864139079-0",
+    "Property": "_status",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1716734633-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1864139079-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1329416837-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-745818666-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1428617533-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-745818666-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1329416837-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-435333781-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-679094839-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-435333781-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1329416837-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1268392805-0",
+    "Property": "_cards.Array.data[0]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-446521340-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1268392805-0",
+    "Property": "_cards.Array.data[1]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1702313579-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1268392805-0",
+    "Property": "_cards.Array.data[2]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-400106203-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1268392805-0",
+    "Property": "_status",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-697299653-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1268392805-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1198861285-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1065065023-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1245197660-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1065065023-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1198861285-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1245769287-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1303838754-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1245769287-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1198861285-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-720692872-0",
+    "Property": "_title",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1843137679-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_total",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1628279117-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_popup",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1448174684-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_metal",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1458292087-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_metalPopup",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2019277680-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_carrots",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2013916241-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_carrotPopup",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-687147493-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_tokens",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1229418216-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_tokenPopup",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1165051564-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_trainingTokens",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-770208071-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915730-0",
+    "Property": "_trainingTokenPopup",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1679282631-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1151915729-0",
+    "Property": "_banner",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1040702124-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-448178102-0",
+    "Property": "_summary",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-272277302-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-448178102-0",
+    "Property": "_feedback",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1970751890-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1720181382-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-613226105-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1764213760-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1133519476-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2141514244-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1703794419-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-363389716-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-283303771-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-548656656-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-570850210-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1436969957-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-987927612-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-728047872-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1896047311-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-254986875-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-847306700-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2101834653-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1190468799-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-212027538-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-717230564-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1703516251-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-887976289-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-472850683-0",
+    "Property": "_title",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-922209293-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-472850683-0",
+    "Property": "_description",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1949772883-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-472850683-0",
+    "Property": "_status",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-253294757-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-472850683-0",
+    "Property": "_cost",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-449310019-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[0]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2016894403-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[1]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1541608651-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[2]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-774606279-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[3]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-488253992-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[4]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1310567764-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[5]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1647505915-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[6]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1001457255-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[7]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1858581104-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[8]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2040177455-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[9]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-470329923-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[10]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1529987662-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[11]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1282106409-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[12]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1041984899-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[13]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1863650659-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[14]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1549365893-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-883956706-0",
+    "Property": "_labels.Array.data[15]",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2015446122-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1252642248-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-901643651-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-671447352-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2081697199-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-924883940-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-636499340-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1918540552-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1650434747-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-2118307115-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-742890055-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-889677614-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-830891414-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-842800499-0",
+    "Property": "_label",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1242196605-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-710593745-0",
+    "Property": "_title",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-377924307-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-710593745-0",
+    "Property": "_status",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-607943415-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-710593745-0",
+    "Property": "_best",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1970765028-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-710593745-0",
+    "Property": "_rewards",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-776098906-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-710593745-0",
+    "Property": "_requirement",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1261384945-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1254488503-0",
+    "Property": "_title",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1054826484-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1254488503-0",
+    "Property": "_status",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-319763257-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1254488503-0",
+    "Property": "_best",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1802012350-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1254488503-0",
+    "Property": "_rewards",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1465149271-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1254488503-0",
+    "Property": "_requirement",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-212085561-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1726922319-0",
+    "Property": "_title",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-856636579-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1726922319-0",
+    "Property": "_status",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-181946672-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1726922319-0",
+    "Property": "_best",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-583498435-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1726922319-0",
+    "Property": "_rewards",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-84489615-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1726922319-0",
+    "Property": "_requirement",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1522297439-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1422516055-0",
+    "Property": "_title",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-535520666-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1422516055-0",
+    "Property": "_status",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-419501800-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1422516055-0",
+    "Property": "_best",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-439727651-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1422516055-0",
+    "Property": "_rewards",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1014502066-0"
+  },
+  {
+    "Scene": "Assets/Racing/Scenes/Milestone3World.unity",
+    "Owner": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1422516055-0",
+    "Property": "_requirement",
+    "Text": "GlobalObjectId_V1-2-8789f1f4a37cec24183629f77a4555ec-1905196129-0"
+  }
+]

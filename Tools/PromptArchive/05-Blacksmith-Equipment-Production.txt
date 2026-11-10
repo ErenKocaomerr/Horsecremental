@@ -1,0 +1,1817 @@
+We are continuing development of our short-scope incremental horse racing game.
+
+**Milestones 1, 2 and 3 are already complete.**
+
+Before implementing anything, inspect the current project carefully.
+
+Understand the systems already created and reuse them.
+
+Do NOT rebuild working systems unnecessarily.
+
+Current game structure should already include:
+
+- One unified gameplay scene
+- Stable and Race areas in the same scene
+- Cinemachine camera transitions
+- Stable management
+- Automatic Training Races
+- Passive Coin income
+- Difficult Main Race
+- Horse upgrades
+- Speed
+- Acceleration
+- Boost Power
+- Boost Meter system
+- SPACE increases Boost Meter
+- Higher Boost drains faster
+- E Jump
+- Farm
+- Carrot production
+- Feeding progression
+- Basic game-feel polish
+- Runtime Player Progression
+- Canvas Scale With Screen Size 1920x1080
+
+# MILESTONE 4 — BLACKSMITH, EQUIPMENT & PRODUCTION PROGRESSION
+
+The goal of Milestone 4 is to make Stable progression deeper without making the game complicated.
+
+Add:
+
+**Blacksmith**
++
+**Equipment**
++
+**Crafting**
++
+**Production Upgrades**
+
+The player should now have multiple satisfying ways to improve the horse while Training Races automatically generate resources.
+
+The new core loop becomes:
+
+Training Races
+
+↓
+
+Earn Coins + basic crafting material
+
+↓
+
+Upgrade Farm / Blacksmith
+
+↓
+
+Craft better horse equipment
+
+↓
+
+Horse becomes stronger
+
+↓
+
+Training improves
+
+↓
+
+Attempt difficult Main Race
+
+↓
+
+Progress further
+
+This should still feel like a simple incremental game.
+
+Do NOT turn this into a complicated RPG or inventory management game.
+
+---
+
+# 1. ADD A BLACKSMITH AREA
+
+Add a Blacksmith / Forge section inside the existing Stable area.
+
+It must remain inside the SAME gameplay scene.
+
+Do not create a new scene.
+
+The Blacksmith should visually feel like another Stable workstation.
+
+Use existing assets if appropriate.
+
+If proper Blacksmith assets do not exist, use placeholders such as:
+
+- Anvil
+- Forge
+- Workbench
+- Crates
+- UI panel
+
+Functionality is more important than final visuals.
+
+When the player navigates to / selects the Blacksmith area, show the Blacksmith UI.
+
+Use the existing camera/navigation architecture.
+
+If useful, add another Cinemachine stable sub-camera.
+
+For example:
+
+Farm
+
+← Stable →
+
+Blacksmith
+
+Do not create unnecessary scene transitions.
+
+---
+
+# 2. NEW RESOURCE — METAL
+
+Add ONE crafting material:
+
+**Metal**
+
+Do not create:
+
+Iron Ore
+Copper
+Steel
+Leather
+Wood
+Coal
+etc.
+
+Milestone 4 only needs one crafting material.
+
+The purpose is to create a second progression resource without adding complexity.
+
+The player earns Metal primarily through Training Races and Main Races.
+
+Example prototype values:
+
+Training Race:
+
++20–50 Coins
++1–3 Metal
+
+Main Race:
+
++300 Coins
++10–20 Metal
+
+Keep all reward values configurable.
+
+---
+
+# 3. METAL SHOULD BE PART OF EXISTING PLAYER PROGRESSION
+
+Extend the existing central Player Progression system.
+
+Add:
+
+Metal
+
+Do not create multiple separate sources of truth.
+
+The same progression system should now contain or reference:
+
+- Coins
+- Metal
+- Carrots
+- Horse upgrade levels
+- Equipment progression
+- Farm progression
+- Blacksmith progression
+
+Do NOT duplicate resources across different managers.
+
+---
+
+# 4. TRAINING RACE REWARD UPDATE
+
+Training Races should now generate:
+
+Coins
+
+-
+
+Metal
+
+Example:
+
+TRAINING COMPLETE
+
++35 Coins
+
++2 Metal
+
+Metal should be less abundant than Coins.
+
+The player should gradually accumulate enough Metal to craft equipment.
+
+Give clear visual feedback when Metal is earned.
+
+---
+
+# 5. MAIN RACE REWARD UPDATE
+
+Main Race should provide significantly more Metal than Training.
+
+This gives the player another reason to beat difficult Main Races.
+
+Example:
+
+MAIN RACE COMPLETE
+
+1st Place
+
++400 Coins
+
++15 Metal
+
+Do not make the exact values final.
+
+Keep prototype values editable.
+
+---
+
+# 6. EQUIPMENT SYSTEM
+
+Add a simple horse Equipment system.
+
+For Milestone 4 implement ONLY:
+
+### HORSESHOES
+
+Primary bonus:
+
+Speed
+
+### SADDLE
+
+Primary bonus:
+
+Acceleration
+
+### BRIDLE
+
+Primary bonus:
+
+Boost Power
+
+That gives us three clear equipment slots.
+
+Do NOT add more equipment types yet.
+
+No armor.
+
+No jockey clothing.
+
+No cosmetic equipment.
+
+No accessories.
+
+---
+
+# 7. EQUIPMENT MUST BE EXTREMELY SIMPLE
+
+There should NOT be a traditional inventory full of items.
+
+The player does not need to collect 10 copies of the same horseshoe.
+
+Each equipment category simply has a current tier.
+
+Example:
+
+HORSESHOES
+
+Current:
+
+Iron Horseshoes — Tier 2
+
+Bonus:
+
++1.5 Speed
+
+Next:
+
+Steel Horseshoes — Tier 3
+
+Bonus:
+
++2.5 Speed
+
+Cost:
+
+350 Coins
+
+12 Metal
+
+[CRAFT]
+
+When crafted:
+
+Tier 3 automatically replaces Tier 2.
+
+No inventory drag/drop required.
+
+No manual equip/unequip required.
+
+The newly crafted equipment should automatically become equipped.
+
+This is an incremental progression system, not an inventory game.
+
+---
+
+# 8. EQUIPMENT TIERS
+
+Create approximately 5 prototype tiers for each equipment category.
+
+Names can be simple.
+
+Example Horseshoes:
+
+Tier 0 — Old Horseshoes
+
+Tier 1 — Iron Horseshoes
+
+Tier 2 — Reinforced Horseshoes
+
+Tier 3 — Steel Racing Horseshoes
+
+Tier 4 — Champion Horseshoes
+
+Saddle example:
+
+Old Saddle
+
+Leather Saddle
+
+Racing Saddle
+
+Professional Saddle
+
+Champion Saddle
+
+Bridle example:
+
+Basic Bridle
+
+Reinforced Bridle
+
+Racing Bridle
+
+Professional Bridle
+
+Champion Bridle
+
+Names can be adjusted.
+
+What matters is clear tier progression.
+
+---
+
+# 9. EQUIPMENT COST SCALING
+
+Each next tier should cost:
+
+Coins
+
+-
+
+Metal
+
+Example:
+
+Tier 1:
+
+100 Coins
+5 Metal
+
+Tier 2:
+
+300 Coins
+12 Metal
+
+Tier 3:
+
+700 Coins
+25 Metal
+
+Tier 4:
+
+1500 Coins
+50 Metal
+
+These are prototype values only.
+
+Use configurable data.
+
+Do not scatter costs through UI code.
+
+---
+
+# 10. EQUIPMENT BONUSES
+
+Equipment bonuses must modify the ACTUAL horse racing stats.
+
+Example:
+
+Horse Base Speed:
+
+10
+
+Speed Upgrade Bonus:
+
++2
+
+Carrot Bonus:
+
++0.5
+
+Horseshoe Bonus:
+
++2
+
+Final Speed:
+
+14.5
+
+Create a clean final-stat calculation.
+
+The horse's final stats should clearly derive from:
+
+Base Stat
+
+-
+
+Direct Upgrade Bonus
+
+-
+
+Farm / Feeding Bonus
+
+-
+
+Equipment Bonus
+
+Avoid permanently modifying one raw number from many different systems.
+
+Prefer clearly separated bonus sources.
+
+---
+
+# 11. DISPLAY FINAL STAT BREAKDOWN
+
+Where appropriate, allow Stable UI to explain where stats come from.
+
+Example:
+
+SPEED
+
+15.5
+
+Base: 10
+
+Upgrades: +3
+
+Food: +0.5
+
+Equipment: +2
+
+This does not need to be displayed all the time.
+
+A tooltip, expanded stat panel or simple secondary text is enough.
+
+The player should understand why their horse is becoming stronger.
+
+---
+
+# 12. BLACKSMITH CRAFTING
+
+Equipment should not necessarily appear instantly after clicking Craft.
+
+Introduce a lightweight crafting timer.
+
+Example:
+
+CRAFT STEEL HORSESHOES
+
+Cost:
+
+700 Coins
+
+25 Metal
+
+Craft Time:
+
+8 seconds
+
+[CRAFT]
+
+When started:
+
+Crafting...
+
+[Progress Bar]
+
+8s → 0s
+
+Then:
+
+STEEL HORSESHOES COMPLETE!
+
+Automatically equip them.
+
+The player can continue interacting with other Stable systems while crafting occurs.
+
+---
+
+# 13. ONLY ONE BLACKSMITH CRAFT AT A TIME
+
+For Milestone 4:
+
+The Blacksmith only needs one crafting slot.
+
+If Horseshoes are currently crafting:
+
+The player cannot simultaneously craft a Saddle.
+
+Keep it simple.
+
+Show:
+
+BLACKSMITH BUSY
+
+Steel Horseshoes
+
+4.3s remaining
+
+Do not create crafting queues yet.
+
+---
+
+# 14. BLACKSMITH PRODUCTION UPGRADES
+
+Add upgradeable Blacksmith progression.
+
+Implement approximately 2 simple upgrades:
+
+### FORGE SPEED
+
+Reduces crafting time.
+
+Example:
+
+Forge Speed Lv.1
+
+Craft Time:
+
+100%
+
+Lv.2:
+
+90%
+
+Lv.3:
+
+80%
+
+etc.
+
+### METAL EFFICIENCY
+
+Reduces Metal crafting cost slightly.
+
+Example:
+
+Metal Cost:
+
+100%
+
+95%
+
+90%
+
+85%
+
+Keep it controlled.
+
+Do NOT allow equipment to become free.
+
+These upgrades should cost Coins.
+
+Potentially also Metal at higher levels if useful.
+
+---
+
+# 15. FARM PRODUCTION UPGRADES
+
+Milestone 3 introduced the Farm.
+
+Now expand it slightly.
+
+Do NOT add multiple crops yet.
+
+Keep only:
+
+Carrots.
+
+Add approximately two Farm upgrades:
+
+### GROW SPEED
+
+Reduces Carrot production time.
+
+### FARM CAPACITY
+
+Increases maximum stored Carrots.
+
+Example:
+
+Farm Level 1:
+
+1 Carrot every 20s
+
+Capacity: 10
+
+After upgrades:
+
+1 Carrot every 12s
+
+Capacity: 20
+
+Keep it simple.
+
+---
+
+# 16. TRAINING PRODUCTION UPGRADES
+
+Add lightweight progression for Training Races.
+
+The player should be able to improve idle income.
+
+Add approximately two Training upgrades:
+
+### TRAINING SPEED
+
+Reduces time between Training Race completions.
+
+Example:
+
+15s
+
+↓
+
+13.5s
+
+↓
+
+12s
+
+↓
+
+10.5s
+
+### TRAINING REWARD
+
+Increases Training Race Coin reward.
+
+Possibly Metal reward at higher levels.
+
+Example:
+
+Reward Multiplier:
+
+x1.0
+
+x1.15
+
+x1.30
+
+x1.45
+
+Do not create a huge Training skill tree.
+
+---
+
+# 17. IMPORTANT — PRODUCTION UPGRADES SHOULD CREATE INCREMENTAL MOMENTUM
+
+The player should experience:
+
+At first:
+
+Training Race every 15 seconds.
+
+Farm produces slowly.
+
+Blacksmith takes 10 seconds.
+
+Later:
+
+Training Race every 8 seconds.
+
+Farm produces much faster.
+
+Blacksmith crafts quickly.
+
+This increasing speed should make the Stable feel increasingly productive.
+
+This is a major part of the incremental fantasy.
+
+---
+
+# 18. AVOID INFINITE ECONOMY EXPLOSION
+
+Do not balance production upgrades so aggressively that progression breaks immediately.
+
+For prototype testing, scaling should be noticeable but controlled.
+
+The player should feel:
+
+"Everything is getting faster."
+
+Not:
+
+"I bought one upgrade and now I have infinite resources."
+
+---
+
+# 19. EQUIPMENT PROGRESSION SHOULD CREATE POWER SPIKES
+
+Direct stat upgrades give frequent small improvements.
+
+Equipment should give less frequent but bigger improvements.
+
+Example:
+
+Speed Upgrade:
+
++0.5 Speed
+
+New Horseshoes:
+
++2 Speed
+
+This should make crafting new equipment feel exciting.
+
+Equipment completion should feel like a milestone.
+
+---
+
+# 20. EQUIPMENT CRAFT COMPLETE FEEDBACK
+
+When equipment finishes crafting:
+
+Give strong but lightweight feedback.
+
+Example:
+
+CRAFT COMPLETE!
+
+STEEL RACING HORSESHOES
+
++2.0 SPEED
+
+Automatically Equipped
+
+Possible feedback:
+
+- UI scale punch
+- Particle burst
+- Short camera emphasis
+- Bright flash
+- Audio hook
+- Equipment icon animation
+
+Do not require final art assets.
+
+---
+
+# 21. BLACKSMITH FEEL / POLISH
+
+Give the Blacksmith some life.
+
+Cheap polish ideas:
+
+While crafting:
+
+- Anvil animation
+- Sparks
+- Forge glow
+- Hammer animation
+- Progress bar pulse
+- Small sound hooks
+
+Do not build complicated animation systems.
+
+If assets do not support these effects, simple particles and UI animation are enough.
+
+---
+
+# 22. STABLE NAVIGATION
+
+The Stable is becoming larger.
+
+Keep navigation understandable.
+
+Possible structure:
+
+FARM
+
+←
+
+HORSE / MAIN STABLE
+
+→
+
+BLACKSMITH
+
+and Race access can remain another navigation direction or button.
+
+For example:
+
+Farm
+
+Stable
+
+Blacksmith
+
+Race
+
+Use Cinemachine transitions.
+
+The player should always know which area is currently active.
+
+Do not require walking a player character around unless the current project already uses that.
+
+The camera/navigation UI is sufficient.
+
+---
+
+# 23. CAMERA TRANSITION POLISH
+
+When moving between:
+
+Stable
+
+Farm
+
+Blacksmith
+
+Race
+
+Use smooth Cinemachine blends.
+
+Avoid long travel times.
+
+Approximately:
+
+0.4–1.0 second transitions.
+
+Stable management should feel fast and snappy.
+
+---
+
+# 24. STABLE UI ORGANIZATION
+
+Do not display every panel simultaneously.
+
+Only show UI relevant to the current area.
+
+Example:
+
+At Farm:
+
+Farm UI visible.
+
+At Blacksmith:
+
+Blacksmith UI visible.
+
+At Horse Upgrade area:
+
+Horse Upgrade UI visible.
+
+At Race:
+
+Main Race UI visible.
+
+Use fades / slides / scale transitions where appropriate.
+
+Avoid screen clutter.
+
+---
+
+# 25. RESOURCE HEADER
+
+Create or improve a persistent resource display.
+
+Example top bar:
+
+COINS: 1,250
+
+METAL: 34
+
+CARROTS: 8 / 20
+
+Keep it visible while managing the Stable.
+
+When values increase/decrease:
+
+Animate them.
+
+Example:
+
++2 Metal
+
++35 Coins
+
+-15 Metal
+
+-300 Coins
+
+---
+
+# 26. UPGRADE COST FEEDBACK
+
+When the player cannot afford something:
+
+Clearly indicate which resource is missing.
+
+Example:
+
+CRAFT STEEL SADDLE
+
+500 Coins ✓
+
+20 Metal ✕
+
+Metal text can pulse / shake slightly when the player attempts to craft without enough Metal.
+
+Do not simply make the button silently fail.
+
+---
+
+# 27. BLACKSMITH PROGRESSION UI
+
+Example:
+
+BLACKSMITH
+
+Current Craft:
+
+Steel Horseshoes
+
+████████░░
+
+3.2s
+
+Equipment:
+
+Horseshoes — Tier 2
+
+Saddle — Tier 1
+
+Bridle — Tier 1
+
+Available Craft:
+
+Steel Horseshoes
+
+Cost:
+
+350 Coins
+
+12 Metal
+
+[CRAFT]
+
+Forge Speed — Lv.2
+
+Cost: 200 Coins
+
+[UPGRADE]
+
+Metal Efficiency — Lv.1
+
+Cost: 250 Coins
+
+[UPGRADE]
+
+This is only an example.
+
+Adapt to existing UI style.
+
+---
+
+# 28. EQUIPMENT SHOULD AFFECT TRAINING TOO
+
+Horse Equipment should improve more than Main Race performance.
+
+If Training Race logic uses Horse Power, equipment bonuses should increase Horse Power.
+
+This can affect:
+
+Training completion speed
+
+OR
+
+Training reward efficiency
+
+OR
+
+Training success/power calculation
+
+Prefer keeping Training timer mostly controlled by Training Speed upgrades.
+
+Equipment should primarily increase Horse Power and make harder future Training tiers possible.
+
+For Milestone 4, simply ensure Equipment contributes to Horse Power calculations.
+
+---
+
+# 29. HORSE POWER UPDATE
+
+Improve the Horse Power calculation if necessary.
+
+Horse Power should consider:
+
+Speed
+
+Acceleration
+
+Boost Power
+
+Possibly small weighting differences.
+
+Example concept only:
+
+Power =
+Speed × Weight
++
+Acceleration × Weight
++
+BoostPower × Weight
+
+Do not overcomplicate the formula.
+
+Equipment bonuses naturally increase Horse Power through final stats.
+
+Show Horse Power in the Stable.
+
+---
+
+# 30. MAIN RACE BALANCE UPDATE
+
+Rebalance the difficult Main Race after Equipment is introduced.
+
+A new player should still lose badly.
+
+After some:
+
+- Stat upgrades
+- Carrot feeding
+- Farm upgrades
+- Training income
+- Equipment crafting
+
+the player should eventually become competitive.
+
+The Main Race should now be balanced around using multiple Stable systems.
+
+However:
+
+Do not require every equipment item to reach maximum tier.
+
+The player should have some freedom in which progression path they prioritize.
+
+---
+
+# 31. MAIN RACE SHOULD STILL MATTER
+
+Do not let Training completely replace the Main Race.
+
+Main Race reward should remain significantly better.
+
+It can give:
+
+- Large Coin reward
+- Large Metal reward
+
+Do NOT add progression unlocks yet if Championship progression is still reserved for the next milestone.
+
+One difficult Main Race is still enough for this milestone.
+
+---
+
+# 32. CRAFTING TIMER BEHAVIOUR
+
+Blacksmith crafting should continue while the player is looking at:
+
+Farm
+
+Horse upgrades
+
+Other Stable areas
+
+It may also continue during Main Race if technically clean.
+
+Recommended:
+
+Blacksmith production continues during Main Race.
+
+Farm production continues during Main Race.
+
+Training Races pause during Main Race because the horse itself is currently participating in the Main Race.
+
+This distinction is important.
+
+Stable machines continue working.
+
+The horse cannot be in Training Race and Main Race simultaneously.
+
+---
+
+# 33. PRODUCTION STATE RULES
+
+During Stable:
+
+Training: ACTIVE
+
+Farm: ACTIVE
+
+Blacksmith: ACTIVE
+
+During Main Race:
+
+Training: PAUSED
+
+Farm: ACTIVE
+
+Blacksmith: ACTIVE
+
+After Main Race:
+
+Training: RESUMES
+
+Farm: continues
+
+Blacksmith: continues
+
+Implement this reliably.
+
+---
+
+# 34. DO NOT ADD OFFLINE PROGRESSION YET
+
+Production only needs to operate while the game is open.
+
+Do not calculate resources earned while the game was closed.
+
+Offline progression can come later.
+
+---
+
+# 35. NO RANDOM EQUIPMENT
+
+Do NOT add:
+
+Random stats
+
+Random rarity
+
+Common / Rare / Epic / Legendary
+
+Critical chance
+
+Random crafting outcomes
+
+Durability
+
+Equipment breaking
+
+Enchanting
+
+Sockets
+
+Affixes
+
+Loot drops
+
+The player should always know exactly what the next craft provides.
+
+This is important.
+
+Progression should be deterministic and easy to understand.
+
+---
+
+# 36. NO TRADITIONAL INVENTORY
+
+Do not build an inventory grid.
+
+Current Equipment should simply be stored as tier levels.
+
+Example:
+
+HorseshoeTier = 2
+
+SaddleTier = 1
+
+BridleTier = 3
+
+The UI derives the correct item name and bonus from the tier data.
+
+Keep it lightweight.
+
+---
+
+# 37. DATA-DRIVEN CONFIGURATION
+
+Equipment definitions should be easy to balance.
+
+Prefer an appropriate data-driven structure for the existing engine.
+
+For example, definitions may contain:
+
+Equipment Type
+
+Tier
+
+Display Name
+
+Coin Cost
+
+Metal Cost
+
+Craft Time
+
+Stat Bonus
+
+Do not hardcode all equipment data inside UI scripts.
+
+Similarly keep:
+
+Training Upgrade values
+
+Farm Upgrade values
+
+Blacksmith Upgrade values
+
+configurable.
+
+---
+
+# 38. GAME-FEEL PASS
+
+Milestone 4 should continue the polish direction from Milestone 3.
+
+Focus on:
+
+Craft start
+
+Craft progress
+
+Craft completion
+
+Resource gain
+
+Resource spending
+
+Equipment upgrade
+
+Production speed increase
+
+Camera area transitions
+
+Button feedback
+
+Do not perform a large art overhaul.
+
+---
+
+# 39. OPTIONAL SMALL VISUAL HORSE EQUIPMENT
+
+ONLY if existing assets make this easy:
+
+Visually change or attach the current Horseshoes / Saddle / Bridle tier.
+
+However:
+
+Do NOT spend significant development time on equipment visuals.
+
+Stat progression and UI are more important.
+
+If no suitable assets exist, skip visual equipment changes.
+
+---
+
+# 40. PROTOTYPE BALANCE TARGET
+
+Balance the milestone so a development test can experience meaningful progression in approximately 15–30 minutes.
+
+Example experience:
+
+Start:
+
+Weak horse
+
+Low Training income
+
+Slow Farm
+
+No good Equipment
+
+↓
+
+Training generates Coins + Metal
+
+↓
+
+Upgrade Training
+
+↓
+
+Upgrade Farm
+
+↓
+
+Craft Iron Horseshoes
+
+BIG Speed increase
+
+↓
+
+Craft Saddle
+
+↓
+
+Main Race attempt
+
+Still lose
+
+↓
+
+Upgrade Blacksmith speed
+
+↓
+
+Collect more Metal
+
+↓
+
+Craft stronger Equipment
+
+↓
+
+Feed Carrots
+
+↓
+
+Buy direct Horse upgrades
+
+↓
+
+Main Race becomes close
+
+↓
+
+Eventually win
+
+The final game will be slower.
+
+Milestone testing should be faster.
+
+---
+
+# 41. DO NOT IMPLEMENT YET
+
+Do NOT implement:
+
+- Neighborhood → City → Country → Continent → World progression
+- Multiple Main Race Championships
+- Multiple Training Race tiers unless trivial
+- Equipment rarity
+- Random equipment
+- Inventory grid
+- Equipment durability
+- Multiple crafting materials
+- Mining
+- Leather production
+- Multiple crops
+- Cooking recipes
+- Horse breeding
+- Multiple horses
+- Jockey customization
+- Skill trees
+- Prestige / Rebirth
+- Offline progression
+- Multiplayer
+- Procedural tracks
+- Quest systems
+- Story dialogue
+- Huge Stable expansion
+- Full economy rebalance
+- Large art pass
+
+These belong to future milestones.
+
+---
+
+# 42. IMPLEMENTATION ORDER
+
+Implement Milestone 4 in this order:
+
+## STEP 1 — AUDIT CURRENT PROGRESSION
+
+Inspect:
+
+PlayerProgression
+
+Horse stats
+
+Farm
+
+Training Race
+
+Main Race
+
+Stable UI
+
+Boost
+
+Camera system
+
+Current resource architecture
+
+Understand how stats are currently calculated.
+
+---
+
+## STEP 2 — ADD METAL
+
+Extend progression data.
+
+Add Metal.
+
+Update:
+
+Training rewards
+
+Main Race rewards
+
+Resource UI
+
+Gain/spend feedback
+
+---
+
+## STEP 3 — CREATE EQUIPMENT DATA MODEL
+
+Create:
+
+Horseshoes
+
+Saddle
+
+Bridle
+
+with tier-based progression.
+
+Do NOT build Inventory.
+
+Test equipment bonuses correctly affect horse stats.
+
+---
+
+## STEP 4 — FINAL STAT CALCULATION
+
+Refactor only as much as needed so final Horse Stats clearly combine:
+
+Base
+
+Direct Upgrades
+
+Farm / Food
+
+Equipment
+
+Verify existing progression still works.
+
+---
+
+## STEP 5 — BLACKSMITH
+
+Create Blacksmith area and UI.
+
+Add:
+
+Crafting
+
+Craft timer
+
+One crafting slot
+
+Automatic equipment replacement
+
+---
+
+## STEP 6 — BLACKSMITH UPGRADES
+
+Add:
+
+Forge Speed
+
+Metal Efficiency
+
+Test that upgrades modify real crafting calculations.
+
+---
+
+## STEP 7 — FARM UPGRADES
+
+Expand existing Carrot Farm.
+
+Add:
+
+Grow Speed
+
+Capacity
+
+Keep only Carrots.
+
+---
+
+## STEP 8 — TRAINING UPGRADES
+
+Add:
+
+Training Speed
+
+Training Reward
+
+Test incremental income scaling.
+
+---
+
+## STEP 9 — PRODUCTION STATE RULES
+
+Verify:
+
+Stable:
+
+Training ON
+Farm ON
+Forge ON
+
+Main Race:
+
+Training OFF
+Farm ON
+Forge ON
+
+After Race:
+
+Training ON again
+
+---
+
+## STEP 10 — UI / CAMERA POLISH
+
+Add:
+
+Blacksmith camera/view
+
+Smooth transitions
+
+Area-specific UI
+
+Resource header
+
+Craft feedback
+
+Cost feedback
+
+Upgrade feedback
+
+---
+
+## STEP 11 — MAIN RACE REBALANCE
+
+Tune the existing difficult Main Race around the new progression systems.
+
+Fresh player loses.
+
+Progressed player eventually wins.
+
+Do NOT dynamically scale enemies.
+
+---
+
+## STEP 12 — FULL LOOP TEST
+
+Test repeatedly:
+
+Training
+
+↓
+
+Coins + Metal
+
+↓
+
+Farm
+
+↓
+
+Carrots
+
+↓
+
+Direct Upgrades
+
+↓
+
+Blacksmith
+
+↓
+
+Equipment Craft
+
+↓
+
+Production Upgrades
+
+↓
+
+Main Race
+
+↓
+
+Return to Stable
+
+Make sure progression continues correctly.
+
+---
+
+# 43. ACCEPTANCE CRITERIA
+
+Milestone 4 is complete when:
+
+1. Blacksmith exists inside the existing gameplay scene.
+
+2. No new scene loading is required.
+
+3. Metal resource exists.
+
+4. Training Races generate Coins + Metal.
+
+5. Main Race generates larger Coins + Metal rewards.
+
+6. Resource UI clearly displays Coins, Metal and Carrots.
+
+7. Horseshoes exist.
+
+8. Saddle exists.
+
+9. Bridle exists.
+
+10. Equipment uses tier progression.
+
+11. No traditional inventory is required.
+
+12. Crafting automatically equips the new tier.
+
+13. Equipment actually changes horse gameplay stats.
+
+14. Horseshoes improve Speed.
+
+15. Saddle improves Acceleration.
+
+16. Bridle improves Boost Power.
+
+17. Crafting requires Coins + Metal.
+
+18. Crafting takes time.
+
+19. Blacksmith has one crafting slot.
+
+20. Crafting continues while navigating Stable areas.
+
+21. Blacksmith production can continue during Main Race.
+
+22. Farm continues during Main Race.
+
+23. Training pauses during Main Race.
+
+24. Training automatically resumes afterward.
+
+25. Forge Speed upgrade works.
+
+26. Metal Efficiency upgrade works.
+
+27. Farm Grow Speed works.
+
+28. Farm Capacity works.
+
+29. Training Speed upgrade works.
+
+30. Training Reward upgrade works.
+
+31. Equipment craft completion has satisfying feedback.
+
+32. Resource gain/spend has feedback.
+
+33. Stable area navigation remains smooth using Cinemachine.
+
+34. UI still uses Scale With Screen Size 1920x1080.
+
+35. Main Race remains difficult for a fresh player.
+
+36. Main Race becomes beatable through progression.
+
+37. Equipment creates noticeable power spikes.
+
+38. Existing Boost system remains functional.
+
+39. Existing Farm system remains functional.
+
+40. Existing direct Horse upgrades remain functional.
+
+41. No major Console errors occur during normal gameplay.
+
+---
+
+# IMPORTANT DEVELOPMENT PHILOSOPHY
+
+Milestone 4 is about adding **depth to the Stable**, not complexity.
+
+The player should now constantly have something satisfying happening:
+
+Training Race finishing.
+
+Farm producing Carrots.
+
+Blacksmith crafting Equipment.
+
+Coins increasing.
+
+Metal accumulating.
+
+An upgrade becoming affordable.
+
+A new Equipment tier finishing.
+
+Main Race becoming slightly more possible.
+
+This is the feeling we want.
+
+Avoid complicated RPG systems.
+
+Avoid random systems.
+
+Avoid large inventories.
+
+Avoid systems where the player has to read many stats.
+
+Every system should answer a simple question:
+
+**Does this make my horse stronger or make progression faster?**
+
+If not, it probably does not belong in Milestone 4.
+
+The game is still short-scope.
+
+Do not overengineer.
+
+Do not begin Milestone 5 automatically.
+
+At the end provide a report containing:
+
+1. What was implemented
+2. Scripts created
+3. Scripts modified
+4. How Metal works
+5. How Equipment data is structured
+6. How final Horse Stats are calculated
+7. All Equipment tiers and bonuses
+8. Equipment costs and crafting times
+9. How Blacksmith crafting works
+10. How Forge upgrades work
+11. How Farm upgrades work
+12. How Training upgrades work
+13. How production behaves during Main Race
+14. Main Race balance changes
+15. Polish / game-feel added
+16. Current prototype economy values
+17. How to test the complete Milestone 4 loop
+18. Known issues
+19. Obsolete systems / scripts that can safely be removed
+20. Recommendation for Milestone 5
+
+Stop after Milestone 4 is complete.\
+
+
+\

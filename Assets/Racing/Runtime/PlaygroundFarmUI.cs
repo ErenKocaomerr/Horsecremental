@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ namespace Horsecremental.Racing
     {
         [SerializeField] private GameplayWorld _world;
         [SerializeField] private Button _feed;
-        [SerializeField] private Text _label;
+        [SerializeField] private TMP_Text _label;
         private PlayerProgression _player;
         private void Start()
         {
@@ -25,7 +26,7 @@ namespace Horsecremental.Racing
         private void Refresh()
         {
             _feed.interactable = _world.IsManagement && !_world.ViewingRace && _player.Carrots >= _world.Settings.FeedCost;
-            _label.text = "Feed horse  " + _world.Settings.FeedCost + " Carrots\n+" + _world.Settings.FeedSpeed.ToString("0.##") + " Speed";
+            _label.text = "FEED HORSE   /   " + _world.Settings.FeedCost + " carrots";
         }
         private void OnDestroy()
         {

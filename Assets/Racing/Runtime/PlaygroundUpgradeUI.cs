@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ namespace Horsecremental.Racing
     {
         [SerializeField] private GameplayWorld _world;
         [SerializeField] private ProductionUpgrade _upgrade;
-        [SerializeField] private Text _label;
+        [SerializeField] private TMP_Text _label;
         [SerializeField] private StableAudioHooks _audio;
         private Button _button;
         private PlayerProgression _player;
@@ -34,8 +35,8 @@ namespace Horsecremental.Racing
             bool unlocked = _player.IsUnlocked(_upgrade);
             _button.interactable = _world.IsManagement && !_world.ViewingRace && unlocked &&
                 cost < int.MaxValue && _player.Coins >= cost;
-            _label.text = ShortName(_upgrade) + "\nLv." + _player.ProductionLevel(_upgrade) +
-                "\n" + (!unlocked ? "Unlock in Tree" : cost == int.MaxValue ? "MAX" : cost + " Coins");
+            _label.text = ShortName(_upgrade) + " " + _player.ProductionLevel(_upgrade) +
+                "\n" + (!unlocked ? "Tree unlock" : cost == int.MaxValue ? "MAX" : cost + " coins");
         }
         private static string ShortName(ProductionUpgrade upgrade)
         {
@@ -44,9 +45,9 @@ namespace Horsecremental.Racing
                 case ProductionUpgrade.TrainingHorseCount: return "Horses";
                 case ProductionUpgrade.TrainingSpeed: return "Lap Speed";
                 case ProductionUpgrade.TrainingReward: return "Lap Reward";
-                case ProductionUpgrade.GrowSpeed: return "Auto Growth";
-                case ProductionUpgrade.ClickGrowthPower: return "Click Growth";
-                default: return "Harvest Yield";
+                case ProductionUpgrade.GrowSpeed: return "GROWTH";
+                case ProductionUpgrade.ClickGrowthPower: return "CLICK";
+                default: return "YIELD";
             }
         }
         private void OnDestroy()

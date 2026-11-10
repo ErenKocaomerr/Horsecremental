@@ -1,0 +1,649 @@
+We are continuing development of our short-scope incremental horse racing game.
+
+**Milestone 1 is already implemented.**
+
+Milestone 1 contains the basic horse racing prototype:
+
+- Player horse automatically runs forward
+- AI horses
+- SPACE boost
+- E jump
+- Obstacles
+- Race countdown
+- Finish detection
+- Finishing position
+- Race result screen
+- Restart functionality
+- Basic race camera and prototype UI
+
+The project also contains **Horse and Environment assets**, so reuse existing project assets when useful.
+
+Before changing anything, inspect the current project and understand how Milestone 1 was implemented.
+
+Do not unnecessarily rewrite working Milestone 1 systems.
+
+# MILESTONE 2 — CORE INCREMENTAL LOOP
+
+The goal of Milestone 2 is to create the first complete gameplay loop:
+
+**Race → Earn Coins → Return to Stable → Buy Horse Upgrades → Horse becomes stronger → Race again**
+
+This milestone should prove that the incremental progression loop is fun and technically functional.
+
+Do NOT implement the full game yet.
+
+---
+
+# 1. COIN SYSTEM
+
+Add a simple currency called:
+
+**Coins**
+
+The player earns Coins by completing races.
+
+For now, race rewards can be simple.
+
+Example:
+
+1st Place = 100 Coins
+2nd Place = 70 Coins
+3rd Place = 50 Coins
+4th Place = 30 Coins
+
+These numbers should be configurable.
+
+When the race ends:
+
+1. Determine finishing position.
+2. Calculate reward.
+3. Add Coins to the player's current balance.
+4. Show the reward on the result screen.
+
+Example:
+
+RACE FINISHED
+
+Position: 2nd / 4
+
+Reward: +70 Coins
+
+Total Coins: 240
+
+[Return to Stable]
+
+Do not create multiple currencies.
+
+Milestone 2 should use Coins only.
+
+---
+
+# 2. BASIC STABLE / HUB
+
+Create a simple **Stable scene / Stable gameplay area** that acts as the player's home between races.
+
+This does NOT need to be a detailed stable simulation yet.
+
+The purpose of the Stable in Milestone 2 is simply to provide a place where the player can:
+
+- See their horse
+- See current Coins
+- See horse stats
+- Buy upgrades
+- Start the race
+
+Use existing horse/environment assets if they help.
+
+A basic stable environment with functional UI is enough.
+
+Do not spend large amounts of time decorating it.
+
+The stable should contain a clear:
+
+**START RACE**
+
+button or interaction.
+
+Gameplay flow should become:
+
+Stable
+↓
+Start Race
+↓
+Race
+↓
+Race Result
+↓
+Return to Stable
+↓
+Buy Upgrades
+↓
+Start Race Again
+
+---
+
+# 3. HORSE UPGRADE SYSTEM
+
+Create a simple upgrade system for the player's horse.
+
+For Milestone 2, implement ONLY these upgrades:
+
+### SPEED
+
+Increases the horse's normal running speed.
+
+Example:
+
+Speed Level 1 → Level 2
+
+Cost: 100 Coins
+
++0.5 Speed
+
+### ACCELERATION
+
+Improves how quickly the horse reaches its target/max speed.
+
+### BOOST POWER
+
+Makes the SPACE boost stronger.
+
+Do NOT add many stats or complicated skill trees.
+
+Jump Power does not need an upgrade yet unless the current architecture makes it extremely easy to support.
+
+The important upgrades are:
+
+- Speed
+- Acceleration
+- Boost Power
+
+---
+
+# 4. UPGRADE LEVELS
+
+Each upgrade should have levels.
+
+Example:
+
+Speed Level: 1
+
+Upgrade to Level 2
+
+Cost: 100 Coins
+
+After buying:
+
+Speed Level: 2
+
+Next Upgrade Cost: 160 Coins
+
+Upgrade prices should increase every level.
+
+Use a simple scalable formula instead of manually creating every price.
+
+For example:
+
+UpgradeCost = BaseCost × GrowthRate ^ CurrentLevel
+
+Exact formula and numbers can be adjusted if necessary.
+
+Keep Base Cost and Growth Rate configurable.
+
+Do NOT create a complicated economy framework.
+
+---
+
+# 5. IMPORTANT — UPGRADES MUST ACTUALLY AFFECT RACING
+
+Horse upgrades must modify the existing Milestone 1 racing systems.
+
+Do not create separate fake stats that only appear in UI.
+
+For example:
+
+Buying Speed should make the player horse physically run faster in the race.
+
+Buying Acceleration should affect the existing acceleration logic.
+
+Buying Boost Power should affect the existing SPACE boost.
+
+Use the existing HorseStats / horse stat system created during Milestone 1 if possible.
+
+If Milestone 1 stats are currently directly hardcoded, refactor them only as much as necessary so upgrades can modify them cleanly.
+
+Avoid rewriting the entire horse controller.
+
+---
+
+# 6. CURRENT HORSE STATS UI
+
+In the Stable, display simple information like:
+
+HORSE
+
+Speed: 10.5
+Acceleration: 4.0
+Boost Power: 5.0
+
+Coins: 240
+
+The player should clearly understand that buying an upgrade changed the horse.
+
+When an upgrade is purchased, give simple visual feedback.
+
+For example:
+
+Speed Increased!
+
+10.0 → 10.5
+
+No complicated animation system is required.
+
+---
+
+# 7. UPGRADE SHOP UI
+
+Create a simple prototype upgrade panel.
+
+Example:
+
+HORSE UPGRADES
+
+Speed — Lv. 3
++0.5 Speed
+Cost: 150 Coins
+[UPGRADE]
+
+Acceleration — Lv. 2
++0.25 Acceleration
+Cost: 120 Coins
+[UPGRADE]
+
+Boost Power — Lv. 2
++0.5 Boost
+Cost: 140 Coins
+[UPGRADE]
+
+If the player cannot afford an upgrade:
+
+- Disable the button OR clearly indicate insufficient Coins.
+- Do not allow Coins to go negative.
+
+After purchasing:
+
+- Deduct Coins.
+- Increase upgrade level.
+- Update horse stats.
+- Update next upgrade cost.
+- Refresh UI immediately.
+
+---
+
+# 8. RACE REPLAY LOOP
+
+Remove or replace the Milestone 1 flow where the player only restarts the race directly.
+
+After finishing a race, the main progression button should now be:
+
+**RETURN TO STABLE**
+
+From the Stable the player can choose to start another race.
+
+It is okay to keep a Restart Race button temporarily for debugging, but the intended player flow should use the Stable.
+
+---
+
+# 9. SIMPLE PROGRESSION FEEL
+
+The same race should become noticeably easier as the player upgrades the horse.
+
+For example:
+
+First race:
+
+Player struggles to finish 1st.
+
+After several Speed / Acceleration upgrades:
+
+Player starts overtaking opponents much more easily.
+
+This is important because Milestone 2 must demonstrate the incremental power-growth feeling.
+
+Do not implement adaptive enemy scaling.
+
+AI opponents should NOT automatically become stronger when the player buys upgrades.
+
+We WANT the player to feel stronger.
+
+---
+
+# 10. OPTIONAL SIMPLE DIFFICULTY BUTTON
+
+ONLY implement this if it is extremely easy with the current architecture.
+
+The Stable could allow:
+
+Race Level 1
+
+or
+
+Race Level 2
+
+where Race Level 2 has slightly faster AI but gives more Coins.
+
+However:
+
+Do NOT spend significant development time on this.
+
+A single repeatable race is completely acceptable for Milestone 2.
+
+The priority is the upgrade loop.
+
+---
+
+# 11. RUNTIME DATA
+
+The following information must persist correctly when moving between Stable and Race scenes:
+
+- Current Coins
+- Speed Upgrade Level
+- Acceleration Upgrade Level
+- Boost Power Upgrade Level
+- Calculated horse stats
+
+Create a clean central runtime progression/player data system appropriate for the current engine/project architecture.
+
+Do not duplicate this information separately across scenes.
+
+There should be one clear source of truth for player progression.
+
+---
+
+# 12. SAVE SYSTEM
+
+Do NOT create a full save/load system yet.
+
+For Milestone 2, progression only needs to survive while the game is running and while switching between Stable and Race.
+
+Closing and reopening the game can reset progression for now.
+
+Permanent saving will be implemented in a later milestone.
+
+However, structure the runtime player progression data cleanly enough that save/load can be added later without rewriting everything.
+
+---
+
+# 13. ECONOMY BALANCING
+
+Do not spend too much time balancing exact numbers.
+
+We only need prototype balancing.
+
+The target feeling should be:
+
+Player finishes a race.
+
+↓
+
+Gets enough Coins to feel progress.
+
+↓
+
+Can buy an upgrade every 1–3 races.
+
+↓
+
+Horse becomes visibly stronger.
+
+↓
+
+Player wants to race again.
+
+Avoid situations where the player must repeat the exact same race 10+ times just to buy one small early upgrade.
+
+Milestone 2 should progress quickly for testing.
+
+---
+
+# 14. CODE STRUCTURE
+
+Reuse Milestone 1 architecture where possible.
+
+Potential systems could include concepts such as:
+
+PlayerProgression
+CurrencyManager
+HorseUpgradeSystem
+UpgradeDefinition
+StableManager
+StableUI
+RaceRewardCalculator
+
+These names are suggestions.
+
+Do not force this exact architecture if the existing project has a cleaner solution.
+
+Important principles:
+
+- One source of truth for Coins
+- One source of truth for upgrade levels
+- Horse racing stats derive from progression data
+- UI should read from the actual gameplay data
+- Avoid scattered hardcoded values
+- Avoid unnecessary singleton/global-manager spam
+- Avoid large frameworks
+
+Keep it simple.
+
+---
+
+# 15. DO NOT IMPLEMENT YET
+
+Milestone 2 should NOT include:
+
+- Farm
+- Farming resources
+- Crops
+- Food crafting
+- Feeding system
+- Blacksmith
+- Horse shoes crafting
+- Equipment inventory
+- Equipment rarity
+- Crafting materials
+- Inventory system
+- Multiple currencies
+- Auto-training
+- Offline income
+- Prestige
+- Skill trees
+- Neighborhood progression
+- City progression
+- Country progression
+- Continent progression
+- World Championship
+- Multiple championships
+- Complex race selection
+- Horse breeding
+- Multiple horses
+- Jockey customization
+- Permanent save/load system
+- Multiplayer
+- Detailed stable management
+- Advanced AI
+- Procedural tracks
+
+These belong to later milestones.
+
+Do not expand scope.
+
+---
+
+# 16. ACCEPTANCE CRITERIA
+
+Milestone 2 is complete when the following full loop works:
+
+1. Game starts in the Stable.
+
+2. I can see:
+
+   - My horse
+   - Current Coins
+   - Speed
+   - Acceleration
+   - Boost Power
+   - Upgrade buttons
+
+3. I can start a race from the Stable.
+
+4. Milestone 1 racing gameplay still works:
+
+   - Automatic running
+   - AI opponents
+   - SPACE boost
+   - E jump
+   - Obstacles
+   - Finish detection
+
+5. Completing the race rewards Coins depending on finishing position.
+
+6. Race result screen shows:
+
+   - Position
+   - Coins earned
+   - Total Coins
+
+7. I can return to the Stable.
+
+8. My Coins remain after changing scenes.
+
+9. I can spend Coins on:
+
+   - Speed
+   - Acceleration
+   - Boost Power
+
+10. Coins are correctly deducted.
+
+11. Upgrade prices increase with level.
+
+12. Horse stats visibly update after upgrading.
+
+13. Starting another race uses the upgraded horse stats.
+
+14. The upgraded horse is noticeably stronger than before.
+
+15. I can repeat this loop multiple times without progression breaking.
+
+16. Coins cannot become negative.
+
+17. No major console errors occur during normal gameplay.
+
+---
+
+# IMPLEMENTATION PROCESS
+
+Work incrementally.
+
+First inspect the entire current Milestone 1 implementation.
+
+Identify:
+
+- Current race scene
+- Player horse controller
+- Horse stats
+- Race manager
+- Result UI
+- Scene transitions
+- Existing assets that can be reused
+
+Then implement Milestone 2 in this order:
+
+### STEP 1
+
+Create runtime Player Progression data.
+
+Support:
+
+- Coins
+- Speed upgrade level
+- Acceleration upgrade level
+- Boost upgrade level
+
+### STEP 2
+
+Connect progression data to the existing horse stats.
+
+Verify changing progression actually changes race performance.
+
+### STEP 3
+
+Add race Coin rewards.
+
+Verify Coins are correctly awarded.
+
+### STEP 4
+
+Create the basic Stable scene.
+
+### STEP 5
+
+Create upgrade UI and purchasing.
+
+### STEP 6
+
+Create:
+
+Stable → Race → Result → Stable
+
+scene flow.
+
+### STEP 7
+
+Test the full loop repeatedly.
+
+Test things like:
+
+- Buying multiple upgrades
+- Not having enough Coins
+- Returning between scenes
+- Restarting several races
+- Winning different positions
+- Upgrade values correctly affecting gameplay
+
+Fix obvious bugs before considering Milestone 2 complete.
+
+---
+
+# IMPORTANT DEVELOPMENT PHILOSOPHY
+
+Do NOT focus on polish.
+
+Do NOT create systems for future milestones unless they are required for the current implementation.
+
+Do NOT overengineer.
+
+We are trying to answer one question:
+
+**Is Race → Reward → Upgrade → Stronger Horse → Race Again satisfying?**
+
+The priority is a **working incremental gameplay loop**, not a finished game.
+
+At the end, provide me with a short report containing:
+
+1. What you implemented
+2. Files/scripts/scenes created
+3. Files/scripts/scenes modified
+4. How the progression data works
+5. How upgrade costs are calculated
+6. How race rewards are calculated
+7. How I can test the complete Milestone 2 loop
+8. Known bugs or limitations
+9. Any parts of Milestone 1 that had to be refactored
+10. Your recommendation for Milestone 3
+
+Do not begin Milestone 3 automatically.
+Stop after Milestone 2 is complete.
+
+Cinemachine Camera Kullan hersey icin suanki kullanilan Normal Cameralarida Cinemachineye cevir ve ek olarka butun Canvaslari Scale With ScreenSize 1920x1080 yap.

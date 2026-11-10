@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,40 +6,57 @@ namespace Horsecremental.Racing
 {
     public sealed class TrainingTierCardUI : MonoBehaviour
     {
-        [SerializeField] private Text _title;
-        [SerializeField] private Text _status;
-        [SerializeField] private Text _best;
-        [SerializeField] private Text _rewards;
-        [SerializeField] private Text _requirement;
+        [SerializeField] private TMP_Text _title;
+        [SerializeField] private TMP_Text _status;
+        [SerializeField] private TMP_Text _best;
+        [SerializeField] private TMP_Text _rewards;
+        [SerializeField] private TMP_Text _requirement;
         [SerializeField] private Button _start;
         [SerializeField] private Image _background;
+        [SerializeField] private RuralUITheme _theme;
         private GameplayWorld _world;
         private int _tier;
-        private Text _startLabel;
+        private TMP_Text _startLabel;
         public void Initialize(GameplayWorld world, int tier)
         {
             _world = world;
             _tier = tier;
-            _startLabel = _start.GetComponentInChildren<Text>();
-            _title.text = world.TrainingLadder.Name(tier);
-            TrainingRaceRules rules = world.Player.TrainingRules(tier);
-            _rewards.text = "COINS\n" + rules.MinimumCoins + "–" + rules.MaximumCoins +
-                "\n\nTRAINING TOKENS\n" + rules.MinimumTokens + "–" + rules.MaximumTokens;
+            _startLabel = _start.GetComponentInChildren<TMP_Text>();
+            _title.text = tier < 0 ? "Main Race" : world.TrainingLadder.Name(tier);
             _start.onClick.AddListener(StartRace);
+            if (tier < 0) return;
+            TrainingRaceRules rules = world.Player.TrainingRules(tier);
+            _rewards.text = rules.MinimumCoins + "-" + rules.MaximumCoins + " Coins\n" +
+                rules.MinimumTokens + "-" + rules.MaximumTokens + " Upgrade Tokens";
+            if (_theme != null) _rewards.text = rules.MinimumCoins + "-" + rules.MaximumCoins + " coins\n" +
+                rules.MinimumTokens + "-" + rules.MaximumTokens + " tokens";
         }
         public void Refresh()
         {
-            bool unlocked = _world.Player.IsTrainingUnlocked(_tier);
-            int best = _world.Player.TrainingBestPlace(_tier);
-            _status.text = unlocked ? "UNLOCKED" : "LOCKED";
-            _status.color = unlocked ? new Color(0.66f, 0.9f, 0.57f) : new Color(0.75f, 0.76f, 0.8f);
-            _best.text = "Best: " + (best == 0 ? "—" : Place(best));
-            _requirement.text = unlocked ? "SPACE Boost • E Jump" : "Finish 1st in\n" + _world.TrainingLadder.Name(_tier - 1);
+            bool main = _tier < 0;
+            bool unlocked = main ? _world.CanEnterMainRace : _world.Player.IsTrainingUnlocked(_tier);
+            int best = main ? 0 : _world.Player.TrainingBestPlace(_tier);
+            _status.text = unlocked ? "READY" : "LOCKED";
+            _status.color = _theme != null ? (unlocked ? _theme.Positive : _theme.Muted) :
+                (unlocked ? new Color(0.66f, 0.9f, 0.57f) : new Color(0.75f, 0.76f, 0.8f));
+            _best.text = main ? "Power " + _world.Player.HorsePower.ToString("0.0") + " / " +
+                _world.Settings.RecommendedPower.ToString("0.#") : "Best: " + (best == 0 ? "-" : Place(best));
+            _requirement.text = main ? (unlocked ? "Power requirement met" : "Requires " +
+                _world.Settings.RecommendedPower.ToString("0.#") + " power") :
+                unlocked ? string.Empty : "Win " + _world.TrainingLadder.Name(_tier - 1);
+            if (_theme != null && main) _requirement.text = unlocked ? "Power requirement met" : "Reach " + _world.Settings.RecommendedPower.ToString("0.#") + " power";
             _start.interactable = unlocked && _world.IsManagement && _world.Area == ManagementArea.Training;
-            _startLabel.text = unlocked ? "START RACE" : "LOCKED";
-            _background.color = unlocked ? new Color(0.12f, 0.19f, 0.17f, 0.98f) : new Color(0.12f, 0.13f, 0.16f, 0.98f);
+            _startLabel.text = unlocked ? "RACE" : "LOCKED";
+            _background.color = _theme != null ? Color.white :
+                (unlocked ? new Color(0.12f, 0.19f, 0.17f, 0.98f) : new Color(0.12f, 0.13f, 0.16f, 0.98f));
         }
-        private void StartRace() => _world.StartTrainingRace(_tier);
+        private void StartRace()
+        {
+            if (_tier >= 0) { _world.StartTrainingRace(_tier); return; }
+            if (!_world.CanEnterMainRace || !_world.IsManagement || _world.Area != ManagementArea.Training) return;
+            _world.ShowRaceArea();
+            _world.StartMainRace();
+        }
         private static string Place(int place) => place == 1 ? "1st" : place == 2 ? "2nd" : place == 3 ? "3rd" : "4th";
         private void OnDestroy() => _start.onClick.RemoveListener(StartRace);
     }

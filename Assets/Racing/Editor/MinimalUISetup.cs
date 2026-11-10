@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -49,7 +50,7 @@ namespace Horsecremental.Racing.Editor
                 scaler.referenceResolution = new Vector2(1920, 1080);
                 scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
             }
-            foreach (Text text in root.GetComponentsInChildren<Text>(true))
+            foreach (TMP_Text text in root.GetComponentsInChildren<TMP_Text>(true))
                 if (text.name.EndsWith("Feedback", StringComparison.Ordinal))
                 {
                     text.text = string.Empty;
@@ -69,10 +70,10 @@ namespace Horsecremental.Racing.Editor
             panel.raycastTarget = false;
             CanvasGroup group = panel.gameObject.AddComponent<CanvasGroup>(); group.alpha = 0; group.blocksRaycasts = group.interactable = false;
             Image icon = SpriteImage(panel.transform, "Icon", null, new Vector2(-178,113), new Vector2(40,40));
-            Text title = Label(panel.transform,"Title",new Vector2(28,112),new Vector2(325,50),26);
-            Text description = Label(panel.transform,"Description",new Vector2(0,20),new Vector2(394,125),21);
-            Text status = Label(panel.transform,"Status",new Vector2(0,-77),new Vector2(394,45),21);
-            Text cost = Label(panel.transform,"Cost",new Vector2(0,-126),new Vector2(394,48),20);
+            TMP_Text title = Label(panel.transform,"Title",new Vector2(28,112),new Vector2(325,50),26);
+            TMP_Text description = Label(panel.transform,"Description",new Vector2(0,20),new Vector2(394,125),21);
+            TMP_Text status = Label(panel.transform,"Status",new Vector2(0,-77),new Vector2(394,45),21);
+            TMP_Text cost = Label(panel.transform,"Cost",new Vector2(0,-126),new Vector2(394,48),20);
             foreach (float y in new[] { 81f, -53f, -102f })
             {
                 Image line = RaceUIBuilder.Panel(panel.transform,"Divider " + y,new Vector2(0,y),new Vector2(440,2),new Color(0.48f,0.49f,0.52f));
@@ -101,7 +102,7 @@ namespace Horsecremental.Racing.Editor
             Transform stable = root.Find("Stable Upgrades UI/Upgrades");
             Place(stable,new Vector2(230,0),new Vector2(360,420)); stable.GetComponent<Image>().color = PANEL;
             Place(stable.Find("Upgrade Heading"),new Vector2(0,155),new Vector2(330,45));
-            stable.Find("Upgrade Heading").GetComponent<Text>().text = "HORSE";
+            stable.Find("Upgrade Heading").GetComponent<TMP_Text>().text = "HORSE";
             Place(stable.Find("Current Stats"),new Vector2(0,45),new Vector2(320,145));
             string[] names = { "Upgrade Speed", "Upgrade Acceleration", "Upgrade Boost Power" };
             Button[] horse = new Button[3];
@@ -136,7 +137,7 @@ namespace Horsecremental.Racing.Editor
             Target(farm.Find("Feed Horse").gameObject,details,DetailKind.Feed,0,presentation.Icon(17));
             Transform upgrades = root.Find("Farm UI/Farm Upgrades");
             Place(upgrades,new Vector2(-265,-120),new Vector2(440,230)); upgrades.GetComponent<Image>().color = PANEL;
-            Place(upgrades.Find("Heading"),new Vector2(0,72),new Vector2(410,40)); upgrades.Find("Heading").GetComponent<Text>().text = "FARM";
+            Place(upgrades.Find("Heading"),new Vector2(0,72),new Vector2(410,40)); upgrades.Find("Heading").GetComponent<TMP_Text>().text = "FARM";
             ProductionButtons(upgrades,details,presentation,settings,new Vector2(-70,-20),new Vector2(70,-20));
             Transform smith = root.Find("Blacksmith UI");
             Place(smith.Find("Craft Status"),new Vector2(-260,230),new Vector2(1000,55));
@@ -150,7 +151,7 @@ namespace Horsecremental.Racing.Editor
                 Place(card.Find("Equipment Details"),new Vector2(0,0),new Vector2(270,80));
                 Button craft = card.Find("Craft " + names[i]).GetComponent<Button>();
                 Place(craft.transform,new Vector2(0,-92),new Vector2(245,52));
-                craft.GetComponentInChildren<Text>().rectTransform.sizeDelta = new Vector2(235,48);
+                craft.GetComponentInChildren<TMP_Text>().rectTransform.sizeDelta = new Vector2(235,48);
                 Target(card.gameObject,details,DetailKind.Equipment,i,presentation.Icon(11+i));
                 Target(craft.gameObject,details,DetailKind.Equipment,i,presentation.Icon(11+i));
             }
@@ -176,10 +177,10 @@ namespace Horsecremental.Racing.Editor
             string[] names = { "Coins", "Race Tokens", "Metal", "Carrots" };
             for (int i = 0; i < names.Length; i++)
             {
-                Text total = resources.Find(names[i]).GetComponent<Text>();
+                TMP_Text total = resources.Find(names[i]).GetComponent<TMP_Text>();
                 float x = (i-1.5f)*300;
                 Anchor(total.rectTransform,new Vector2(0.5f,1),new Vector2(x+70,-36)); total.rectTransform.sizeDelta = new Vector2(190,45);
-                total.text = "0"; total.alignment = TextAnchor.MiddleLeft; total.fontSize = 24; total.raycastTarget = true;
+                total.text = "0"; total.alignment = TextAlignmentOptions.Left; total.fontSize = 24; total.raycastTarget = true;
                 Image icon = SpriteImage(resources,names[i] + " Icon",presentation.Icon(14+i),Vector2.zero,new Vector2(32,32));
                 Anchor(icon.rectTransform,new Vector2(0.5f,1),new Vector2(x-55,-36)); icon.raycastTarget = true;
                 Target(icon.gameObject,details,DetailKind.Resource,i,presentation.Icon(14+i));
@@ -198,7 +199,7 @@ namespace Horsecremental.Racing.Editor
             for (int i = 0; i < names.Length; i++)
             {
                 Button button = navigation.Find(names[i]).GetComponent<Button>();
-                button.GetComponentInChildren<Text>().text = i == 0 ? "STABLE" : i == 1 ? "FARM" : i == 2 ? "BLACKSMITH" : i == 3 ? "MAIN RACE" : "UPGRADE TREE";
+                button.GetComponentInChildren<TMP_Text>().text = i == 0 ? "STABLE" : i == 1 ? "FARM" : i == 2 ? "BLACKSMITH" : i == 3 ? "MAIN RACE" : "UPGRADE TREE";
                 button.GetComponent<Image>().color = PANEL;
                 Target(button.gameObject,details,DetailKind.Navigation,i,presentation.Icon(icons[i]));
             }
@@ -206,24 +207,24 @@ namespace Horsecremental.Racing.Editor
         private static void ConfigureRace(Transform root, UIDetailPanel details, UIPresentationSettings presentation)
         {
             RaceUI race = root.GetComponentInChildren<RaceUI>(true);
-            race.transform.Find("Controls").GetComponent<Text>().text = "SPACE   /   E";
-            race.transform.Find("Boost").GetComponent<Text>().text = "SPACE";
-            race.transform.Find("Race entry/Description").GetComponent<Text>().text = string.Empty;
-            race.transform.Find("Race result/Restart Race").GetComponentInChildren<Text>().text = "RACE AGAIN";
+            race.transform.Find("Controls").GetComponent<TMP_Text>().text = "SPACE   /   E";
+            race.transform.Find("Boost").GetComponent<TMP_Text>().text = "SPACE";
+            race.transform.Find("Race entry/Description").GetComponent<TMP_Text>().text = string.Empty;
+            race.transform.Find("Race result/Restart Race").GetComponentInChildren<TMP_Text>().text = "RACE AGAIN";
             Target(race.transform.Find("Race entry/Start Race").gameObject,details,DetailKind.RaceHelp,0,presentation.Icon(5));
-            Text controls = race.transform.Find("Controls").GetComponent<Text>(); controls.raycastTarget = true;
+            TMP_Text controls = race.transform.Find("Controls").GetComponent<TMP_Text>(); controls.raycastTarget = true;
             Anchor(controls.rectTransform,new Vector2(0.5f,0),new Vector2(0,130));
             controls.rectTransform.sizeDelta = new Vector2(300,45); controls.fontSize = 22;
             Target(controls.gameObject,details,DetailKind.RaceHelp,0,presentation.Icon(5));
-            Text boost = race.transform.Find("Boost").GetComponent<Text>(); boost.raycastTarget = true;
+            TMP_Text boost = race.transform.Find("Boost").GetComponent<TMP_Text>(); boost.raycastTarget = true;
             Target(boost.gameObject,details,DetailKind.RaceHelp,0,presentation.Icon(2));
         }
         private static void IconButton(Button button, UIDetailPanel details, UIPresentationSettings presentation, ProgressionSettings settings, DetailKind kind, int id, int iconId)
         {
             foreach (string name in new[] { "Icon", "Border", "State Mark", "Focus" })
             { Transform old = button.transform.Find(name); if (old != null) UnityEngine.Object.DestroyImmediate(old.gameObject); }
-            button.GetComponentInChildren<Text>().text = string.Empty;
-            button.GetComponentInChildren<Text>().rectTransform.sizeDelta = Vector2.zero;
+            button.GetComponentInChildren<TMP_Text>().text = string.Empty;
+            button.GetComponentInChildren<TMP_Text>().rectTransform.sizeDelta = Vector2.zero;
             button.GetComponent<Image>().color = PANEL;
             ColorBlock colors = button.colors; colors.disabledColor = Color.white; colors.highlightedColor = new Color(1.4f,1.4f,1.4f); button.colors = colors;
             SpriteImage(button.transform,"Icon",presentation.Icon(iconId),Vector2.zero,new Vector2(40,40));
@@ -252,7 +253,7 @@ namespace Horsecremental.Racing.Editor
             Transform old = parent.Find(name); if (old != null) UnityEngine.Object.DestroyImmediate(old.gameObject);
             Image image = RaceUIBuilder.Panel(parent,name,position,size,Color.white); image.sprite = sprite; image.preserveAspect = true; image.raycastTarget = false; return image;
         }
-        private static Text Label(Transform parent, string name, Vector2 position, Vector2 size, int font)
+        private static TMP_Text Label(Transform parent, string name, Vector2 position, Vector2 size, int font)
             => RaceUIBuilder.Label(parent,name,position,size,font);
         private static T Ensure<T>(GameObject target) where T : Component => target.TryGetComponent(out T component) ? component : target.AddComponent<T>();
         private static void Bind(UnityEngine.Object target, string field, UnityEngine.Object value) => RaceSceneBaker.SetReference(target,field,value);

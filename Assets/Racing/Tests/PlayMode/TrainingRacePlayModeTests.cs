@@ -1,3 +1,4 @@
+using TMPro;
 using System.Collections;
 using NUnit.Framework;
 using Unity.Cinemachine;
@@ -27,6 +28,39 @@ namespace Horsecremental.Racing.Tests
             Time.timeScale = 1f; Application.runInBackground = _background; yield return null;
         }
         [UnityTest]
+        public IEnumerator MainRaceRequiresPowerEvenWhenInvokedDirectlyAndUnlocksAfterUpgrades()
+        {
+            Assert.That(_world.Player.HorsePower, Is.LessThan(_world.Settings.RecommendedPower));
+            Assert.That(_world.CanEnterMainRace, Is.False);
+            Assert.That(GameObject.Find("View Farm"), Is.Null);
+            Assert.That(GameObject.Find("View Race"), Is.Null);
+            _world.ShowTraining();
+            Assert.That(ProgressionLoopTests.FindButton("Start Main Race").interactable, Is.False);
+            ProgressionLoopTests.FindButton("Start Main Race").onClick.Invoke();
+            Assert.That(_world.Area, Is.EqualTo(ManagementArea.Training));
+            _world.ShowRaceArea();
+            Assert.That(ProgressionLoopTests.FindButton("Start Race").interactable, Is.False);
+            _world.StartMainRace();
+            Assert.That(_world.Phase, Is.EqualTo(WorldPhase.StableManagement));
+            Assert.That(_world.Race.Phase, Is.EqualTo(RacePhase.Ready));
+            ProgressionLoopTests.EarnMainRaceEntry(_world);
+            Assert.That(_world.CanEnterMainRace, Is.True);
+            Assert.That(ProgressionLoopTests.FindButton("Start Race").interactable, Is.True);
+            _world.ShowTraining();
+            Assert.That(ProgressionLoopTests.FindButton("Start Main Race").interactable, Is.True);
+            ProgressionLoopTests.FindButton("Start Main Race").onClick.Invoke();
+            Assert.That(_world.Phase, Is.EqualTo(WorldPhase.MainRacePreparing));
+            Assert.That(_world.IsTrainingRace, Is.False);
+            Time.timeScale = 4f;
+            yield return ProgressionLoopTests.DriveRace(_world.Race);
+            Time.timeScale = 1f;
+            ProgressionLoopTests.FindButton("Restart Race").onClick.Invoke();
+            yield return new WaitForSeconds(0.4f);
+            Assert.That(_world.Area, Is.EqualTo(ManagementArea.Training));
+            Assert.That(ProgressionLoopTests.FindButton("Start Main Race").interactable, Is.True);
+            LogAssert.NoUnexpectedReceived();
+        }
+        [UnityTest]
         public IEnumerator SelectionWinRewardsUnlockUpgradeAndTierTwoUseTheRealRace()
         {
             PlayerProgression player = _world.Player;
@@ -52,13 +86,17 @@ namespace Horsecremental.Racing.Tests
             Assert.That(Object.FindAnyObjectByType<StableWorldInteraction>().CanInteract, Is.False);
             Capture("training-one-result", 1920, 1080);
             yield return new WaitForSeconds(0.2f); Assert.That(player.TrainingTokens, Is.EqualTo(6));
-            ProgressionLoopTests.FindButton("Return to Stable").onClick.Invoke();
+            ProgressionLoopTests.FindButton("Restart Race").onClick.Invoke();
+            yield return new WaitForSeconds(0.4f);
+            Assert.That(_world.Area, Is.EqualTo(ManagementArea.Training));
+            Assert.That(ProgressionLoopTests.FindButton("Start Training 1").interactable, Is.True);
+            _world.ShowStable();
             yield return new WaitForSeconds(0.4f);
             float speed = player.Stats.Speed;
             ProgressionLoopTests.FindButton("Train Speed").onClick.Invoke();
             Assert.That(player.TrainingTokens, Is.EqualTo(3)); Assert.That(player.Coins, Is.EqualTo(100));
             Assert.That(player.Stats.Speed, Is.EqualTo(speed + 0.75f));
-            Assert.That(GameObject.Find("Training Tokens").GetComponent<Text>().text, Is.EqualTo("3"));
+            Assert.That(GameObject.Find("Training Tokens").GetComponent<TMP_Text>().text, Is.EqualTo("3"));
             Capture("horse-upgraded", 1920, 1080);
             _world.ShowTraining(); yield return new WaitForSeconds(0.4f);
             Assert.That(ProgressionLoopTests.FindButton("Start Training 2").interactable, Is.True);

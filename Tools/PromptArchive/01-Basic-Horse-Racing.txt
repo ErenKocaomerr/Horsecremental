@@ -1,0 +1,245 @@
+We are building a short-scope incremental horse racing game.
+
+For now, implement ONLY **Milestone 1: Basic Horse Racing Prototype**.
+
+Do not implement the stable, economy, upgrades, farming, blacksmithing, crafting, progression, championships, save system, or other incremental systems yet.
+
+Use the existing project's engine, architecture, input system, and conventions. First inspect the current project structure before making changes. Reuse existing systems where appropriate and avoid unnecessary dependencies or overengineering.
+
+## GOAL
+
+Create one simple playable horse race.
+
+The player controls a horse/jockey that automatically runs forward on a simple race track against a small number of AI horses.
+
+The goal of this milestone is only to prove that the basic racing gameplay feels functional.
+
+## PLAYER HORSE
+
+The horse should automatically move forward.
+
+Create basic configurable stats:
+
+- Speed
+- Acceleration
+- Boost Power
+- Jump Power
+
+Keep these values easy to edit from the editor/configuration.
+
+The player should NOT manually control normal forward movement.
+
+## CONTROLS
+
+### SPACE — Boost
+
+When the player presses Space:
+
+- Give the horse a short temporary speed boost.
+- Boost should have a cooldown so it cannot be spammed continuously.
+- Add clear feedback when boost activates.
+- Keep the implementation simple.
+
+Example behaviour:
+
+Normal Speed: 10
+Boost Speed: +5
+Boost Duration: around 1 second
+Cooldown: around 3 seconds
+
+These numbers should be configurable rather than hardcoded throughout the project.
+
+### E — Jump
+
+When the player presses E:
+
+- Make the horse jump.
+- The horse should only jump while grounded.
+- Prevent infinite jumping / air jumping.
+- The jump should be usable to clear obstacles on the race track.
+
+Keep the jump arcade-like rather than realistic.
+
+## RACE TRACK
+
+Create a very simple prototype track.
+
+It only needs:
+
+- Start line
+- Finish line
+- Straight or mostly straight track
+- A few obstacles that require jumping
+- Enough distance for the race to last roughly 30–60 seconds during testing
+
+Do not spend time making detailed environments.
+
+Use simple placeholder geometry/assets if necessary.
+
+## AI HORSES
+
+Add 2–3 AI opponents.
+
+AI horses should:
+
+- Automatically run toward the finish line
+- Have slightly different speed values
+- Be able to complete the race
+- Not require sophisticated AI
+
+For Milestone 1, simple forward-running AI is enough.
+
+If an obstacle system requires AI jumping, implement a very basic automatic jump trigger.
+
+Do NOT build complex racing tactics, pathfinding, stamina management, overtaking logic, rubber-banding, or personality systems.
+
+## OBSTACLES
+
+Add a few simple jumpable obstacles.
+
+If the player hits an obstacle:
+
+- The horse should lose some speed temporarily OR receive a small time penalty.
+- Do not create complicated crash physics.
+
+The purpose is simply to make pressing E meaningful.
+
+## RACE FLOW
+
+Implement this basic race sequence:
+
+1. Player enters the race.
+2. Horses are positioned at the start.
+3. Show a simple countdown:
+   3
+   2
+   1
+   GO
+4. Horses begin running.
+5. Player can use Space to boost and E to jump.
+6. Detect when each horse crosses the finish line.
+7. Determine player finishing position.
+8. Display a simple result screen.
+
+Example:
+
+RACE FINISHED
+
+Position: 2nd / 4
+
+[Restart Race]
+
+For now, Restart Race can simply restart the current race.
+
+## CAMERA
+
+Create a basic gameplay camera that follows the player's horse.
+
+The camera should:
+
+- Keep the horse clearly visible
+- Follow smoothly enough to feel playable
+- Show enough track ahead so the player can see upcoming obstacles
+
+Do not create cinematic camera systems yet.
+
+## UI
+
+Only create prototype UI for:
+
+- Countdown
+- Current race position if easy to implement
+- Boost cooldown indicator
+- Race finish result
+- Restart Race button
+
+Keep the UI simple and functional.
+
+Placeholder UI is completely acceptable.
+
+## CODE STRUCTURE
+
+Keep the systems modular enough that later milestones can add horse upgrades.
+
+For example, horse stats should not be scattered as random hardcoded numbers.
+
+Prefer a structure similar to:
+
+HorseStats
+HorseController
+HorseMovement
+HorseBoost
+HorseJump
+RaceManager
+RaceParticipant
+RaceFinishTrigger
+AIHorseController
+
+These names are suggestions, not strict requirements. Adapt them to the existing project's architecture.
+
+Avoid creating a huge framework for features that do not exist yet.
+
+## IMPORTANT SCOPE LIMIT
+
+DO NOT implement:
+
+- Stable gameplay
+- Farm
+- Blacksmith
+- Crafting
+- Food
+- Equipment
+- Coins
+- Upgrade shop
+- Training races
+- Championship progression
+- Neighborhood / City / Country / Continent / World progression
+- Save system
+- Multiplayer
+- Complex horse animations
+- Advanced AI
+- Skill trees
+- Inventory
+
+Those belong to later milestones.
+
+## ACCEPTANCE CRITERIA
+
+Milestone 1 is complete when:
+
+- I can start the game and enter one race.
+- My horse automatically runs forward.
+- There are at least 2 AI opponents.
+- SPACE gives me a temporary speed boost with a cooldown.
+- E makes the horse jump.
+- There is at least one obstacle I can jump over.
+- Hitting/missing an obstacle has a small gameplay consequence.
+- All racers can reach the finish line.
+- The game determines my finishing position.
+- A result screen appears.
+- I can restart the race.
+- There are no major errors in the console during normal gameplay.
+
+## IMPLEMENTATION PROCESS
+
+Work incrementally.
+
+First inspect the existing project and identify the relevant scenes/scripts/systems.
+
+Then implement the smallest working version of the race.
+
+Test the race after implementation and fix obvious errors.
+
+Do not expand the scope beyond Milestone 1 even if additional features seem useful.
+
+At the end, give me a short summary containing:
+
+1. What you implemented
+2. Which files/scenes you created or modified
+3. How I can test the race
+4. Any known limitations or issues
+5. What should logically be done in Milestone 2
+
+The priority is a **working ugly prototype**, not polished production code or visuals.
+
+I have Horse & Envairoment Assets in project so you can use them.

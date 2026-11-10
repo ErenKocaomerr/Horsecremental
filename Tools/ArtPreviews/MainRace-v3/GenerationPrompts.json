@@ -1,0 +1,22 @@
+{
+  "mode": "built-in image_gen",
+  "status": "Approval preview only",
+  "prompts": [
+    {
+      "name": "VerticalHurdle",
+      "transparent": true,
+      "prompt": "Use case: precise-object-edit. Input image 1 is the existing horizontal hurdle to redesign. Input image 2 is the actual 26x18-pixel horse, as pixel density reference only. Create a single replacement OBSTACLE SPRITE whose longest axis runs VERTICALLY UP AND DOWN THE IMAGE. In the game, horses move horizontally left to right, so this rail must cross their path from screen top to screen bottom. Think slightly overhead view of a low jump rail that runs north-south along the ground plane, NOT a tall upright sign or lamp. Keep the same restrained dark walnut supports, cream rail, two muted terracotta bands. Screen-space silhouette must be a thin vertical stripe approximately 5 native pixels WIDE and 26 native pixels HIGH. One tiny dark brown support block at the north tip and one at the south tip, each 5x3 pixels, with a 2-pixel-wide cream pole connecting them vertically down the middle. Add exactly two terracotta bands ACROSS the narrow pole, each 2 pixels high. A small dark 1-pixel side edge provides readability. The two end supports should have tiny offset feet suggesting depth, contained within the 5-pixel total width. Render this in the same simple flat hand-placed pixel clusters as the tiny horse. No horizontal bar, no wide H shape, no gate silhouette, no ornate feet, no floating shadow, no labels, no perspective vanishing point, no background. Fully transparent PNG with very generous alpha margins; ONE isolated complete asset in the center. Discrete flat 6-color palette, no gradients, no glow, no noise, no microtexture, no antialiasing. The rail's vertical orientation on screen is the essential requested change."
+    },
+    {
+      "name": "VergeDetails",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Create a small minimalist pixel-art roadside nature sprite atlas, TRUE TRANSPARENT PNG, exactly FOUR separate small sprites in ONE horizontal row with large transparent gutters. Input image 1 shows the existing game obstacle for palette context only, input image 2 is the actual tiny brown horse, 26x18 native pixels, for style/pixel density. These nature assets will be tiny quiet accents below a horse race track, not large foreground objects. Logical source canvas only 96x24 pixels with 24x24-pixel cells, enlarged nearest-neighbor. Left to right: (1) a low sparse cluster of three grass blades 9x5 native pixels in two muted olive tones, (2) different low grass tuft 7x4 native pixels in two muted sage tones, (3) a tiny FLAT group of 3 partially buried pebbles 12x4 native pixels in desaturated brown-gray with one warm cream top edge, (4) one minute wildflower sprig 5x6 native pixels, two green stem pixels and a single subdued cream flower cluster. No shrubs, no rounded bush, no hay bales, no bench, no signs, no fence, no big stone mound, no ground patches, no cast shadows, no text. Simple coarse flat pixel clusters, hand-placed edges, at most 3 tones per sprite. No elaborate foliage, no outlines, no blur, no gradients, no glow or realistic texture. Fully transparent outside the four isolated little sprites, generous margins, nothing touching canvas edges."
+    }
+  ],
+  "layoutChanges": [
+    "North-south vertical hurdle rail perpendicular to left-right racing direction.",
+    "Six tiny grass tufts, two low pebble groups, one small flower in the lower verge.",
+    "Vertical span represents lane depth; runtime jump clearance and mechanics have not been changed."
+  ],
+  "unchangedSources": "../MainRace-v1"
+}

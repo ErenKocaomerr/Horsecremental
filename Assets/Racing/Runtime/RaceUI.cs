@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,19 +6,20 @@ namespace Horsecremental.Racing
 {
     public sealed class RaceUI : MonoBehaviour
     {
-        [SerializeField] private Text _position;
-        [SerializeField] private Text _boost;
-        [SerializeField] private Text _countdown;
-        [SerializeField] private Text _result;
-        [SerializeField] private Text _feedback;
+        [SerializeField] private TMP_Text _position;
+        [SerializeField] private TMP_Text _boost;
+        [SerializeField] private TMP_Text _countdown;
+        [SerializeField] private TMP_Text _result;
+        [SerializeField] private TMP_Text _feedback;
         [SerializeField] private GameObject _entryPanel;
         [SerializeField] private GameObject _resultPanel;
         [SerializeField] private Image _boostFill;
         [SerializeField] private Button _start;
         [SerializeField] private Button _restart;
         [SerializeField] private Button _returnToStable;
-        [SerializeField] private Text _reward;
+        [SerializeField] private TMP_Text _reward;
         [SerializeField] private RaceResultRow[] _resultRows;
+        [SerializeField] private GameObject[] _hudElements;
         private RaceManager _race;
         private float _feedbackRemaining;
         private string[] _positionLabels;
@@ -26,6 +28,7 @@ namespace Horsecremental.Racing
         private RaceRewards _rewards;
         private PlayerProgression _player;
         [SerializeField] private GameplayWorld _world;
+        [SerializeField] private TMP_Text _entryRequirement;
         private float _displayedBoost;
         private float _boostPulse;
         private float _countdownPulse;
@@ -60,6 +63,7 @@ namespace Horsecremental.Racing
             _race.ParticipantFinished += OnParticipantFinished;
             _race.Player.Movement.BoostActivated += OnBoost;
             _race.Player.Movement.ObstacleHit += OnObstacleHit;
+            _player.Changed += RefreshEntry;
         }
 
         private void Unbind()
@@ -75,13 +79,23 @@ namespace Horsecremental.Racing
             _race.ParticipantFinished -= OnParticipantFinished;
             _race.Player.Movement.BoostActivated -= OnBoost;
             _race.Player.Movement.ObstacleHit -= OnObstacleHit;
+            _player.Changed -= RefreshEntry;
         }
 
         private void StartMainRace()
         {
             if (_world == null) _race.StartRace();
-            else if (_world.IsTrainingRace) { _world.ShowStable(); }
+            else if (_world.Phase == WorldPhase.MainRaceFinished) _world.ReturnToRaceSelection();
             else _world.StartMainRace();
+        }
+        private void RefreshEntry()
+        {
+            if (_world == null) return;
+            _start.interactable = _world.CanEnterMainRace && _world.IsManagement;
+            if (_entryRequirement != null)
+                _entryRequirement.text = "Power " + _player.HorsePower.ToString("0.0") + " / " +
+                    _world.Settings.RecommendedPower.ToString("0.#") +
+                    (_world.CanEnterMainRace ? " | Ready to race" : " | Upgrade your horse to enter");
         }
         private void OnBoost() { _boostPulse = 0.2f; ShowFeedback("BOOST!", new Color(1f, 0.85f, 0.2f)); }
         private void OnObstacleHit() => ShowFeedback("HIT!", new Color(1f, 0.45f, 0.3f));
@@ -101,8 +115,14 @@ namespace Horsecremental.Racing
         private void RefreshState()
         {
             _entryPanel.SetActive(_race.Phase == RacePhase.Ready && (_world == null || _world.IsManagement));
+            RefreshEntry();
             bool showResult = _race.Player.HasFinished;
             _resultPanel.SetActive(showResult);
+            if (_hudElements != null)
+            {
+                bool showHud = !showResult && _race.Phase != RacePhase.Ready;
+                for (int i = 0; i < _hudElements.Length; i++) _hudElements[i].SetActive(showHud);
+            }
             _countdown.text = showResult ? string.Empty : _race.CountdownText;
             _countdownPulse = 0.3f;
             if (showResult) RefreshLeaderboard();
@@ -127,9 +147,9 @@ namespace Horsecremental.Racing
             if (_world != null && _world.IsTrainingRace)
             {
                 int tier = _world.SelectedTrainingTier;
-                _result.text = _world.TrainingLadder.Name(tier) + " — " +
+                _result.text = _world.TrainingLadder.Name(tier) + " - " +
                     (_race.Player.FinishPosition == 1 ? "1ST PLACE!" : "PLACE " + _race.Player.FinishPosition);
-                _reward.text = "+" + _rewards.EarnedCoins + " Coins   +" + _rewards.EarnedTrainingTokens + " Training Tokens";
+                _reward.text = "+" + _rewards.EarnedCoins + " Coins   +" + _rewards.EarnedTrainingTokens + " Upgrade Tokens";
                 if (_race.Player.FinishPosition == 1 && tier + 1 < _world.TrainingLadder.Count)
                     _reward.text += "\n" + _world.TrainingLadder.Name(tier + 1) + " unlocked";
             }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +10,10 @@ namespace Horsecremental.Racing
         [SerializeField] private UpgradeTreeUI _treeUI;
         [SerializeField] private ProgressionSettings _settings;
         [SerializeField] private UpgradeNode _node;
-        [SerializeField] private Text _label;
+        [SerializeField] private TMP_Text _label;
         [SerializeField] private Image _connection;
         [SerializeField] private UIPresentationSettings _presentation;
+        [SerializeField] private RuralUITheme _theme;
         private PlayerProgression _player;
         private Button _button;
         private Image _background;
@@ -70,7 +72,7 @@ namespace Horsecremental.Racing
             bool unlocked = _player.IsUnlocked(_node);
             bool affordable = _player.CanUnlock(_node);
             _label.text = string.Empty;
-            _background.color = unlocked ? OPEN : LOCKED;
+            _background.color = _theme != null ? (unlocked ? _theme.Positive : _theme.Muted) : (unlocked ? OPEN : LOCKED);
             _background.sprite = unlocked && _presentation != null ? _presentation.TreeNodeShape : null;
             _button.interactable = _revealed && affordable;
             _connectionColor = unlocked ? OPEN_LINE : LOCKED_LINE;

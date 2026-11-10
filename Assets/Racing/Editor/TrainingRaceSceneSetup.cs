@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -37,6 +38,7 @@ namespace Horsecremental.Racing.Editor
             RectTransform position = world.transform.Find("Generated Race/Race UI/Position").GetComponent<RectTransform>();
             position.anchorMin = position.anchorMax = new Vector2(1, 1);
             position.anchoredPosition = new Vector2(-155, -38); position.sizeDelta = new Vector2(290, 48);
+            SimpleRaceUISetup.Apply(world);
         }
         private static TrainingLadderSettings EnsureLadder()
         {
@@ -104,6 +106,7 @@ namespace Horsecremental.Racing.Editor
                 courses[i] = new GameObject(ladder.Name(i) + " Track"); courses[i].transform.SetParent(tracks, false);
                 RaceSettings race = ladder.Race(i);
                 RaceTrackBuilder.Build(courses[i].transform, square, race.TrackLength, race.CreateObstacles(), 4);
+                MainRaceArtSetup.ApplyToTrack(courses[i].transform, race);
                 courses[i].SetActive(false);
             }
             RaceSceneBaker.SetArray(prototype, "_trainingTracks", courses);
@@ -123,7 +126,7 @@ namespace Horsecremental.Racing.Editor
                 RectTransform rect = navigation.Find(names[i]).GetComponent<RectTransform>();
                 rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0);
                 rect.anchoredPosition = new Vector2((i - 2) * 220, 48); rect.sizeDelta = new Vector2(205, 65);
-                Text label = rect.GetComponentInChildren<Text>(); label.fontSize = 22; label.rectTransform.sizeDelta = new Vector2(195, 60);
+                TMP_Text label = rect.GetComponentInChildren<TMP_Text>(); label.fontSize = 22; label.rectTransform.sizeDelta = new Vector2(195, 60);
             }
             GameObject canvas = new GameObject("Training Selection UI", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             canvas.transform.SetParent(world.transform, false);
@@ -147,7 +150,7 @@ namespace Horsecremental.Racing.Editor
                 Bind(view, "_requirement", RaceUIBuilder.Label(card.transform, "Requirement", new Vector2(0, -99), new Vector2(300, 48), 19));
                 Button start = RaceUIBuilder.Button(card.transform, "Start Training " + (i + 1), "START RACE", new Vector2(0, -140));
                 start.GetComponent<RectTransform>().sizeDelta = new Vector2(275, 42);
-                Text label = start.GetComponentInChildren<Text>(); label.fontSize = 22; label.rectTransform.sizeDelta = new Vector2(260, 38);
+                TMP_Text label = start.GetComponentInChildren<TMP_Text>(); label.fontSize = 22; label.rectTransform.sizeDelta = new Vector2(260, 38);
                 Bind(view, "_start", start); cards[i] = view;
             }
             TrainingSelectionUI ui = world.GetComponent<TrainingSelectionUI>();
@@ -172,9 +175,9 @@ namespace Horsecremental.Racing.Editor
             Image header = RaceUIBuilder.Panel(root, "Training Token Header", Vector2.zero, new Vector2(280, 76), PANEL);
             RectTransform rect = header.rectTransform; rect.anchorMin = rect.anchorMax = new Vector2(0, 1); rect.anchoredPosition = new Vector2(310, -62);
             RaceUIBuilder.Label(header.transform, "Training Token Label", new Vector2(0, 18), new Vector2(310, 24), 18).text = "TRAINING TOKENS";
-            Text total = RaceUIBuilder.Label(header.transform, "Training Tokens", new Vector2(0, -12), new Vector2(280, 40), 30);
+            TMP_Text total = RaceUIBuilder.Label(header.transform, "Training Tokens", new Vector2(0, -12), new Vector2(280, 40), 30);
             total.color = new Color(0.5f, 0.88f, 1f);
-            Text popup = RaceUIBuilder.Label(header.transform, "Training Token Popup", new Vector2(120, -16), new Vector2(70, 32), 22);
+            TMP_Text popup = RaceUIBuilder.Label(header.transform, "Training Token Popup", new Vector2(120, -16), new Vector2(70, 32), 22);
             popup.color = new Color(0.5f, 0.88f, 1f, 0f);
             CurrencyFeedback feedback = root.GetComponent<CurrencyFeedback>();
             Bind(feedback, "_trainingTokens", total); Bind(feedback, "_trainingTokenPopup", popup);
@@ -190,16 +193,16 @@ namespace Horsecremental.Racing.Editor
             rect.anchoredPosition = new Vector2(-260, 220);
             RaceUIBuilder.Label(panel.transform, "Heading", new Vector2(0, 80), new Vector2(500, 32), 22).text = "TRAIN YOUR HORSE";
             string[] names = { "Speed", "Acceleration", "Boost Power" };
-            Button[] buttons = new Button[3]; Text[] labels = new Text[3];
+            Button[] buttons = new Button[3]; TMP_Text[] labels = new TMP_Text[3];
             for (int i = 0; i < buttons.Length; i++)
             {
                 Button button = RaceUIBuilder.Button(panel.transform, "Train " + names[i], string.Empty, new Vector2((i - 1) * 166, 0));
                 button.GetComponent<RectTransform>().sizeDelta = new Vector2(158, 110);
-                Text label = button.GetComponentInChildren<Text>(); label.fontSize = 17; label.rectTransform.sizeDelta = new Vector2(150, 100);
+                TMP_Text label = button.GetComponentInChildren<TMP_Text>(); label.fontSize = 17; label.rectTransform.sizeDelta = new Vector2(150, 100);
                 ColorBlock colors = button.colors; colors.disabledColor = new Color(0.4f, 0.42f, 0.45f); button.colors = colors;
                 buttons[i] = button; labels[i] = label;
             }
-            Text purchase = RaceUIBuilder.Label(panel.transform, "Training Upgrade Feedback", new Vector2(0, -79), new Vector2(500, 34), 20);
+            TMP_Text purchase = RaceUIBuilder.Label(panel.transform, "Training Upgrade Feedback", new Vector2(0, -79), new Vector2(500, 34), 20);
             StableUI stable = root.GetComponent<StableUI>();
             RaceSceneBaker.SetArray(stable, "_upgrades", buttons); RaceSceneBaker.SetArray(stable, "_upgradeLabels", labels);
             Bind(stable, "_feedback", purchase);

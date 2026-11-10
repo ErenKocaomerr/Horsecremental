@@ -1,0 +1,33 @@
+PLEASE IMPLEMENT THIS PLAN:
+# Yarış görüntüsü, Space boost ve sonuç tablosu
+
+## Hedef
+
+Atların hareketini akıcı ve pixel-art görüntüsünü net hâle getirmek; yarış sahnesini Play öncesinde görünür yapmak; Space’e her basışın boost gücüne katkıda bulunmasını sağlamak; bütün yarışçıların bitiş sürelerini canlı güncellenen tabloda göstermek.
+
+## Görüntü ve sahne
+
+- Yarış simülasyonu mevcut 0,02 saniyelik sabit adımlarla çalışmaya devam edecek. Atların görsel konumu ve zıplama yüksekliği, önceki ve güncel simülasyon değerleri arasında her görüntü karesinde interpolasyonla hesaplanacak.
+- Kamera, interpolasyon uygulanmış görsel hedefi takip edecek. Güncelleme sırası açıkça **at görselleri → kamera** olacak. Başlangıç, restart ve bitişte interpolasyon geçmişi sıfırlanarak sıçramalar önlenecek.
+- Mevcut Point filtreli, sıkıştırmasız texture ayarları korunacak. Kurulu URP’nin Pixel Perfect Camera bileşeni kullanılacak: **24 PPU, 640×360 referans çözünürlük, Upscale Render Texture ve Point ölçekleme**. Kesirli büyütmeyi önlemek için Windowbox kullanılacak; uygun olmayan ekran boyutlarında kenar boşlukları oluşabilecek.
+- Animasyon karelerinin kırpma sınırları ve ortak pivotları kontrol edilecek; doğal koşu animasyonu korunurken komşu karelerden piksel sızması giderilecek.
+- Pist, atlar, kamera, EventSystem ve UI, **Milestone1Race** sahnesine kaydedilecek. Sprite kareleri kalıcı Unity asset’leri olacak. Sahne yeniden açıldığında Scene ve Game görünümünde başlangıç düzeni görülebilecek.
+- `RacePrototype` yalnızca kaydedilmiş nesnelerin oyun mantığını başlatacak. Play sırasında ikinci bir sahne hiyerarşisi oluşturmayacak. Editör için yeniden oluşturma menüsü eklenecek; mevcut asset GUID’leri korunacak.
+
+## Boost ve liderlik tablosu
+
+- Seçilen davranış: **Her ayrı Space basışı güç ekler.** Basılı tutmak otomatik tekrar üretmeyecek; cooldown kaldırılacak.
+- Başlangıç değerleri: basış başına **+1 boost**, en fazla **+5 ek hız**, saniyede **3 boost azalması**. Hedef hız normal hız + mevcut boost olacak; mevcut acceleration uygulanacak. Değerler HorseStats üzerinden düzenlenebilecek.
+- Cooldown göstergesi, mevcut boost miktarını gösteren doluluk çubuğuna dönüşecek. Countdown sırasında ve oyuncu bitirdikten sonra boost kabul edilmeyecek; restart boost’u sıfırlayacak.
+- Oyuncu bitirince sonuç paneli hemen açılacak. **Sıra, at adı ve bitiş süresi** sütunları bulunacak; oyuncunun satırı vurgulanacak.
+- Bitirenler gerçek bitiş sırasıyla listelenecek. Bitirmeyenlerde sıra yerine “—”, süre yerine **“Yarışıyor”** yazacak; bu satırlar başlangıç sırasını koruyacak. Her at bitirdiğinde tablo güncellenecek. Süreler iki ondalık basamakla gösterilecek.
+- `RaceManager`, katılımcıları salt okunur liste olarak sunacak ve her bitişte `ParticipantFinished` olayı yayımlayacak. Mevcut bitiş zamanı hesaplaması ve herkes bitmeden restart yapabilme davranışı korunacak.
+
+## Doğrulama ve sınırlar
+
+- Boost testleri: peş peşe basışlar, üst sınır, zamanla azalma, basılı tutma, countdown/bitiş engellemesi ve restart.
+- Sonuç testleri: oyuncunun erken veya geç bitirmesi, bekleyen satırların güncellenmesi, bütün sürelerin doğru yarışçıya bağlanması ve restart sonrası temizlenmesi.
+- Sahneyi Play kullanmadan açma, kapatıp yeniden açma ve tekrar tekrar Play’e girme: görünür nesneler ve doğru referanslar; çoğalan nesne veya event aboneliği olmaması.
+- 30/60/120 FPS’de koşu, boost ve zıplama sırasında hareket kontrolü; 1280×720 ve 1920×1080’de görüntü incelemesi; farklı en-boy oranında ölçekleme kontrolü.
+- EditMode/PlayMode testleri ve Console kontrolü çalıştırılacak. Mevcut pist uzunluğu, dört yarışçı, E ile zıplama ve engel cezaları korunacak. Yeni ekonomi veya ilerleme sistemi eklenmeyecek.
+

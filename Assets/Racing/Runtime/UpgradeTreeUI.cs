@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,8 @@ namespace Horsecremental.Racing
     {
         [SerializeField] private GameplayWorld _world;
         [SerializeField] private ProgressionSettings _settings;
-        [SerializeField] private Text _summary;
-        [SerializeField] private Text _feedback;
+        [SerializeField] private TMP_Text _summary;
+        [SerializeField] private TMP_Text _feedback;
         private PlayerProgression _player;
         private void Awake() => _player = ProgressionSession.GetOrCreate(_settings);
         private void OnEnable() { _player.Changed += Refresh; Refresh(); }

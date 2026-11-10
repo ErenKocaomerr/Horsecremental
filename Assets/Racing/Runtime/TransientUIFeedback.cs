@@ -1,12 +1,13 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Horsecremental.Racing
 {
-    [RequireComponent(typeof(Text))]
+    [RequireComponent(typeof(TMP_Text))]
     public sealed class TransientUIFeedback : MonoBehaviour
     {
-        private Text _text;
+        private TMP_Text _text;
         private string _previous;
         private float _remaining;
         private void Awake() => TryGetComponent(out _text);

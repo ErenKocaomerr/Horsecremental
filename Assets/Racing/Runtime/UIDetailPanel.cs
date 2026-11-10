@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,10 +11,11 @@ namespace Horsecremental.Racing
         [SerializeField] private ProgressionSettings _settings;
         [SerializeField] private CanvasGroup _group;
         [SerializeField] private Image _icon;
-        [SerializeField] private Text _title;
-        [SerializeField] private Text _description;
-        [SerializeField] private Text _status;
-        [SerializeField] private Text _cost;
+        [SerializeField] private TMP_Text _title;
+        [SerializeField] private TMP_Text _description;
+        [SerializeField] private TMP_Text _status;
+        [SerializeField] private TMP_Text _cost;
+        [SerializeField] private RuralUITheme _theme;
         private PlayerProgression _player;
         private UIDetailTarget _target;
         private ManagementArea _area;
@@ -41,6 +43,10 @@ namespace Horsecremental.Racing
             _target = target;
             Refresh();
         }
+        public void Hide(UIDetailTarget target)
+        {
+            if (_target == target) Clear();
+        }
         public void Clear()
         {
             _target = null;
@@ -65,7 +71,8 @@ namespace Horsecremental.Racing
             _description.text = content.Description;
             _status.text = content.Status;
             _cost.text = content.Cost;
-            _cost.color = content.Unavailable ? new Color(1f, 0.4f, 0.38f) : new Color(1f, 0.85f, 0.35f);
+            _cost.color = _theme != null ? (content.Unavailable ? _theme.Warning : _theme.Positive) :
+                (content.Unavailable ? new Color(1f, 0.4f, 0.38f) : new Color(1f, 0.85f, 0.35f));
             _group.alpha = 1f;
         }
     }

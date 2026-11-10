@@ -11,11 +11,13 @@ namespace Horsecremental.Racing
         [SerializeField] private Button _open;
         [SerializeField] private Button _close;
         [SerializeField] private TrainingTierCardUI[] _cards;
+        [SerializeField] private RuralUITheme _theme;
         private void Start()
         {
             _open.onClick.AddListener(_world.ShowTraining);
             _close.onClick.AddListener(_world.ShowStable);
-            for (int i = 0; i < _cards.Length; i++) _cards[i].Initialize(_world, i);
+            for (int i = 0; i < _cards.Length; i++)
+                _cards[i].Initialize(_world, i < _world.TrainingLadder.Count ? i : -1);
             _world.Player.Changed += Refresh;
             _world.Changed += Refresh;
             Refresh();
@@ -24,6 +26,9 @@ namespace Horsecremental.Racing
         {
             _open.gameObject.SetActive(_world.Phase == WorldPhase.StableManagement);
             _open.interactable = _world.IsManagement;
+            _open.GetComponent<Image>().color = _theme != null ?
+                (_world.Area == ManagementArea.Training ? _theme.ActiveTab : _theme.InactiveTab) :
+                (_world.Area == ManagementArea.Training ? new Color(0.28f, 0.49f, 0.34f) : new Color(0.10f, 0.15f, 0.13f));
             for (int i = 0; i < _cards.Length; i++) _cards[i].Refresh();
         }
         private void OnDestroy()

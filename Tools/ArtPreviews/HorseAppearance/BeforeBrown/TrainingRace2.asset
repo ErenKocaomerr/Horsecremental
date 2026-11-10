@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f04e1c06de40fbb672932ccb70b229, type: 3}
+  m_Name: TrainingRace2
+  m_EditorClassIdentifier: Horsecremental.Racing::Horsecremental.Racing.RaceSettings
+  _trackLength: 150
+  _playerStats: {fileID: 11400000, guid: 3dd4f4d3fddc49cdb7280d2845ec3a0f, type: 2}
+  _opponentStats:
+  - {fileID: 11400000, guid: 87e4a8c12bef1e546844f90badd8e549, type: 2}
+  - {fileID: 11400000, guid: aad1b561ed8a41d47bd93200badc0816, type: 2}
+  - {fileID: 11400000, guid: 83e6041a85e252347af66fbff23837f0, type: 2}
+  _horseSheets:
+  - {fileID: 2800000, guid: 777f5c5dd847c2a448520e2a00a8ec46, type: 3}
+  - {fileID: 2800000, guid: 908cdbe7b600a524092cb2c6554414ca, type: 3}
+  - {fileID: 2800000, guid: b7ecadffd0171e44e8aa582879475a91, type: 3}
+  - {fileID: 2800000, guid: a204b15d8e4f6b94996ecbac88d80801, type: 3}
+  _obstacleDistances:
+  - 55
+  _obstacleWidth: 0.65
+  _obstacleHeight: 0.65
+  _aiJumpLeadSeconds: 0.28

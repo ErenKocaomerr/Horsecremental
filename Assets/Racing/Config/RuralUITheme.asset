@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1092cd813ca1e41acec3d582767934, type: 3}
+  m_Name: RuralUITheme
+  m_EditorClassIdentifier: Horsecremental.Racing::Horsecremental.Racing.RuralUITheme
+  _ink: {r: 0.27450982, g: 0.1882353, b: 0.13725491, a: 1}
+  _muted: {r: 0.49019608, g: 0.3882353, b: 0.26666668, a: 1}
+  _positive: {r: 0.23921569, g: 0.4, b: 0.25490198, a: 1}
+  _warning: {r: 0.6509804, g: 0.27450982, b: 0.16862746, a: 1}
+  _activeTab: {r: 1, g: 0.8784314, b: 0.6156863, a: 1}
+  _inactiveTab: {r: 0.74509805, g: 0.67058825, b: 0.5019608, a: 1}

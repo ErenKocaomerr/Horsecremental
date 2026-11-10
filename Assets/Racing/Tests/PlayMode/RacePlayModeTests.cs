@@ -52,15 +52,18 @@ namespace Horsecremental.Racing.Tests
         public IEnumerator KeyboardNavigationBlendsAndSpaceAddsEnergyOnlyPerPress()
         {
             GameplayWorld world = Object.FindAnyObjectByType<GameplayWorld>();
+            ProgressionLoopTests.EarnMainRaceEntry(world);
             RaceManager race = world.Race;
             _keyboard = InputSystem.AddDevice<Keyboard>();
             float stableX = Camera.main.transform.position.x;
             InputSystem.QueueStateEvent(_keyboard, new KeyboardState(Key.D, Key.Space, Key.E));
             yield return null;
-            Assert.That(world.ViewingRace, Is.True);
+            Assert.That(world.Area, Is.EqualTo(ManagementArea.Training));
+            Assert.That(world.ViewingRace, Is.False);
             Assert.That(race.Player.Movement.Simulation.BoostEnergy, Is.Zero);
             Assert.That(race.Player.Movement.Simulation.Height, Is.Zero);
             InputSystem.QueueStateEvent(_keyboard, new KeyboardState());
+            world.ShowRaceArea();
             yield return new WaitForSeconds(0.04f);
             CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
             Assert.That(brain.IsBlending, Is.True);
@@ -116,6 +119,7 @@ namespace Horsecremental.Racing.Tests
         public IEnumerator InterpolatedVisualsStayConsistentAt30And60And120Fps()
         {
             GameplayWorld world = Object.FindAnyObjectByType<GameplayWorld>();
+            ProgressionLoopTests.EarnMainRaceEntry(world);
             world.ShowRaceArea();
             world.StartMainRace();
             Time.timeScale = 10f;

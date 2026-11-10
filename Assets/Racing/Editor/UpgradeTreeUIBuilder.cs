@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ namespace Horsecremental.Racing.Editor
             RaceSceneBaker.SetReference(ui, "_world", world); RaceSceneBaker.SetReference(ui, "_settings", settings);
             Image panel = RaceUIBuilder.Panel(root.transform, "Tree Panel", new Vector2(0, -5), new Vector2(1760, 800), new Color(0.025f, 0.06f, 0.085f, 0.98f));
             RaceUIBuilder.Label(panel.transform, "Heading", new Vector2(0, 345), new Vector2(1650, 50), 32).text = string.Empty;
-            Text summary = RaceUIBuilder.Label(panel.transform, "Tree Resources", new Vector2(0, 295), new Vector2(1650, 65), 21);
+            TMP_Text summary = RaceUIBuilder.Label(panel.transform, "Tree Resources", new Vector2(0, 295), new Vector2(1650, 65), 21);
             RaceSceneBaker.SetReference(ui, "_summary", summary);
             UpgradeTreeRules rules = settings.UpgradeTree.CreateRules();
             Image[] lines = new Image[UpgradeTreeRules.NODE_COUNT];
@@ -51,7 +52,7 @@ namespace Horsecremental.Racing.Editor
                 colors.disabledColor = new Color(0.72f, 0.72f, 0.72f, 1);
                 button.colors = colors;
                 button.GetComponent<RectTransform>().sizeDelta = new Vector2(80, 80);
-                Text label = button.GetComponentInChildren<Text>();
+                TMP_Text label = button.GetComponentInChildren<TMP_Text>();
                 label.fontSize = 20; label.rectTransform.sizeDelta = new Vector2(320, 108);
                 label.text = string.Empty;
                 UpgradeTreeNodeUI node = button.gameObject.AddComponent<UpgradeTreeNodeUI>();
@@ -60,7 +61,7 @@ namespace Horsecremental.Racing.Editor
                 SetEnum(node, "_node", i + 1); // None is the first serialized enum entry.
             }
             RaceUIBuilder.Label(panel.transform, "Tree Help", new Vector2(0, -270), new Vector2(1640, 75), 23).text = string.Empty;
-            Text feedback = RaceUIBuilder.Label(panel.transform, "Tree Feedback", new Vector2(0, -345), new Vector2(1630, 65), 25);
+            TMP_Text feedback = RaceUIBuilder.Label(panel.transform, "Tree Feedback", new Vector2(0, -345), new Vector2(1630, 65), 25);
             feedback.color = new Color(0.9f, 0.8f, 1);
             feedback.text = string.Empty;
             RaceSceneBaker.SetReference(ui, "_feedback", feedback);

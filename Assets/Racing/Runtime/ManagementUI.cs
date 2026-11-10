@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,8 @@ namespace Horsecremental.Racing
     {
         [SerializeField] private GameplayWorld _world;
         [SerializeField] private ProgressionSettings _progression;
-        [SerializeField] private Text _training;
-        [SerializeField] private Text _difficulty;
+        [SerializeField] private TMP_Text _training;
+        [SerializeField] private TMP_Text _difficulty;
         [SerializeField] private Image _trainingFill;
         [SerializeField] private RectTransform _horseIcon;
         private PlayerProgression _player;

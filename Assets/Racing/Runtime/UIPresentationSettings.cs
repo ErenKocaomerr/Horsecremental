@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Horsecremental.Racing
 {
-    public enum DetailKind { Tree, Horse, Production, Equipment, Training, Feed, Farm, RaceHelp, Navigation, Resource }
+    public enum DetailKind { Tree, Horse, Production, Equipment, Training, Feed, Farm, RaceHelp, Navigation, Resource, RaceCourse }
 
     [CreateAssetMenu(menuName = "Horsecremental/UI Presentation")]
     public sealed class UIPresentationSettings : ScriptableObject

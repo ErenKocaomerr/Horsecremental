@@ -17,6 +17,7 @@ namespace Horsecremental.Racing.Tests
             yield return SceneManager.LoadSceneAsync(GameScenes.WORLD); yield return null;
             GameplayWorld world = Object.FindAnyObjectByType<GameplayWorld>();
             PlayerProgression player = world.Player; var handle = SceneManager.GetActiveScene().handle;
+            EarnMainRaceEntry(world);
             WorldPickupManager pickups = Object.FindAnyObjectByType<WorldPickupManager>();
             player.AdvanceFarm(30, world.Settings);
             Object.FindAnyObjectByType<FarmWorldView>().Click(0);
@@ -33,7 +34,10 @@ namespace Horsecremental.Racing.Tests
                     Time.timeScale = 10f; yield return DriveRace(world.Race); Time.timeScale = 1f;
                     Assert.That(world.Phase, Is.EqualTo(WorldPhase.MainRaceFinished));
                     Assert.That(player.Training.Phase(0), Is.EqualTo(phase));
-                    Assert.That(player.Coins, Is.EqualTo(coins + 100)); Assert.That(player.RaceTokens, Is.EqualTo(tokens + 1));
+                    ProgressionSettings rewards = Resources.FindObjectsOfTypeAll<ProgressionSettings>()[0];
+                    int place = world.Race.Player.FinishPosition;
+                    Assert.That(player.Coins, Is.EqualTo(coins + rewards.RewardForPlace(place)));
+                    Assert.That(player.RaceTokens, Is.EqualTo(tokens + rewards.TokensForPlace(place)));
                     if (cycle == 0) Assert.That(player.Crops.Progress(0), Is.GreaterThan(crop));
                     Assert.That(pickups.PendingValue, Is.EqualTo(2));
                     Assert.That(Object.FindAnyObjectByType<StableWorldInteraction>().CanInteract, Is.False);
@@ -64,6 +68,16 @@ namespace Horsecremental.Racing.Tests
             for (int pass = 0; pass < UpgradeTreeRules.NODE_COUNT; pass++)
                 for (int i = 0; i < UpgradeTreeRules.NODE_COUNT; i++) player.TryUnlock((UpgradeNode)i);
             if (!player.ManualTrainingEnabled) Assert.That(player.IsUnlocked(UpgradeNode.TrainingReward), Is.True);
+        }
+
+        internal static void EarnMainRaceEntry(GameplayWorld world)
+        {
+            PlayerProgression player = world.Player;
+            while (!world.CanEnterMainRace)
+            {
+                if (!player.TryUpgrade(HorseUpgrade.Speed))
+                    player.TryAwardTrainingRace(player.BeginTrainingRace(0), 0, 1);
+            }
         }
 
         internal static IEnumerator DriveRace(RaceManager race)

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,17 +8,17 @@ namespace Horsecremental.Racing
     {
         [SerializeField] private GameplayWorld _world;
         [SerializeField] private ProgressionSettings _settings;
-        [SerializeField] private Text[] _cards;
+        [SerializeField] private TMP_Text[] _cards;
         [SerializeField] private Button[] _crafts;
-        [SerializeField] private Text _status;
-        [SerializeField] private Text _feedback;
+        [SerializeField] private TMP_Text _status;
+        [SerializeField] private TMP_Text _feedback;
         [SerializeField] private Image _fill;
         private PlayerProgression _player;
-        private readonly Text[] _craftLabels = new Text[3];
+        private readonly TMP_Text[] _craftLabels = new TMP_Text[3];
         private void Awake()
         {
             _player = ProgressionSession.GetOrCreate(_settings);
-            for (int i = 0; i < 3; i++) _craftLabels[i] = _crafts[i].GetComponentInChildren<Text>();
+            for (int i = 0; i < 3; i++) _craftLabels[i] = _crafts[i].GetComponentInChildren<TMP_Text>();
         }
         private void OnEnable()
         {
@@ -36,7 +37,7 @@ namespace Horsecremental.Racing
         private void Craft(EquipmentType type)
         {
             if (!_world.IsManagement || _world.Area != ManagementArea.Blacksmith) return;
-            if (_player.IsCrafting) { _feedback.text = "BLACKSMITH BUSY — " + _player.ActiveCraft.Name; return; }
+            if (_player.IsCrafting) { _feedback.text = "BLACKSMITH BUSY - " + _player.ActiveCraft.Name; return; }
             if (!_player.HasNextTier(type)) return;
             EquipmentTier next = _player.NextEquipment(type);
             if (!_player.TryStartCraft(type))
@@ -61,7 +62,7 @@ namespace Horsecremental.Racing
             RefreshTimer();
         }
         private void Complete(EquipmentType type) => _feedback.text = _player.Equipment(type).Name + " equipped!";
-        private void RefreshTimer() => _status.text = _player.IsCrafting ? _player.ActiveCraft.Name + " • " +
+        private void RefreshTimer() => _status.text = _player.IsCrafting ? _player.ActiveCraft.Name + " | " +
             _player.CraftRemaining.ToString("0.0") + "s" : "FORGE READY";
         private void Update()
         {

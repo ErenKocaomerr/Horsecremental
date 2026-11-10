@@ -42,7 +42,7 @@ namespace Horsecremental.Racing.Tests
         public IEnumerator ImmediateFarmAndTreeUnlocksDriveCompactProductionButtons()
         {
             GameplayWorld world = Object.FindAnyObjectByType<GameplayWorld>(); PlayerProgression player = world.Player;
-            Assert.That(ProgressionLoopTests.FindButton("View Farm").interactable, Is.True);
+            Assert.That(GameObject.Find("View Farm"), Is.Null);
             Assert.That(player.IsUnlocked(UpgradeNode.Farm), Is.True); Assert.That(GameObject.Find("View Blacksmith"), Is.Null);
             Assert.That(ProgressionLoopTests.FindButton("GrowSpeed").interactable, Is.False);
             Assert.That(GameObject.Find("TrainingSpeed"), Is.Null);

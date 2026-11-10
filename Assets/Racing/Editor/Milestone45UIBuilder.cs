@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,13 +28,13 @@ namespace Horsecremental.Racing.Editor
                 if (button.name.Contains("Blacksmith")) { button.gameObject.SetActive(false); continue; }
                 button.GetComponent<RectTransform>().anchoredPosition = new Vector2((index++ - 1.5f) * 210f, 48);
             }
-            root.Find("Generated Race/Race UI/Race entry/Description").GetComponent<Text>().text = "Fixed rivals: 23 / 24 / 25 Speed\nTrain, upgrade your horse and feed Carrots.";
+            root.Find("Generated Race/Race UI/Race entry/Description").GetComponent<TMP_Text>().text = "Fixed rivals: 23 / 24 / 25 Speed\nTrain, upgrade your horse and feed Carrots.";
             Transform stable = root.Find("Stable Upgrades UI/Upgrades");
             Place(stable, new Vector2(0.5f, 0), new Vector2(0, 220), new Vector2(350, 205));
             Place(stable.Find("Upgrade Heading"), new Vector2(0.5f, 0.5f), new Vector2(0, 77), new Vector2(300, 35));
-            stable.Find("Upgrade Heading").GetComponent<Text>().fontSize = 23;
+            stable.Find("Upgrade Heading").GetComponent<TMP_Text>().fontSize = 23;
             Place(stable.Find("Current Stats"), new Vector2(0.5f, 0.5f), new Vector2(0, 27), new Vector2(310, 72));
-            stable.Find("Current Stats").GetComponent<Text>().fontSize = 16;
+            stable.Find("Current Stats").GetComponent<TMP_Text>().fontSize = 16;
             string[] horseButtons = { "Upgrade Speed", "Upgrade Acceleration", "Upgrade Boost Power" };
             for (int i = 0; i < horseButtons.Length; i++) Place(stable.Find(horseButtons[i]), new Vector2(0.5f, 0.5f), new Vector2((i - 1) * 90, -53), new Vector2(58, 58));
             stable.Find("Upgrade Feedback").gameObject.SetActive(false);
@@ -43,21 +44,21 @@ namespace Horsecremental.Racing.Editor
             scaler.referenceResolution = new Vector2(1920, 1080); scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
             AreaPanel area = ui.AddComponent<AreaPanel>(); Bind(area, "_world", world);
             Bind(world, "_managementUI", ui);
-            Transform training = Panel(ui.transform, "Training Upgrades", new Vector2(-440, 220), "TRAINING • BUY WITH COINS");
+            Transform training = Panel(ui.transform, "Training Upgrades", new Vector2(-440, 220), "TRAINING | BUY WITH COINS");
             Upgrade(training, world, audio, ProductionUpgrade.TrainingHorseCount, -140);
             Upgrade(training, world, audio, ProductionUpgrade.TrainingSpeed, 0);
             Upgrade(training, world, audio, ProductionUpgrade.TrainingReward, 140);
-            Transform farm = Panel(ui.transform, "Farm Upgrades", new Vector2(440, 220), "FARM • CLICK TO GROW / HARVEST");
+            Transform farm = Panel(ui.transform, "Farm Upgrades", new Vector2(440, 220), "FARM | CLICK TO GROW / HARVEST");
             Upgrade(farm, world, audio, ProductionUpgrade.GrowSpeed, -140);
             Upgrade(farm, world, audio, ProductionUpgrade.ClickGrowthPower, 0);
             Upgrade(farm, world, audio, ProductionUpgrade.HarvestYield, 140);
             Button feed = RaceUIBuilder.Button(farm, "Feed Horse", string.Empty, new Vector2(0, -65));
             feed.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 46);
-            feed.GetComponentInChildren<Text>().rectTransform.sizeDelta = new Vector2(290, 44);
+            feed.GetComponentInChildren<TMP_Text>().rectTransform.sizeDelta = new Vector2(290, 44);
             PlaygroundFarmUI farmUI = farm.gameObject.AddComponent<PlaygroundFarmUI>();
-            Bind(farmUI, "_world", world); Bind(farmUI, "_feed", feed); Bind(farmUI, "_label", feed.GetComponentInChildren<Text>());
+            Bind(farmUI, "_world", world); Bind(farmUI, "_feed", feed); Bind(farmUI, "_label", feed.GetComponentInChildren<TMP_Text>());
             Details(feed.gameObject, world, DetailKind.Feed, 0);
-            Text hint = RaceUIBuilder.Label(training, "Training Hint", new Vector2(0, -70), new Vector2(410, 40), 18);
+            TMP_Text hint = RaceUIBuilder.Label(training, "Training Hint", new Vector2(0, -70), new Vector2(410, 40), 18);
             hint.text = "Every horse pays at the finish line"; hint.raycastTarget = false;
             RaceSceneBaker.SetArray(root.GetComponentInChildren<UIDetailKeyboardTraversal>(true), "_targets", root.GetComponentsInChildren<UIDetailTarget>(true));
         }
@@ -65,14 +66,14 @@ namespace Horsecremental.Racing.Editor
         {
             Image panel = RaceUIBuilder.Panel(parent, name, Vector2.zero, new Vector2(450, 205), PANEL);
             Place(panel.transform, new Vector2(0.5f, 0), position, new Vector2(450, 205));
-            Text heading = RaceUIBuilder.Label(panel.transform, "Heading", new Vector2(0, 77), new Vector2(430, 35), 20);
+            TMP_Text heading = RaceUIBuilder.Label(panel.transform, "Heading", new Vector2(0, 77), new Vector2(430, 35), 20);
             heading.text = title; heading.raycastTarget = false; return panel.transform;
         }
         private static void Upgrade(Transform parent, GameplayWorld world, StableAudioHooks audio, ProductionUpgrade upgrade, float x)
         {
             Button button = RaceUIBuilder.Button(parent, upgrade.ToString(), string.Empty, new Vector2(x, 2));
             button.GetComponent<RectTransform>().sizeDelta = new Vector2(130, 78);
-            Text label = button.GetComponentInChildren<Text>(); label.fontSize = 17;
+            TMP_Text label = button.GetComponentInChildren<TMP_Text>(); label.fontSize = 17;
             label.rectTransform.sizeDelta = new Vector2(120, 74);
             PlaygroundUpgradeUI presenter = button.gameObject.AddComponent<PlaygroundUpgradeUI>();
             Bind(presenter, "_world", world); Bind(presenter, "_audio", audio); Bind(presenter, "_label", label);

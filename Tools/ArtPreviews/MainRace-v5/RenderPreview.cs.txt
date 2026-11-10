@@ -1,0 +1,66 @@
+var folder="C:/Unity/Horsecremental/Tools/ArtPreviews/MainRace-v5"; var sourceFolder="C:/Unity/Horsecremental/Tools/ArtPreviews/MainRace-v1";
+var scene=UnityEditor.SceneManagement.EditorSceneManager.NewPreviewScene();
+var assets=new System.Collections.Generic.List<UnityEngine.Object>(); RenderTexture rt=null; var previous=RenderTexture.active;
+try {
+    System.Func<string,Texture2D> load=delegate(string file) { var t=new Texture2D(2,2,TextureFormat.RGBA32,false); t.LoadImage(System.IO.File.ReadAllBytes(sourceFolder+"/"+file)); t.filterMode=FilterMode.Point; assets.Add(t); return t; };
+    var terrain=load("RaceTerrain.png"); var props=load("RaceProps.png"); var backdrop=load("RaceBackdrop.png");
+    System.Func<Texture2D,Rect,Vector2,float,Sprite> sprite=delegate(Texture2D t,Rect r,Vector2 pivot,float ppu) { var s=Sprite.Create(t,r,pivot,ppu,0,SpriteMeshType.FullRect); assets.Add(s); return s; };
+    System.Func<string,Sprite,Vector2,int,SpriteRenderer> place=delegate(string name,Sprite s,Vector2 p,int order) { var go=new GameObject(name); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go,scene); go.transform.position=p; var renderer=go.AddComponent<SpriteRenderer>(); renderer.sprite=s; renderer.sortingOrder=order; return renderer; };
+    System.Func<int,Sprite> prop=delegate(int index) {
+        int left=index%4*props.width/4,right=(index%4+1)*props.width/4,bottom=props.height-(index/4+1)*props.height/3,top=props.height-index/4*props.height/3;
+        var colors=props.GetPixels32(); int minX=right,minY=top,maxX=left,maxY=bottom;
+        for(int y=bottom;y<top;y++) for(int x=left;x<right;x++) if(colors[y*props.width+x].a>=180) { minX=System.Math.Min(minX,x); minY=System.Math.Min(minY,y); maxX=System.Math.Max(maxX,x); maxY=System.Math.Max(maxY,y); }
+        return sprite(props,new Rect(minX,minY,maxX-minX+1,maxY-minY+1),new Vector2(.5f,0),props.width/160f*24);
+    };
+
+    var hurdleTexture=new Texture2D(2,2,TextureFormat.RGBA32,false);
+    hurdleTexture.LoadImage(System.IO.File.ReadAllBytes("C:/Unity/Horsecremental/Tools/ArtPreviews/MainRace-v5/RaceHurdle.png"));
+    hurdleTexture.filterMode=FilterMode.Point;assets.Add(hurdleTexture);
+    var hp=hurdleTexture.GetPixels32();int hx0=hurdleTexture.width,hy0=hurdleTexture.height,hx1=0,hy1=0;
+    for(int y=0;y<hurdleTexture.height;y++)for(int x=0;x<hurdleTexture.width;x++)if(hp[y*hurdleTexture.width+x].a>=180){hx0=System.Math.Min(hx0,x);hy0=System.Math.Min(hy0,y);hx1=System.Math.Max(hx1,x);hy1=System.Math.Max(hy1,y);}
+    var hurdleSprite=sprite(hurdleTexture,new Rect(hx0,hy0,hx1-hx0+1,hy1-hy0+1),new Vector2(.5f,0),24f);
+    var grass=sprite(terrain,new Rect(terrain.width/2,0,terrain.width/2,terrain.height),new Vector2(.5f,.5f),24);
+    var ground=place("Grass",grass,Vector2.zero,-50); ground.transform.localScale=new Vector3(20/grass.bounds.size.x,11.25f/grass.bounds.size.y,1);
+    var bg=sprite(backdrop,new Rect(0,0,backdrop.width,backdrop.height),new Vector2(.5f,.5f),backdrop.width/20f);
+    place("Tree Line",bg,new Vector2(0,2.2f),-40);
+    var dirt=sprite(terrain,new Rect(0,0,terrain.width/2,terrain.height),new Vector2(.5f,.5f),24);
+    var track=place("Track",dirt,Vector2.zero,-20); track.transform.localScale=new Vector3(20/dirt.bounds.size.x,7.8f/dirt.bounds.size.y,1);
+    var square=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Racing/Generated/SolidSprite.asset");
+    System.Action<string,Vector2,Vector2,Color,int> rect=delegate(string name,Vector2 p,Vector2 size,Color color,int order) { var r=place(name,square,p,order); r.transform.localScale=new Vector3(size.x,size.y,1); r.color=color; };
+    for(int lane=0;lane<4;lane++) {
+        float y=-2.8f+lane*1.7f;
+        rect("Lane "+lane,new Vector2(0,y-.25f),new Vector2(24,.045f),new Color(.91f,.8f,.59f),-5);
+        var hurdle=place("Hurdle "+lane,hurdleSprite,new Vector2(2.7f,y-.15f),20-lane*2); hurdle.transform.localScale=Vector3.one*(1.2f/hurdle.sprite.bounds.size.y);
+        var marker=place("Approach "+lane,prop(7),new Vector2(.2f,y-.15f),-1); marker.transform.localScale=Vector3.one*.3f;
+        Sprite horse=null; foreach(var a in AssetDatabase.LoadAllAssetsAtPath("Assets/Racing/Generated/Horse"+lane+"Frames.png")) if(a is Sprite&&a.name=="Horse"+lane+"Run2") horse=(Sprite)a;
+        place("Existing Racer "+lane,horse,new Vector2(-4.8f+lane*.75f,y),30-lane*2);
+    }
+    for(int i=0;i<12;i++) { var fence=place("Upper Rail "+i,prop(0),new Vector2(-10.3f+i*1.9f,3.7f),2); fence.transform.localScale=Vector3.one*1.1f; }
+    rect("Start",new Vector2(-7.6f,0),new Vector2(.12f,7.8f),new Color(.96f,.86f,.68f),-1);
+    for(int i=0;i<20;i++) rect("Finish "+i,new Vector2(7.7f,-3.65f+i*.38f),new Vector2(.3f,.38f),i%2==0?new Color(.96f,.86f,.68f):new Color(.2f,.16f,.1f),-1);
+    place("Start Flag",prop(4),new Vector2(-7.6f,3.7f),10); place("Finish Flag",prop(5),new Vector2(7.7f,3.7f),10);
+
+    var verge=new Texture2D(2,2,TextureFormat.RGBA32,false);verge.LoadImage(System.IO.File.ReadAllBytes("C:/Unity/Horsecremental/Tools/ArtPreviews/MainRace-v3/VergeDetails.png"));verge.filterMode=FilterMode.Point;assets.Add(verge);
+    var vp=verge.GetPixels32();
+    System.Func<int,Sprite> detail=delegate(int index){
+        int left=index*verge.width/4,right=(index+1)*verge.width/4;
+        int minX=right,minY=verge.height,maxX=left,maxY=0;
+        for(int y=0;y<verge.height;y++)for(int x=left;x<right;x++)if(vp[y*verge.width+x].a>=180){minX=System.Math.Min(minX,x);minY=System.Math.Min(minY,y);maxX=System.Math.Max(maxX,x);maxY=System.Math.Max(maxY,y);}
+        return sprite(verge,new Rect(minX,minY,maxX-minX+1,maxY-minY+1),new Vector2(.5f,0),verge.width/96f*24f);
+    };
+    var grassPositions=new[]{new Vector2(-8.2f,-4.65f),new Vector2(-7.65f,-4.78f),new Vector2(-3.1f,-5.08f),new Vector2(-.8f,-4.55f),new Vector2(3.3f,-4.83f),new Vector2(8.3f,-5.05f)};
+    for(int i=0;i<grassPositions.Length;i++){var tuft=place("Subtle grass "+i,detail(i%2),grassPositions[i],12);tuft.color=new Color(.86f,.91f,.77f);}
+    var stoneA=place("Low Pebbles Left",detail(2),new Vector2(-5.6f,-4.85f),12);stoneA.transform.localScale=Vector3.one*.65f;stoneA.color=new Color(.86f,.86f,.8f);
+    var stoneB=place("Low Pebbles Right",detail(2),new Vector2(6.4f,-4.55f),12);stoneB.transform.localScale=Vector3.one*.5f;stoneB.flipX=true;stoneB.color=new Color(.86f,.86f,.8f);
+    var flower=place("Tiny Wildflower",detail(3),new Vector2(-.15f,-4.65f),12);flower.transform.localScale=Vector3.one*.65f;
+    var goCam=new GameObject("Race Approval Camera"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(goCam,scene);
+    var camera=goCam.AddComponent<Camera>(); camera.scene=scene; camera.enabled=false; camera.orthographic=true; camera.orthographicSize=5.625f; camera.transform.position=new Vector3(0,0,-10); camera.clearFlags=CameraClearFlags.SolidColor; camera.backgroundColor=new Color(.49f,.56f,.32f);
+    rt=new RenderTexture(1440,810,24,RenderTextureFormat.ARGB32); rt.filterMode=FilterMode.Point; camera.targetTexture=rt; camera.Render(); RenderTexture.active=rt;
+    var output=new Texture2D(1440,810,TextureFormat.RGB24,false); assets.Add(output); output.ReadPixels(new Rect(0,0,1440,810),0,0); output.Apply(); System.IO.File.WriteAllBytes(folder+"/MainRacePreview.png",output.EncodeToPNG());
+} finally {
+    RenderTexture.active=previous;
+    if(rt!=null) { rt.Release(); UnityEngine.Object.DestroyImmediate(rt); }
+    UnityEditor.SceneManagement.EditorSceneManager.ClosePreviewScene(scene);
+    foreach(var asset in assets) UnityEngine.Object.DestroyImmediate(asset);
+}
+return new { preview=folder+"/MainRacePreview.png", gameplaySceneDirty=UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty };

@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using Unity.Cinemachine;
 using UnityEditor;
@@ -102,14 +103,14 @@ namespace Horsecremental.Racing.Editor
             RaceUI raceUI = UnityEngine.Object.FindAnyObjectByType<RaceUI>();
             RaceSceneBaker.SetReference(raceUI, "_world", world);
             raceUI.transform.Find("Race result/Restart Race").gameObject.SetActive(false);
-            raceUI.transform.Find("Race entry/Start Race").GetComponentInChildren<Text>(true).text = "START MAIN RACE";
-            raceUI.transform.Find("Race entry/Title").GetComponent<Text>().text = "MAIN RACE";
-            raceUI.transform.Find("Race entry/Description").GetComponent<Text>().text = "Fixed rivals: 14 / 14.5 / 15 speed\nTrain and upgrade to beat them.";
-            raceUI.transform.Find("Controls").GetComponent<Text>().text = "SPACE: rhythmic boost taps   |   E: jump\nOrange hurdles slow you down. Jump near the yellow marker.";
-            raceUI.transform.Find("Race result/Return to Stable").GetComponentInChildren<Text>(true).text = "RETURN TO STABLE";
-            raceUI.transform.Find("Race result/Column place").GetComponent<Text>().text = "Place";
-            raceUI.transform.Find("Race result/Column name").GetComponent<Text>().text = "Horse";
-            raceUI.transform.Find("Race result/Column time").GetComponent<Text>().text = "Finish time";
+            raceUI.transform.Find("Race entry/Start Race").GetComponentInChildren<TMP_Text>(true).text = "START MAIN RACE";
+            raceUI.transform.Find("Race entry/Title").GetComponent<TMP_Text>().text = "MAIN RACE";
+            raceUI.transform.Find("Race entry/Description").GetComponent<TMP_Text>().text = "Fixed rivals: 14 / 14.5 / 15 speed\nTrain and upgrade to beat them.";
+            raceUI.transform.Find("Controls").GetComponent<TMP_Text>().text = "SPACE: rhythmic boost taps   |   E: jump\nOrange hurdles slow you down. Jump near the yellow marker.";
+            raceUI.transform.Find("Race result/Return to Stable").GetComponentInChildren<TMP_Text>(true).text = "RETURN TO STABLE";
+            raceUI.transform.Find("Race result/Column place").GetComponent<TMP_Text>().text = "Place";
+            raceUI.transform.Find("Race result/Column name").GetComponent<TMP_Text>().text = "Horse";
+            raceUI.transform.Find("Race result/Column time").GetComponent<TMP_Text>().text = "Finish time";
             foreach (RaceParticipant participant in prototype.GetComponentsInChildren<RaceParticipant>())
             {
                 SerializedObject participantData = new SerializedObject(participant);

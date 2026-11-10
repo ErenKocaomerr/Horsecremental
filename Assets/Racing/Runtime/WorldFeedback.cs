@@ -1,10 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 namespace Horsecremental.Racing
 {
     public sealed class WorldFeedback : MonoBehaviour
     {
-        [SerializeField] private TextMesh[] _labels;
+        [SerializeField] private TMP_Text[] _labels;
         private float[] _remaining;
         private Vector3[] _origins;
         private int _next;
@@ -19,7 +20,7 @@ namespace Horsecremental.Racing
             int index = _next++ % _labels.Length;
             _origins[index] = position;
             _remaining[index] = 1.2f;
-            TextMesh text = _labels[index];
+            TMP_Text text = _labels[index];
             text.text = message;
             text.color = color;
             text.transform.position = position;

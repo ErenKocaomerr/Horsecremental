@@ -88,6 +88,7 @@ namespace Horsecremental.Racing.Tests
         public IEnumerator AllActiveScreensFitSupportedAspectRatiosAndProduceVisualEvidence()
         {
             _world.Player.GrantDebugResources(10000, 100); ProgressionLoopTests.UnlockAll(_world.Player);
+            ProgressionLoopTests.EarnMainRaceEntry(_world);
             int[] widths = {1920, 1280, 1024, 2560}; int[] heights = {1080, 720, 768, 1080};
             string[] names = {"stable", "farm", "tree", "race"};
             string[] targets = {"Train Speed", "GrowSpeed", "Unlock Farm", "Start Race"};

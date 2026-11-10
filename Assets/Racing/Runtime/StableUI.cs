@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,12 +7,14 @@ namespace Horsecremental.Racing
     public sealed class StableUI : MonoBehaviour
     {
         [SerializeField] private ProgressionSettings _settings;
-        [SerializeField] private Text _coins;
-        [SerializeField] private Text _stats;
-        [SerializeField] private Text _feedback;
+        [SerializeField] private TMP_Text _coins;
+        [SerializeField] private TMP_Text _stats;
+        [SerializeField] private TMP_Text _feedback;
         [SerializeField] private Button _startRace;
         [SerializeField] private Button[] _upgrades;
-        [SerializeField] private Text[] _upgradeLabels;
+        [SerializeField] private TMP_Text[] _upgradeLabels;
+        [SerializeField] private TMP_Text _power;
+        [SerializeField] private RuralUITheme _theme;
         private PlayerProgression _player;
         private GameplayWorld _world;
 
@@ -53,16 +56,18 @@ namespace Horsecremental.Racing
             float before = Value(upgrade, _player.Stats);
             if (!_player.TryUpgrade(upgrade))
             {
-                _feedback.text = _player.ManualTrainingEnabled ? "Need more Training Tokens." : "Need more Coins.";
+                _feedback.text = _player.ManualTrainingEnabled ? "Earn Upgrade Tokens from races." : "Need more Coins.";
                 return;
             }
-            _feedback.text = Name(upgrade) + " upgraded!  " + before.ToString("0.##") + " → " +
+            _feedback.text = Name(upgrade) + " upgraded!  " + before.ToString("0.##") + " > " +
                 Value(upgrade, _player.Stats).ToString("0.##");
         }
 
         private void Refresh()
         {
             HorseParameters stats = _player.Stats;
+            if (_power != null) _power.text = "POWER " + _player.HorsePower.ToString("0.0") +
+                (_world == null ? string.Empty : " / " + _world.Settings.RecommendedPower.ToString("0.#"));
             _coins.text = "Coins: " + _player.Coins;
             _stats.text = "Speed  " + stats.Speed.ToString("0.##") + "\nAcceleration  " + stats.Acceleration.ToString("0.##") +
                 "\nBoost  " + stats.BoostPower.ToString("0.##") + "\nPower  " + _player.HorsePower.ToString("0.0");
@@ -72,9 +77,10 @@ namespace Horsecremental.Racing
                 int cost = _player.Cost(upgrade);
                 bool unlocked = _player.IsUnlocked(upgrade);
                 _upgrades[i].interactable = _player.ManualTrainingEnabled ? _player.CanAfford(upgrade) : unlocked && cost < int.MaxValue;
-                _upgradeLabels[i].text = _player.ManualTrainingEnabled ? Name(upgrade).ToUpperInvariant() + "  Lv." + _player.Level(upgrade) +
-                    "\n" + Value(upgrade, stats).ToString("0.##") + " → " + (Value(upgrade, stats) + _player.Rule(upgrade).Increase).ToString("0.##") +
-                    "\n" + (cost == int.MaxValue ? "MAX" : cost + " Tokens • TRAIN") : string.Empty;
+                string title = upgrade == HorseUpgrade.Speed ? "SPEED" : upgrade == HorseUpgrade.Acceleration ? "ACCEL." : "BOOST";
+                _upgradeLabels[i].text = _player.ManualTrainingEnabled ? title + "  " + _player.Level(upgrade) +
+                    "\n" + (cost == int.MaxValue ? "MAX" : cost + " tokens") : string.Empty;
+                if (_theme != null) _upgradeLabels[i].color = _theme.Ink;
             }
         }
         private static string Name(HorseUpgrade upgrade) => upgrade == HorseUpgrade.Speed ? "Speed" :

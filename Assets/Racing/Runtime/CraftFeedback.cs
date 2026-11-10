@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ namespace Horsecremental.Racing
     public sealed class CraftFeedback : MonoBehaviour
     {
         [SerializeField] private ProgressionSettings _settings;
-        [SerializeField] private Text _banner;
+        [SerializeField] private TMP_Text _banner;
         [SerializeField] private CanvasGroup _group;
         [SerializeField] private UnityEvent _onCraftComplete = new UnityEvent();
         private PlayerProgression _player;

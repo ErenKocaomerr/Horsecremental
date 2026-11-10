@@ -1,7 +1,17 @@
 {
-    "name": "Horsecremental.Racing.Tests",
-    "rootNamespace": "Horsecremental.Racing.Tests",
-    "references": ["Horsecremental.Racing", "Unity.RenderPipelines.Universal.2D.Runtime", "UnityEngine.UI", "Unity.Cinemachine"],
-    "includePlatforms": ["Editor"],
-    "optionalUnityReferences": ["TestAssemblies"]
+  "name": "Horsecremental.Racing.Tests",
+  "rootNamespace": "Horsecremental.Racing.Tests",
+  "references": [
+    "Horsecremental.Racing",
+    "Unity.RenderPipelines.Universal.2D.Runtime",
+    "UnityEngine.UI",
+    "Unity.Cinemachine",
+    "Unity.TextMeshPro"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
 }

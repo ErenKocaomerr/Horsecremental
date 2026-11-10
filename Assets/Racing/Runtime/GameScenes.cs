@@ -12,7 +12,9 @@ namespace Horsecremental.Racing
         public static void StartRace()
         {
             GameplayWorld world = Object.FindAnyObjectByType<GameplayWorld>();
-            if (world != null) world.ShowRaceArea();
+            if (world == null) return;
+            if (world.TrainingLadder != null) world.ShowTraining();
+            else world.ShowRaceArea();
         }
         public static void ReturnToStable()
         {

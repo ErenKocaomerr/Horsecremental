@@ -1,0 +1,6 @@
+{
+    "name": "Horsecremental.Racing.PlayModeTests",
+    "rootNamespace": "Horsecremental.Racing.Tests",
+    "references": ["Horsecremental.Racing", "Unity.InputSystem", "UnityEngine.UI", "Unity.Cinemachine"],
+    "optionalUnityReferences": ["TestAssemblies"]
+}

@@ -1,0 +1,88 @@
+Implement ONLY the new Training Race system described in the Demo Core Loop Master Brief.
+
+Do not implement Day/Night or Main Race scheduling yet.
+
+First inspect the current Training system and remove/refactor the passive multiple-Training-Horse gameplay safely.
+
+# GOAL
+
+Training becomes an optional manual racing ladder.
+
+Implement:
+
+Training I\
+Training II\
+Training III
+
+For now only implement 3 Training tiers so we can test the loop before creating more content.
+
+Training I starts unlocked.
+
+Finishing 1st unlocks the next tier.
+
+Finishing 2nd/3rd/4th still gives rewards but does NOT unlock the next tier.
+
+Each Training Race rewards:
+
+- Coins
+- Training Tokens
+
+Rewards depend on finishing position.
+
+Higher Training tiers have:
+
+- Stronger fixed AI
+- Higher Coin rewards
+- Higher Training Token rewards
+
+Do not dynamically scale AI with player power.
+
+Add Training Tokens to the existing central progression data.
+
+Training Tokens are spent on Horse upgrades.
+
+Move existing:
+
+Speed\
+Acceleration\
+Boost Power
+
+upgrade costs from Coins to Training Tokens if appropriate.
+
+Coins remain for Stable/Farm economy.
+
+Create a clean Training selection UI showing:
+
+- Training name
+- Locked/unlocked
+- Best finishing position
+- Coin reward range
+- Training Token reward range
+- Requirement for next locked race
+
+Use existing race gameplay instead of building a second racing controller.
+
+Keep Training races relatively short.
+
+Remove/disable the gameplay where multiple Training Horses automatically produce income.
+
+Do not delete dependency-heavy code without auditing it.
+
+At the end test:
+
+Training I → finish 1st → Training II unlocks → rewards received → Training Tokens purchase real Horse upgrades.
+
+Stop after this system works.
+
+Do not implement Day/Night yet.
+
+Report:
+
+- Scripts changed
+- Old Training systems disabled
+- Training unlock logic
+- Reward values
+- Training Token integration
+- How to test it
+- Known issues
+

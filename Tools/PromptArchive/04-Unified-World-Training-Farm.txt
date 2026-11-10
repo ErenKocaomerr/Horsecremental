@@ -1,0 +1,1524 @@
+We are continuing development of our short-scope incremental horse racing game.
+
+**Milestone 1 and Milestone 2 are already complete.**
+
+Before making changes, inspect the current project carefully and understand the existing architecture.
+
+Do not unnecessarily rewrite working systems.
+
+Milestone 2 currently includes:
+
+- Horse racing gameplay
+- Player horse automatic movement
+- AI racers
+- SPACE boost
+- E jump
+- Obstacles
+- Race finish / positions
+- Coins
+- Horse upgrades
+- Speed upgrade
+- Acceleration upgrade
+- Boost Power upgrade
+- Stable
+- Stable UI
+- Race rewards
+- Runtime progression data
+- Cinemachine cameras
+- Canvas UI configured with Scale With Screen Size at 1920x1080
+
+# MILESTONE 3 — THE REAL CORE GAME STRUCTURE
+
+The goal of Milestone 3 is to make the game begin feeling like the actual incremental game instead of separate prototype screens.
+
+The main gameplay structure should become:
+
+**Stable / Farm / Upgrades**
+↓
+Horse automatically earns money from easy Training Races
+↓
+Player improves the horse
+↓
+Player attempts a difficult Main Race
+↓
+Main Race unlocks meaningful progression later
+
+The Stable and Race areas should exist inside the **same gameplay scene/world**.
+
+Do NOT use scene loading or teleporting between Stable and Race anymore.
+
+This milestone should also improve game feel and introduce the first lightweight Farm system.
+
+---
+
+# 1. IMPORTANT — STABLE AND RACE MUST EXIST IN THE SAME SCENE
+
+Currently Stable and Race may be separate scenes or may use scene transitions.
+
+Change this structure.
+
+The Stable area and Race Track should exist inside the SAME gameplay scene.
+
+The player should be able to smoothly move/view between them.
+
+There must NOT be:
+
+- Loading screen
+- Scene reload
+- Teleportation effect
+- Instant hard cut unless absolutely required for debugging
+
+The game should feel like one connected place.
+
+The player should feel that the race track exists next to / near the Stable.
+
+---
+
+# 2. CAMERA TRANSITION BETWEEN STABLE AND RACE
+
+Use **Cinemachine** for the camera system.
+
+Do not return to standard/manual camera systems unless technically required.
+
+Create smooth camera transitions between gameplay areas.
+
+Preferred interaction:
+
+### Option A — A / D navigation
+
+While in the Stable:
+
+Press D → smoothly move camera toward Race area.
+
+While at Race area:
+
+Press A → smoothly move camera back toward Stable.
+
+The camera should slide/pan smoothly rather than instantly teleport.
+
+OR if the existing project architecture makes this cleaner:
+
+### Option B — Arrow / UI Buttons
+
+Use left/right arrow buttons such as:
+
+< STABLE
+
+RACE >
+
+Pressing the button smoothly moves/blends the Cinemachine camera between areas.
+
+Choose whichever implementation works best with the current project.
+
+The important requirements are:
+
+- Same scene
+- Smooth transition
+- Cinemachine
+- No scene loading
+- No player/world teleport feeling
+
+Transitions should feel responsive and take approximately 0.5–1.5 seconds.
+
+Do not make the camera movement painfully slow.
+
+---
+
+# 3. CAMERA STATES
+
+Create clean camera states / Cinemachine cameras for at least:
+
+### Stable Camera
+
+Shows:
+
+- Player horse
+- Stable upgrade area
+- Farm area if visible
+- Important Stable interactions
+
+### Race Camera
+
+Used during Main Race gameplay.
+
+Should follow the player's racing horse similarly to the existing racing camera.
+
+### Optional Overview / Transition Camera
+
+Only create this if useful.
+
+Do not overengineer the camera architecture.
+
+Use Cinemachine blending between relevant cameras.
+
+---
+
+# 4. HORSE SHOULD BE ACTIVE WHILE WE ARE IN THE STABLE
+
+This is very important.
+
+The horse should NOT feel like it is doing nothing while the player is in the Stable.
+
+While the player is managing upgrades / Farm / Stable systems, the horse should automatically participate in **easy Training Races** in the background.
+
+These races represent the horse continuously racing against weaker opponents and earning money for the player.
+
+This is the beginning of the game's idle / incremental income system.
+
+---
+
+# 5. IDLE TRAINING RACE SYSTEM
+
+Create a simple automatic Training Race simulation.
+
+This should NOT require rendering a full race every time.
+
+Do not spawn a complicated full race simulation in the background if it is unnecessary.
+
+A Training Race can be calculated/simulated using horse power/stat values.
+
+Example loop:
+
+Training Race Starts
+
+↓
+
+Training timer progresses
+
+↓
+
+Horse completes Training Race
+
+↓
+
+Coins are awarded automatically
+
+↓
+
+Next Training Race starts automatically
+
+The horse should continuously earn money while the player is in the Stable.
+
+Example:
+
+TRAINING
+
+Next Race: 8.4s
+
+Estimated Reward: 35 Coins
+
+When completed:
+
++35 Coins
+
+Then automatically start another Training Race.
+
+---
+
+# 6. TRAINING RACE DIFFICULTY
+
+Training Races are EASY races.
+
+They exist primarily to generate money.
+
+The player should generally succeed at them.
+
+Do not make idle Training Races frustrating.
+
+A very simple calculation is acceptable.
+
+For example:
+
+HorsePower compared against TrainingRaceRequirement.
+
+If HorsePower is comfortably above the requirement:
+
+Player automatically wins.
+
+For Milestone 3, it is acceptable if Training Races are guaranteed to succeed.
+
+The main purpose is passive income.
+
+---
+
+# 7. TRAINING RACE REWARDS
+
+Training Races should give significantly less money than important Main Races.
+
+Example prototype numbers:
+
+Training Race:
+
+20–50 Coins every 10–20 seconds
+
+Main Race:
+
+Several hundred Coins
+
+These exact numbers should be configurable.
+
+Do NOT hardcode balance everywhere.
+
+Training income should make Stable activity productive without completely replacing Main Race rewards.
+
+---
+
+# 8. SHOW IDLE RACING VISUALLY
+
+Even if the Training Race itself is simulated, give the player some visual indication that their horse is actively racing.
+
+Possible lightweight implementation:
+
+When a Training Race begins:
+
+- Horse exits / moves toward a simple training lane
+- OR a small horse icon moves across a progress bar
+- OR show a mini race UI
+- OR animate a small race indicator near the Stable
+
+Then when the Training Race completes:
+
++Coins feedback appears.
+
+Do NOT build an entirely separate complex race gameplay system.
+
+Use the cheapest implementation that gives the feeling:
+
+**"My horse is racing and earning money while I manage the Stable."**
+
+If existing horse/environment assets make it easy to physically show the horse doing a short training loop, feel free to use them.
+
+But functionality is more important than elaborate visuals.
+
+---
+
+# 9. TRAINING RACE UI
+
+Create a small UI panel in the Stable.
+
+Example:
+
+TRAINING RACE
+
+Race #12
+
+Time Remaining: 6.3s
+
+Reward: ~35 Coins
+
+[Progress Bar]
+
+When completed:
+
++35 COINS
+
+Use smooth UI feedback.
+
+The Training Race progress bar should animate smoothly.
+
+Do not update it in visibly large steps.
+
+---
+
+# 10. MAIN RACES MUST BECOME MUCH HARDER
+
+Current Main Races are too easy.
+
+Main Races should become actual progression gates.
+
+They should feel like:
+
+**"I am probably not strong enough yet. I need a few more upgrades."**
+
+The player should NOT automatically win Main Races immediately.
+
+The intended experience should be:
+
+Attempt Main Race
+
+↓
+
+Get 3rd / 4th or lose badly
+
+↓
+
+Return focus to Stable
+
+↓
+
+Earn idle Coins
+
+↓
+
+Buy several upgrades
+
+↓
+
+Attempt Main Race again
+
+↓
+
+Get much closer
+
+↓
+
+Upgrade more
+
+↓
+
+Finally win
+
+Winning should feel satisfying.
+
+---
+
+# 11. DO NOT USE AGGRESSIVE RUBBER BANDING
+
+Main Races should be difficult because opponents have strong, fixed stats.
+
+Do NOT secretly scale every opponent to always match the player.
+
+Do NOT make player upgrades meaningless.
+
+For example:
+
+Main Race opponent speeds:
+
+Opponent 1 = 14.0
+
+Opponent 2 = 14.5
+
+Opponent 3 = 15.0
+
+If player starts at:
+
+Speed = 10
+
+They should lose badly.
+
+After upgrades:
+
+Speed = 14+
+
+They should become competitive.
+
+Eventually:
+
+Speed = 16+
+
+The race should become noticeably easier.
+
+This is essential for the incremental power fantasy.
+
+---
+
+# 12. MAIN RACE REQUIREMENT / POWER ESTIMATE
+
+Optionally show a rough difficulty indication in the Stable.
+
+Example:
+
+MAIN RACE
+
+Recommended Power: 150
+
+Your Power: 104
+
+Difficulty:
+
+VERY HARD
+
+Do NOT block the player from attempting the race.
+
+The player should always be allowed to try even if underpowered.
+
+The difficulty display is only guidance.
+
+A simple total Horse Power calculation may be created using:
+
+- Speed
+- Acceleration
+- Boost
+- Future stats if necessary
+
+Keep this simple.
+
+---
+
+# 13. MAIN RACE ENTRY
+
+While viewing the Race area, provide a clear:
+
+**START MAIN RACE**
+
+button / interaction.
+
+Starting it should NOT load another scene.
+
+The current world stays loaded.
+
+Instead:
+
+- Move/blend camera into Race gameplay
+- Position/reset race participants
+- Start countdown
+- Start Main Race
+
+After the race finishes:
+
+Show results.
+
+Then return smoothly to the Stable / world management state.
+
+Again:
+
+NO scene loading.
+
+---
+
+# 14. IMPORTANT — TRAINING RACE VS MAIN RACE
+
+Keep these concepts separate.
+
+### TRAINING RACE
+
+Automatic.
+
+Easy.
+
+Repeated endlessly.
+
+Primary purpose:
+
+Generate Coins while the player is managing the Stable.
+
+Minimal or simulated gameplay.
+
+### MAIN RACE
+
+Manual.
+
+Difficult.
+
+Player uses:
+
+SPACE Boost
+
+E Jump
+
+Has obstacles.
+
+Progression challenge.
+
+Better reward.
+
+Eventually used for:
+
+Neighborhood → City → Country → Continent → World progression.
+
+Do not build the full championship progression yet.
+
+For Milestone 3, one difficult Main Race is enough.
+
+---
+
+# 15. REWORK THE BOOST SYSTEM
+
+The current Boost system requires too much SPACE spamming and the meter behaviour does not feel good.
+
+Replace/rework it.
+
+Boost should use a **Boost Meter**.
+
+The goal is to create a meter that the player actively manages and cannot simply keep permanently full.
+
+---
+
+# 16. BOOST INPUT
+
+SPACE should add a SMALL amount of Boost Energy each time it is pressed.
+
+Example:
+
+Each SPACE press:
+
++5% Boost Meter
+
+Do NOT instantly give a full large boost from one press.
+
+Repeated presses gradually increase the meter.
+
+However, avoid requiring extreme button mashing.
+
+Tune values so moderate rhythmic pressing feels enough.
+
+---
+
+# 17. BOOST METER DRAIN
+
+Boost Meter should continuously decrease.
+
+Very important:
+
+The higher the Boost Meter becomes, the FASTER it should drain.
+
+Example behaviour:
+
+0–25%:
+
+Very slow drain
+
+25–50%:
+
+Slow/moderate drain
+
+50–75%:
+
+Faster drain
+
+75–100%:
+
+Very fast drain
+
+This creates tension.
+
+The player can push toward maximum speed, but maintaining near-maximum Boost should be difficult.
+
+The Boost meter should naturally settle instead of sitting at 100%.
+
+---
+
+# 18. BOOST SPEED EFFECT
+
+Boost should scale based on the current meter amount.
+
+Example:
+
+0% Boost:
+
+No speed bonus
+
+25%:
+
+Small speed bonus
+
+50%:
+
+Medium bonus
+
+75%:
+
+Strong bonus
+
+100%:
+
+Maximum boost
+
+Avoid binary:
+
+Boost ON / Boost OFF
+
+The speed change should feel smooth.
+
+For example:
+
+CurrentSpeedBonus = BoostMeterNormalized × BoostPower
+
+Smoothly interpolate actual speed changes if necessary.
+
+Do not make acceleration visually jerky.
+
+---
+
+# 19. BOOST SLIDER POLISH
+
+The Boost UI slider should move smoothly.
+
+Do not instantly snap UI values if avoidable.
+
+Use interpolation / smoothing for the displayed slider.
+
+Example concept:
+
+Actual Boost = gameplay value
+
+Displayed Boost = smoothly follows actual Boost
+
+The bar should feel fluid.
+
+Add lightweight visual feedback based on Boost amount.
+
+Examples:
+
+Low Boost:
+
+Normal bar
+
+High Boost:
+
+Subtle pulse
+
+Near Maximum:
+
+Slight shake / glow / animation
+
+Do not depend on custom assets.
+
+Use UI scale, alpha, particles, animation, or existing assets.
+
+---
+
+# 20. BOOST BUTTON FEEDBACK
+
+Each SPACE press should have satisfying small feedback.
+
+Possible effects:
+
+- Boost meter bump animation
+- Small camera impulse
+- Horse acceleration kick
+- UI pulse
+- Short particle burst
+- FOV increase
+- Speed lines if easily achievable
+
+Do not use all of these if it becomes excessive.
+
+Pick a few lightweight effects.
+
+The goal is responsiveness.
+
+---
+
+# 21. BOOST POWER UPGRADE COMPATIBILITY
+
+The existing Boost Power upgrade must still matter.
+
+Do NOT break Milestone 2 progression.
+
+Boost Power can affect:
+
+- Maximum speed bonus generated by Boost Meter
+
+and/or
+
+- Amount gained per SPACE press
+
+Prefer making Boost Power primarily improve actual racing performance rather than making the meter trivially easier to fill.
+
+Do not allow high Boost upgrades to create a permanently full meter.
+
+---
+
+# 22. FIRST FARM SYSTEM
+
+Add the first small Farm system to the Stable.
+
+Keep this intentionally simple.
+
+The Farm is NOT a farming simulator.
+
+It exists to give the player another incremental improvement activity while the horse is Training.
+
+For Milestone 3 implement only ONE crop:
+
+**Carrot**
+
+The loop:
+
+Plant / Start Production
+
+↓
+
+Wait
+
+↓
+
+Carrot becomes ready
+
+↓
+
+Collect Carrot
+
+↓
+
+Use Carrot to improve horse / receive temporary or permanent progression benefit
+
+Keep it extremely simple.
+
+---
+
+# 23. FARM AUTOMATION STYLE
+
+Because this is an incremental game, avoid requiring constant tedious clicking.
+
+Prototype Farm example:
+
+Carrot Plot Level 1
+
+Produces:
+
+1 Carrot every 20 seconds
+
+Storage:
+
+2 / 10 Carrots
+
+[Collect]
+
+Upgrade Farm later — not required to deeply implement yet.
+
+If straightforward, production can happen automatically.
+
+The player mainly collects and uses the result.
+
+---
+
+# 24. CARROT EFFECT
+
+For Milestone 3, Carrots can have ONE simple purpose.
+
+Recommended:
+
+Feed horse to provide a small permanent Horse Power improvement.
+
+For example:
+
+5 Carrots
+
+↓
+
+Feed Horse
+
+↓
+
++0.1 Base Speed
+
+OR:
+
+Carrots can provide a temporary Main Race buff.
+
+However, permanent incremental progression is preferred for this prototype.
+
+Do NOT create:
+
+- Recipe system
+- Multiple food types
+- Cooking
+- Food rarity
+- Inventory complexity
+- Nutrition system
+
+One resource.
+
+One use.
+
+---
+
+# 25. SIMPLE FARM UI
+
+Stable should show something like:
+
+FARM
+
+Carrots: 4
+
+Next Carrot: 8.2s
+
+[Progress Bar]
+
+FEED HORSE
+
+Cost: 5 Carrots
+
+Reward:
+
++0.1 Speed
+
+[FEED]
+
+Again, placeholder visual style is acceptable.
+
+---
+
+# 26. GAME FEEL / POLISH PASS
+
+Milestone 3 should include a LIGHT polish pass.
+
+Do not turn this into a full art milestone.
+
+Even without proper final assets, interactions should feel responsive.
+
+Add polish where cheap and effective.
+
+Focus primarily on:
+
+- Camera movement
+- UI transitions
+- Button feedback
+- Coin gain feedback
+- Upgrade feedback
+- Boost feedback
+- Race start feedback
+- Race finish feedback
+- Farm collection feedback
+
+---
+
+# 27. COIN FEEDBACK
+
+Whenever Coins are gained:
+
+Show something like:
+
++35
+
+Use a small floating / animated UI indicator.
+
+The total Coin counter should smoothly animate toward the new value if easy.
+
+When Coins are spent:
+
+Show visual feedback.
+
+Example:
+
+-150 Coins
+
+Do not make currency changes feel invisible.
+
+---
+
+# 28. UPGRADE FEEDBACK
+
+When buying an upgrade:
+
+- Button should react
+- Stat number should update visibly
+- Show increase
+
+Example:
+
+SPEED
+
+14.5 → 15.0
+
+Add small animation such as:
+
+- Punch scale
+- Flash
+- Text popup
+- Small particle effect
+
+Use lightweight code/UI animation.
+
+---
+
+# 29. CAMERA FEEL
+
+Use Cinemachine features where appropriate.
+
+During Main Race:
+
+- Smooth follow
+- Slight speed-based FOV change
+- Optional subtle impulse when hitting obstacle
+- Optional small impulse when boosting
+- Good look-ahead
+
+Do NOT make camera shake excessive.
+
+Stable camera should remain calm.
+
+Race camera should feel more energetic.
+
+---
+
+# 30. RACE START POLISH
+
+Improve the Main Race start.
+
+Example:
+
+Camera settles into position.
+
+3
+
+2
+
+1
+
+GO!
+
+On GO:
+
+- Small FOV kick
+- UI animation
+- Optional Cinemachine impulse
+- Horses accelerate
+
+Keep it quick.
+
+Do not create long cinematics.
+
+---
+
+# 31. RACE FINISH POLISH
+
+When crossing finish line:
+
+Briefly emphasize the result.
+
+Example:
+
+Slight time slowdown for a fraction of a second
+
+or
+
+Camera change
+
+or
+
+Large:
+
+1ST PLACE!
+
+Then show:
+
+Reward
+
+Coin total
+
+Return to Stable
+
+Do not lock the player in a long animation.
+
+---
+
+# 32. OBSTACLE FEEDBACK
+
+Hitting an obstacle should feel clearly bad.
+
+Possible feedback:
+
+- Speed loss
+- Small Cinemachine impulse
+- Short UI flash
+- Horse reaction
+- Small sound hook / placeholder
+- Tiny hit-stop if appropriate
+
+Successfully jumping an obstacle can also give tiny positive feedback.
+
+Do not make obstacle collision catastrophic.
+
+---
+
+# 33. UI REQUIREMENTS
+
+Continue using:
+
+**Canvas Scaler → Scale With Screen Size**
+
+Reference Resolution:
+
+**1920 x 1080**
+
+Check ALL existing Canvas objects.
+
+Fix any old Canvas objects that do not follow this setup.
+
+UI should work reasonably at multiple common aspect ratios.
+
+Use anchors appropriately.
+
+Do not position everything using fragile fixed pixel offsets.
+
+---
+
+# 34. CINEMACHINE REQUIREMENT
+
+Continue using Cinemachine.
+
+Inspect all cameras in the project.
+
+Any old gameplay camera logic that should now be handled through Cinemachine should be migrated where sensible.
+
+Do not create unnecessary duplicate Audio Listeners or conflicting Main Cameras.
+
+The game should have one correct Unity camera setup controlled by Cinemachine cameras.
+
+---
+
+# 35. GAME STATES
+
+Because Stable and Race now exist in the same scene, create a clean simple gameplay state flow.
+
+For example:
+
+StableManagement
+
+MainRacePreparing
+
+MainRaceCountdown
+
+MainRaceRunning
+
+MainRaceFinished
+
+Do not build an enormous state machine framework.
+
+A simple reliable state system is enough.
+
+Important:
+
+Training income should behave correctly depending on state.
+
+Recommended:
+
+Training races run while in StableManagement.
+
+Pause Training Race simulation while actively participating in a Main Race.
+
+Resume once the player returns to Stable.
+
+---
+
+# 36. EXISTING PLAYER PROGRESSION
+
+Do not break Milestone 2 progression.
+
+The existing systems for:
+
+- Coins
+- Speed Level
+- Acceleration Level
+- Boost Power Level
+
+must remain functional.
+
+Continue using a single source of truth for player progression.
+
+Extend it only as necessary for:
+
+- Carrots
+- Farm state
+- Training Race state if required
+
+Do not duplicate progression data in multiple managers.
+
+---
+
+# 37. PROTOTYPE BALANCING TARGET
+
+Adjust prototype values so the gameplay roughly feels like this:
+
+At the beginning:
+
+Player attempts Main Race.
+
+Player finishes near last place.
+
+Main Race feels clearly too difficult.
+
+Player returns to Stable.
+
+Idle Training starts generating Coins.
+
+Player buys several upgrades.
+
+Player feeds horse using Carrots.
+
+After a few minutes:
+
+Player is visibly stronger.
+
+Main Race becomes competitive.
+
+After additional progression:
+
+Player can win.
+
+Do not require hours of grinding for this prototype.
+
+The entire Milestone 3 progression test should be easy to experience within roughly 10–20 minutes.
+
+This is for development testing, not final balancing.
+
+---
+
+# 38. DO NOT ADD YET
+
+Do NOT implement:
+
+- Blacksmith
+- Horse shoes crafting
+- Saddles
+- Equipment inventory
+- Equipment rarity
+- Multiple crops
+- Cooking
+- Complex food recipes
+- Multiple currencies
+- Offline income while game is closed
+- Prestige / rebirth
+- Neighborhood → City → Country progression
+- Multiple Main Race championships
+- World Championship
+- Multiple horses
+- Horse breeding
+- Jockey customization
+- Skill tree
+- Multiplayer
+- Complex inventory
+- Procedural race tracks
+- Large quest system
+- Dialogue system
+- Full save/load unless it already exists and requires small updates
+
+Do not expand scope beyond Milestone 3.
+
+---
+
+# 39. IMPLEMENTATION ORDER
+
+Implement Milestone 3 in this order.
+
+## STEP 1 — PROJECT AUDIT
+
+Inspect:
+
+- Current Stable scene
+- Current Race scene
+- PlayerProgression
+- Horse controllers
+- RaceManager
+- Cinemachine cameras
+- Canvas settings
+- UI
+- Boost implementation
+- Upgrade systems
+
+Understand existing dependencies before changing architecture.
+
+---
+
+## STEP 2 — MERGE STABLE + RACE INTO ONE GAMEPLAY SCENE
+
+Create the unified gameplay world.
+
+Do not break existing Stable or Race functionality.
+
+Verify both areas can coexist in one scene.
+
+---
+
+## STEP 3 — CINEMACHINE AREA NAVIGATION
+
+Create smooth:
+
+Stable ↔ Race
+
+camera movement.
+
+Test A/D or arrow navigation.
+
+---
+
+## STEP 4 — MAIN RACE IN SAME SCENE
+
+Refactor race start/reset so it does not require scene loading.
+
+Test:
+
+Start Main Race
+
+↓
+
+Countdown
+
+↓
+
+Race
+
+↓
+
+Finish
+
+↓
+
+Results
+
+↓
+
+Return Stable
+
+without loading a new scene.
+
+---
+
+## STEP 5 — MAKE MAIN RACE DIFFICULT
+
+Increase fixed opponent difficulty.
+
+Make sure a fresh player is clearly underpowered.
+
+Test upgraded player eventually becomes strong enough.
+
+---
+
+## STEP 6 — TRAINING / IDLE RACE SYSTEM
+
+Add repeated automatic Training Races.
+
+Verify:
+
+- Timer works
+- Coins are awarded
+- Repeats automatically
+- Pauses during Main Race
+- Resumes in Stable
+- UI updates correctly
+
+---
+
+## STEP 7 — BOOST REWORK
+
+Replace the current spam/cooldown-style Boost behaviour with:
+
+SPACE input
+
+↓
+
+Small meter increase
+
+↓
+
+Continuous dynamic drain
+
+↓
+
+Higher meter = faster drain
+
+↓
+
+Boost amount smoothly affects horse speed
+
+↓
+
+Smooth UI slider
+
+Test heavily.
+
+This system should feel significantly better than Milestone 2.
+
+---
+
+## STEP 8 — FARM
+
+Add one Carrot production loop.
+
+Add Carrot collection.
+
+Add simple Horse feeding improvement.
+
+Do not add additional crops.
+
+---
+
+## STEP 9 — GAME FEEL PASS
+
+Add lightweight:
+
+- Coin animations
+- Upgrade animations
+- Boost feedback
+- Cinemachine feedback
+- Main Race countdown polish
+- Finish feedback
+- Farm collection feedback
+
+---
+
+## STEP 10 — UI / CAMERA AUDIT
+
+Verify:
+
+Every Canvas uses:
+
+Scale With Screen Size
+
+1920x1080
+
+Verify Cinemachine configuration.
+
+Remove broken/unused camera setups if appropriate.
+
+---
+
+## STEP 11 — FULL LOOP TEST
+
+Test continuously:
+
+Stable
+
+↓
+
+Idle Training income
+
+↓
+
+Farm production
+
+↓
+
+Upgrade Horse
+
+↓
+
+Move camera to Race area
+
+↓
+
+Attempt Main Race
+
+↓
+
+Lose because underpowered
+
+↓
+
+Return to Stable
+
+↓
+
+Earn more Coins
+
+↓
+
+Upgrade / Feed Horse
+
+↓
+
+Attempt again
+
+↓
+
+Eventually win
+
+Make sure no scene reload is required.
+
+---
+
+# 40. ACCEPTANCE CRITERIA
+
+Milestone 3 is complete when:
+
+1. Stable and Race exist in the SAME scene.
+
+2. There is no loading/teleport between Stable and Race.
+
+3. Camera smoothly moves between Stable and Race using Cinemachine.
+
+4. A/D or clear arrow controls can navigate between the areas.
+
+5. Horse automatically participates in Training Races while in Stable.
+
+6. Training Races automatically generate Coins.
+
+7. Training income pauses appropriately during a Main Race.
+
+8. Main Race starts and ends without changing scene.
+
+9. Main Race is significantly more difficult than before.
+
+10. A new player should normally lose the Main Race.
+
+11. Buying upgrades makes the Main Race noticeably easier.
+
+12. Main Race opponents do NOT dynamically scale to cancel player progression.
+
+13. Boost uses a meter.
+
+14. Each SPACE press adds a small amount of Boost.
+
+15. Boost continuously drains.
+
+16. Higher Boost values drain faster.
+
+17. Boost affects speed smoothly.
+
+18. Boost UI slider moves smoothly.
+
+19. Boost cannot realistically remain at maximum forever.
+
+20. Boost Power upgrade still works correctly.
+
+21. Farm produces Carrots.
+
+22. Carrots can be collected.
+
+23. Carrots can be used for a simple horse progression benefit.
+
+24. Coins have visible gain/spend feedback.
+
+25. Upgrades have lightweight visual feedback.
+
+26. Main Race start/finish has improved game feel.
+
+27. Cinemachine is used for gameplay camera behaviour.
+
+28. All Canvas objects use Scale With Screen Size at 1920x1080.
+
+29. The full gameplay loop works repeatedly without major errors.
+
+30. There are no major Console errors during normal gameplay.
+
+---
+
+# IMPORTANT DEVELOPMENT PHILOSOPHY
+
+This milestone is NOT about adding a huge amount of content.
+
+The goal is to make the game finally feel like the real game.
+
+The most important experience is:
+
+**I am in my Stable doing incremental progression while my horse automatically earns money, then I look over toward the Race area, attempt a very difficult Main Race, lose, become stronger, and eventually return to beat it.**
+
+Keep systems simple.
+
+Polish the feel of existing interactions instead of adding unnecessary features.
+
+Reuse the Horse and Environment assets already inside the project wherever appropriate.
+
+Placeholder objects are acceptable where assets are missing.
+
+Do not wait for final assets before adding game feel.
+
+Use animation, UI movement, Cinemachine, interpolation, particles, scale punches, FOV changes and similar cheap techniques to make interactions feel satisfying.
+
+Do not overengineer.
+
+Do not begin Milestone 4 automatically.
+
+At the end provide a report containing:
+
+1. What was implemented
+2. Which scenes were created / removed / merged
+3. Which scripts were created
+4. Which scripts were modified
+5. How Stable ↔ Race camera movement works
+6. How Training Races calculate income
+7. How Main Race difficulty is configured
+8. How the new Boost Meter works
+9. The Boost gain/drain formula
+10. How Farm / Carrot production works
+11. All game-feel / polish added
+12. How to test the complete Milestone 3 loop
+13. Current prototype balance values
+14. Known issues
+15. Any old systems that became obsolete and can safely be removed
+16. Recommendation for Milestone 4
+
+Stop after Milestone 3 is complete.

@@ -1,0 +1,5 @@
+{
+    "name": "Horsecremental.Racing",
+    "rootNamespace": "Horsecremental.Racing",
+    "references": ["Unity.InputSystem", "UnityEngine.UI", "Unity.Cinemachine"]
+}

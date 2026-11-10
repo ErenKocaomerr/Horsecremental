@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,17 +7,17 @@ namespace Horsecremental.Racing
     public sealed class CurrencyFeedback : MonoBehaviour
     {
         [SerializeField] private ProgressionSettings _settings;
-        [SerializeField] private Text _total;
-        [SerializeField] private Text _popup;
-        [SerializeField] private Text _metal;
-        [SerializeField] private Text _metalPopup;
-        [SerializeField] private Text _carrots;
-        [SerializeField] private Text _carrotPopup;
+        [SerializeField] private TMP_Text _total;
+        [SerializeField] private TMP_Text _popup;
+        [SerializeField] private TMP_Text _metal;
+        [SerializeField] private TMP_Text _metalPopup;
+        [SerializeField] private TMP_Text _carrots;
+        [SerializeField] private TMP_Text _carrotPopup;
         [SerializeField] private WorldSettings _worldSettings;
-        [SerializeField] private Text _tokens;
-        [SerializeField] private Text _tokenPopup;
-        [SerializeField] private Text _trainingTokens;
-        [SerializeField] private Text _trainingTokenPopup;
+        [SerializeField] private TMP_Text _tokens;
+        [SerializeField] private TMP_Text _tokenPopup;
+        [SerializeField] private TMP_Text _trainingTokens;
+        [SerializeField] private TMP_Text _trainingTokenPopup;
         private PlayerProgression _player;
         private double _displayed;
         private int _lastDisplayed = -1;
@@ -116,7 +117,7 @@ namespace Horsecremental.Racing
             AnimatePopup(_tokenPopup, _tokenOrigin, ref _tokenRemaining);
             AnimatePopup(_trainingTokenPopup, _trainingTokenOrigin, ref _trainingTokenRemaining);
         }
-        private static void AnimatePopup(Text popup, Vector2 origin, ref float remaining)
+        private static void AnimatePopup(TMP_Text popup, Vector2 origin, ref float remaining)
         {
             if (popup == null) return;
             remaining = Mathf.Max(0f, remaining - Time.unscaledDeltaTime);
